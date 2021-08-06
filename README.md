@@ -1,28 +1,27 @@
-# SuperHeroes
-## Alkemy Challenge
+# Alkemy Challenge
+## CHALLENGE FRONTEND - React 🚀
 
--Info a completar acá-
 
-![]()
+### Introducción:
 
-## Instalación y ejecución
+Mi nombre es **FedeHC** y busco participar del Challenge Frontend de Alkemy Labs.
 
-* Descargar o clonar el presente repositorio;
-* Entrar a la carpeta donde se descargó el mismo;
-* Ejecutar desde la terminal lo sig. para instalar las dependencias necesarias:
+Mi app se llama *SuperHeroes* y está desarrollada en React, empleando varias librerías solicitadas por el challenge, tales como [React Boostrap](https://react-bootstrap.github.io/), [Axios](https://axios-http.com/), [Formik](https://formik.org/) y [Yup](https://github.com/jquense/yup).
 
-```node
-npm install
-```
+Desde ya, la app se subirá al presente repositorio, del cual la app podrá ser descargada para ser examinada.
 
-Para ejecutarlo basta solamente con:
 
-```node
-npm run start
-```
+### Objetivo del challenge:
 
-La app se iniciará en el navegador web como localhost.
+*"Desarrollar una aplicación para crear un equipo de superhéroes que consumirá una API externa y
+mostrará diferentes atributos a nivel individual de cada miembro y del equipo consolidado."*
 
-## Requisitos
 
-Solo es necesario un navegador web y tener instalador [node](https://nodejs.org/en/) (v14 en adelante).
+Más información en el siguiente link: [PDF](https://drive.google.com/file/d/1kNbni3fBBYiAErWYIQNmlggJTNHmLgPL/view).
+
+
+### Más información:
+
+* Alkemy:  [Web](http://alkemy.org/es/index?ref=logo) | [Facebook](https://www.facebook.com/AlkemyLATAM) | [Instagram](https://www.instagram.com/alkemy__/)
+* [SuperHero API](https://superheroapi.com/)
+* [SuperHero Database](https://www.superherodb.com/)
