@@ -1,10 +1,17 @@
+// Librerías:
+import axios from "axios";
+
+// React-Bootstrap:
 import { useState, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
+// Subcomponentes:
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
+
+// Archivo JSON:
 import ApiToken from "./api.json";
-import axios from "axios";
 
 
 // URLS:
@@ -56,12 +63,13 @@ function App() {
     if (data) {
       try {
         const response = await axios.post(URL_ALKEMY, data);
+
         if (response.data.token) {
           localStorage.setItem(TOKEN_KEY, response.data.token)      // Guardando token en localStorage.
           setLogin({ type: LOGIN_OK });                             // Cambiando estado en reducer.
         } 
       }
-      catch(error){
+      catch (error) {
         if (error.response.status === 401) {
           setLogin({ type: LOGIN_ERROR });                          // Cambiando estado en reducer.
         }
