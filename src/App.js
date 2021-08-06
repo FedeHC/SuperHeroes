@@ -2,7 +2,7 @@ import { useState, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import LoginForm from "./subcomponents/LoginForm";
-import MainPage from "./subcomponents/MainView";
+import MainView from "./subcomponents/MainView";
 import ApiToken from "./api.json";
 import axios from "axios";
 
@@ -11,9 +11,12 @@ import axios from "axios";
 const URL_ALKEMY = "http://challenge-react.alkemy.org";
 const URL_SH_API = "https://superheroapi.com/";
 
+// Demás constantes:
+const TOKEN_KEY = "Alkemy-token";
+
 // APP:
 function App() {
-  // Reducer function:
+  // Función para reducer:
   const loginReducer = (state, action) => {
     switch (action.type) {
       case "LOGIN_OK":
@@ -33,13 +36,13 @@ function App() {
     };
   }
 
-  // Reducer initial object :
+  // Objeto inicial para reducer:
   const loginObj = {
     hasToken: null,
     hasError: null
   };
 
-  // useReducer for asc/desc order in columns:
+  // useReducer:
   const [login, setLogin] = useReducer(loginReducer, loginObj);
 
   // Handlers:
@@ -48,7 +51,7 @@ function App() {
       try {
         const response = await axios.post(URL_ALKEMY, data);
         if (response.data.token) {
-          localStorage.setItem("tokenAlkemy", response.data.token)  // Guardando token en localStorage.
+          localStorage.setItem(TOKEN_KEY, response.data.token)  // Guardando token en localStorage.
           setLogin({ type: "LOGIN_OK" });                           // Cambiando estado en reducer.
         } 
       }
@@ -67,7 +70,7 @@ function App() {
                    errorMessage={login.hasError} />
       }
       {login.hasToken &&
-        <MainPage />
+        <MainView />
       }
     </>
   );
