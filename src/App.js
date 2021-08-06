@@ -13,19 +13,23 @@ const URL_SH_API = "https://superheroapi.com/";
 
 // Demás constantes:
 const TOKEN_KEY = "Alkemy-token";
+const LOGIN_OK = "LOGIN_OK";
+const LOGIN_ERROR = "LOGIN_ERROR";
 
-// APP:
+
 function App() {
-  // Función para reducer:
+  // --------------------------------------------------------------------------------
+  // Estados
+  // --------------------------------------------------------------------------------
   const loginReducer = (state, action) => {
     switch (action.type) {
-      case "LOGIN_OK":
+      case LOGIN_OK:
         return {
           ...state,
           hasToken: true,
           hasError: false
         };
-      case "LOGIN_ERROR":
+      case LOGIN_ERROR:
         return {
           ...state,
           hasToken: false,
@@ -45,24 +49,29 @@ function App() {
   // useReducer:
   const [login, setLogin] = useReducer(loginReducer, loginObj);
 
-  // Handlers:
+  // --------------------------------------------------------------------------------
+  // Handlers
+  // --------------------------------------------------------------------------------
   const getTokenHandler = async (data) => {
     if (data) {
       try {
         const response = await axios.post(URL_ALKEMY, data);
         if (response.data.token) {
-          localStorage.setItem(TOKEN_KEY, response.data.token)  // Guardando token en localStorage.
-          setLogin({ type: "LOGIN_OK" });                           // Cambiando estado en reducer.
+          localStorage.setItem(TOKEN_KEY, response.data.token)      // Guardando token en localStorage.
+          setLogin({ type: LOGIN_OK });                             // Cambiando estado en reducer.
         } 
       }
       catch(error){
         if (error.response.status === 401) {
-          setLogin({ type: "LOGIN_ERROR" });                        // Cambiando estado en reducer.
+          setLogin({ type: LOGIN_ERROR });                          // Cambiando estado en reducer.
         }
       }
     }
   };
 
+  // --------------------------------------------------------------------------------
+  // JSX
+  // --------------------------------------------------------------------------------
   return (
     <>
       {!login.hasToken &&
