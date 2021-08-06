@@ -2,7 +2,7 @@ import { useState, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import LoginForm from "./subcomponents/LoginForm";
-import MainPage from "./subcomponents/MainPage";
+import MainPage from "./subcomponents/MainView";
 import ApiToken from "./api.json";
 import axios from "axios";
 
