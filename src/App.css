@@ -11,3 +11,8 @@ html, body {
   color: black;
   border-radius: 10px;
 }
+
+#errorMessage {
+  font-size: 18px;
+  color: lightcoral;
+}
