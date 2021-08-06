@@ -33,13 +33,12 @@ function LoginForm({ getTokenHandler, errorMessage }) {
           <div id="loginDiv">
             <h1 className="text-center">[ Login ]</h1>
             <br />
+            {/* Mensaje de error, si se envía previamente credenciales incorrectas */}
             {errorMessage &&
-              <>
-                <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas. Intente nuevamente.</p>
-              </>
+              <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas. Intente nuevamente.</p>
             }
             
-            {/* Compoinente Formik, necesario para formulario: */}
+            {/* Componente Formik, necesario para formulario: */}
             <Formik validationSchema={schema}
                     onSubmit={getTokenHandler}
                     initialValues={{ email: "", password: "" }}
