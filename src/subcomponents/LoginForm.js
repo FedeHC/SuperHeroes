@@ -11,8 +11,7 @@ import * as yup from "yup";
 
 
 function LoginForm({ getTokenHandler, errorMessage }) {
-
-  // Esquema para Yup con restricciones:
+  // Esquema para Yup (con restricciones):
   const schema = yup.object().shape({
     email: yup.string().min(4, "Debe tener 4 o más caracteres de largo.")
                        .max(40, "Debe tener no más de 50 caracteres de largo.")
@@ -33,6 +32,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
           <div id="loginDiv">
             <h1 className="text-center">[ Login ]</h1>
             <br />
+
             {/* Mensaje de error, si se envía previamente credenciales incorrectas */}
             {errorMessage &&
               <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas. Intente nuevamente.</p>
