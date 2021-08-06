@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
-function MainPage() {
+function MainView() {
   return (
     <Container fluid>
       <Row>
@@ -22,4 +22,4 @@ function MainPage() {
   );
 }
 
-export default MainPage;
+export default MainView;
