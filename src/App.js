@@ -15,7 +15,6 @@ const URL_SH_API = "https://superheroapi.com/";
 function App() {
   // Reducer function:
   const loginReducer = (state, action) => {
-
     switch (action.type) {
       case "LOGIN_OK":
         return {
@@ -58,7 +57,6 @@ function App() {
           setLogin({ type: "LOGIN_ERROR" });                        // Cambiando estado en reducer.
         }
       }
-
     }
   };
 
@@ -66,7 +64,7 @@ function App() {
     <>
       {!login.hasToken &&
         <LoginForm getTokenHandler={getTokenHandler}
-                   login={login} />
+                   errorMessage={login.hasError} />
       }
       {login.hasToken &&
         <MainPage />
