@@ -55,8 +55,9 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                                   placeholder="Ingrese su email acá"
                                   size="lg"
                                   onChange={handleChange}
-                                  value={values.email}
-                                  isInvalid={!!errors.email} />
+                                  value={values.email}                                  
+                                  isInvalid={!!errors.email}
+                                  autoFocus />
                     <Form.Control.Feedback type="invalid">
                       {errors.email}
                     </Form.Control.Feedback>
