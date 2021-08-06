@@ -10,7 +10,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 
-function LoginForm({ getTokenHandler, login }) {
+function LoginForm({ getTokenHandler, errorMessage }) {
 
   // Esquema para Yup con restricciones:
   const schema = yup.object().shape({
@@ -33,7 +33,7 @@ function LoginForm({ getTokenHandler, login }) {
           <div id="loginDiv">
             <h1 className="text-center">[ Login ]</h1>
             <br />
-            {login.hasError &&
+            {errorMessage &&
               <>
                 <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas. Intente nuevamente.</p>
               </>
