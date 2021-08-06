@@ -5,7 +5,7 @@ html, body {
 }
 
 #loginDiv {
-  margin-top: 50px;
+  margin-top: 60px;
   padding: 30px;
   background-color: white;
   color: black;
@@ -15,4 +15,12 @@ html, body {
 #errorMessage {
   font-size: 18px;
   color: lightcoral;
+}
+
+#welcomeDiv {
+  margin-top: 60px;
+  padding: 30px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
 }
