@@ -6,7 +6,7 @@ html, body {
   color: white;
 }
 
-#loginDiv, #mainView, .heroeView {
+#loginDiv, #mainView, .heroView {
   margin: 60px 0 60px 0;
   padding: 30px 30px 60px 30px;
   background-color: white;
@@ -29,7 +29,7 @@ html, body {
   font-weight: bolder;
 }
 
-.heroeView {
+.heroView {
   margin: 20px 5px 20px 5px;
   padding: 20px 20px 50px 20px;
   text-align: left;
@@ -39,14 +39,14 @@ html, body {
   transition: all 0.15s ease-in;
 }
 
-.heroeView:hover {
+.heroView:hover {
   background-color: white;
   color: black;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.15s ease-in;
 }
 
-.heroeDetails {
+.heroDetails {
   margin-top: 60px;
   padding: 30px;
   background-color: white;
@@ -54,10 +54,10 @@ html, body {
   border-radius: 10px;
 }
 
-.heroeImage, .emptyImage {
+.heroImage, .emptyImage {
   width: 250px;
   height: 250px;
-  background-color: lightgrey;
+  background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
   border: 1px solid lightgrey;
   border-radius: 10px;
 }
