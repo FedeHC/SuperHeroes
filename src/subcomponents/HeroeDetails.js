@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
-function HeroeDetails() {
+function HeroDetails() {
   return (
     <Container fluid>
       <Row>
@@ -12,8 +12,8 @@ function HeroeDetails() {
         
         {/* Columna con contenido */}
         <Col xs={8} md={6} lg={4}>
-          <div class="heroeDetails">
-            <h1>Detalles del Heroe</h1>              
+          <div class="heroDetails">
+            <h1>Detalles del Hero</h1>
           </div>
         </Col>
         
@@ -23,4 +23,4 @@ function HeroeDetails() {
   );
 }
 
-export default HeroeDetails;
+export default HeroDetails;
