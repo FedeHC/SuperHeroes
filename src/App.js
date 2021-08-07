@@ -1,6 +1,3 @@
-// Librerías:
-import axios from "axios";
-
 // React-Bootstrap:
 import { useState, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +6,9 @@ import "./App.css";
 // Subcomponentes:
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
+
+// Librerías:
+import axios from "axios";
 
 // Archivo JSON:
 import ApiToken from "./api.json";
@@ -28,6 +28,8 @@ function App() {
   // --------------------------------------------------------------------------------
   // Estados
   // --------------------------------------------------------------------------------
+  const [heroesArray, setHeroesArray] = useState([1, 0, 0, 0, 0, 0]);
+  
   const loginReducer = (state, action) => {
     switch (action.type) {
       case LOGIN_OK:
@@ -87,7 +89,8 @@ function App() {
                    errorMessage={login.hasError} />
       }
       {login.hasToken &&
-        <MainView />
+        <MainView heroes={heroesArray}
+                  setHeroes={setHeroesArray} />
       }
     </>
   );
