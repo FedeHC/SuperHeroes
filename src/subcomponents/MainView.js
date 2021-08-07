@@ -8,19 +8,14 @@ import HeroeView from './HeroeView';
 
 
 // JSX:
-function MainView() {
+function MainView({heroes, setHeroes}) {
   return (
     <Container fluid>
       <Row>      
-        <Col xs={{ span: 10, offset: 1}}>
-          <Row id="welcomeDiv">
+        <Col xs={12}>
+          <Row id="mainView">
             <h1 id="mainTitle">[El equipo]</h1>
-            <HeroeView />                       {/* Heroe 1 */}
-            <HeroeView />                       {/* Heroe 2 */}
-            <HeroeView />                       {/* Heroe 3 */}
-            <HeroeView />                       {/* Heroe 4 */}
-            <HeroeView />                       {/* Heroe 5 */}
-            <HeroeView />                       {/* Heroe 6 */}
+            {heroes.map( (heroe) => <HeroeView id={heroe} />) }
           </Row>
         </Col>
       </Row>
