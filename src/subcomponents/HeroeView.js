@@ -2,16 +2,16 @@
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-function HeroeView({ id }) {
+function HeroView({ id }) {
   return (
     <Col md={12} lg={6} xl={4}>
-      <div className="heroeView">
+      <div className="heroView">
 
         {/* CON HEROE */}
         {id !== 0 &&
           <>
-            <h1>Héroe</h1>
-            <img src="#" className="heroeImage" alt=""></img>
+            <h1 className="heroName">Héroe</h1>
+            <img src="#" className="heroImage" alt=""></img>
             <p>Powerstats:</p>
             <ol>
               <li></li>
@@ -44,4 +44,4 @@ function HeroeView({ id }) {
   );
 }
 
-export default HeroeView;
+export default HeroView;
