@@ -43,7 +43,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                     onSubmit={getTokenHandler}
                     initialValues={{ email: "", password: "" }}
             >
-              {({ handleSubmit, handleChange, values, touched, isValid, errors }) => (
+              {({ handleSubmit, handleChange, values, errors }) => (
                 /* Formulario */
                 <Form onSubmit={handleSubmit} noValidate >
 
@@ -85,7 +85,6 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                     <Button variant="outline-primary"
                             type="submit"
                             size="lg"
-                            id="buttonLogin"
                     >Enviar</Button>
                   </div>
                 </Form>
