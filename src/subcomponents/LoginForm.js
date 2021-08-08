@@ -14,10 +14,10 @@ function LoginForm({ getTokenHandler, errorMessage }) {
   // Esquema para Yup (con restricciones):
   const schema = yup.object().shape({
     email: yup.string().min(4, "Debe tener 4 o más caracteres de largo.")
-                       .max(40, "Debe tener no más de 50 caracteres de largo.")
+                       .max(40, "No debe tener más de 40 caracteres de largo.")
                        .required("Requerido."),
     password: yup.string().min(4, "Debe tener 4 o más caracteres de largo.")
-                          .max(40, "Debe tener no más de 50 caracteres de largo.")
+                          .max(40, "No debe tener más de 40 caracteres de largo.")
                           .required("Requerido."),
   });
 
