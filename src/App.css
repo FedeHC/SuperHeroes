@@ -33,16 +33,16 @@ html, body {
   margin: 20px 5px 20px 5px;
   padding: 20px 20px 50px 20px;
   text-align: left;
-  background-color: rgba(255, 255, 255, 0.5);
   color: #1d1d1d7c;
+  opacity: 0.75;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.15s ease-in;
 }
 
 .heroView:hover {
-  background-color: white;
   color: #1d1d1d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 10px 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.15s ease-in;
 }
 
