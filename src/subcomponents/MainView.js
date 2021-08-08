@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 // Subcomponentes:
-import HeroeView from './HeroeView';
+import HeroeView from './HeroView';
 
 
 // JSX:
@@ -15,7 +15,7 @@ function MainView({heroes, setHeroes}) {
         <Col xs={12}>
           <Row id="mainView">
             <h1 id="mainTitle">[El equipo]</h1>
-            {heroes.map( (heroe) => <HeroeView id={heroe} />) }
+            {heroes.map( (hero, index) => <HeroeView id={index} hero={hero} />) }
           </Row>
         </Col>
       </Row>
