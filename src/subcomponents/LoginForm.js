@@ -25,10 +25,8 @@ function LoginForm({ getTokenHandler, errorMessage }) {
   return (
     <Container fluid>
       <Row>
-        <Col></Col>
-
         {/* Columna con contenido */}
-        <Col xs={8} md={6} lg={4}>
+        <Col xs={{span: 8, offset: 2}} md={{span: 6, offset: 3}} xl={{span: 4, offset: 4}}>
           <div id="loginDiv">
             <h1 className="text-center">[ Login ]</h1>
             <br />
@@ -94,8 +92,6 @@ function LoginForm({ getTokenHandler, errorMessage }) {
             <br />
           </div>
         </Col>
-
-        <Col></Col>
       </Row>
     </Container>
   );
