@@ -22,27 +22,47 @@ const URL_SH_API = "https://superheroapi.com/";
 const TOKEN_KEY = "Alkemy-token";
 const LOGIN_OK = "LOGIN_OK";
 const LOGIN_ERROR = "LOGIN_ERROR";
+const SHOW_MAIN = "SHOW_MAIN";
+const SHOW_HEROES_GRID = "SHOW_HEROES_GRID";
+const SHOW_HERO_DETAILS = "SHOW_HERO_DETAILS";
 
 
 function App() {
   // --------------------------------------------------------------------------------
   // Estados
   // --------------------------------------------------------------------------------
-  const [heroesArray, setHeroesArray] = useState([1, 0, 0, 0, 0, 0]);
-  
-  const loginReducer = (state, action) => {
+  const [heroesArray, setHeroesArray] = useState([0, 0, 0, 0, 0, 0]);
+
+  const viewReducer = (state, action) => {
     switch (action.type) {
-      case LOGIN_OK:
-        return {
-          ...state,
-          hasToken: true,
-          hasError: false
-        };
       case LOGIN_ERROR:
         return {
           ...state,
           hasToken: false,
           hasError: true
+        };
+      case SHOW_MAIN:
+        return {
+          ...state,
+          hasToken: true,
+          hasError: false,
+          inMainView: true,
+          inHeroesGrid: false,
+          inHeroDetails: false
+        };
+      case SHOW_HEROES_GRID:
+        return {
+          ...state,
+          inMainView: false,
+          inHeroesGrid: true,
+          inHeroDetails: false
+        };
+      case SHOW_HERO_DETAILS:
+        return {
+          ...state,
+          inMainView: false,
+          inHeroesGrid: false,
+          inHeroDetails: true
         };
       default:
         throw new Error();
@@ -50,13 +70,16 @@ function App() {
   }
 
   // Objeto inicial para reducer:
-  const loginObj = {
+  const viewObj = {
     hasToken: null,
-    hasError: null
+    hasError: null,
+    inMainView: null,
+    inHeroesGrid: null,
+    inHeroDetails: null
   };
 
   // useReducer:
-  const [login, setLogin] = useReducer(loginReducer, loginObj);
+  const [view, setView] = useReducer(viewReducer, viewObj);
 
   // --------------------------------------------------------------------------------
   // Handlers
@@ -68,12 +91,12 @@ function App() {
 
         if (response.data.token) {
           localStorage.setItem(TOKEN_KEY, response.data.token)      // Guardando token en localStorage.
-          setLogin({ type: LOGIN_OK });                             // Cambiando estado en reducer.
-        } 
+          setView({ type: SHOW_MAIN });                             // Cambiando estado en reducer.
+        }
       }
       catch (error) {
         if (error.response.status === 401) {
-          setLogin({ type: LOGIN_ERROR });                          // Cambiando estado en reducer.
+          setView({ type: LOGIN_ERROR });                          // Cambiando estado en reducer.
         }
       }
     }
@@ -84,11 +107,14 @@ function App() {
   // --------------------------------------------------------------------------------
   return (
     <>
-      {!login.hasToken &&
+      {/* Login */}
+      {!view.hasToken &&
         <LoginForm getTokenHandler={getTokenHandler}
-                   errorMessage={login.hasError} />
+                   errorMessage={view.hasError} />
       }
-      {login.hasToken &&
+
+      {/* MainView */}
+      {view.hasToken &&
         <MainView heroes={heroesArray}
                   setHeroes={setHeroesArray} />
       }
