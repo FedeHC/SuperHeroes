@@ -6,6 +6,7 @@ import "./App.css";
 // Subcomponentes:
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
+import HeroesGrid from "./subcomponents/HeroesGrid";
 
 // Librerías:
 import axios from "axios";
@@ -20,9 +21,8 @@ const URL_SH_API = "https://superheroapi.com/";
 
 // Demás constantes:
 const TOKEN_KEY = "Alkemy-token";
-const LOGIN_OK = "LOGIN_OK";
 const LOGIN_ERROR = "LOGIN_ERROR";
-const SHOW_MAIN = "SHOW_MAIN";
+const SHOW_MAINVIEW = "SHOW_MAINVIEW";
 const SHOW_HEROES_GRID = "SHOW_HEROES_GRID";
 const SHOW_HERO_DETAILS = "SHOW_HERO_DETAILS";
 
@@ -41,7 +41,7 @@ function App() {
           hasToken: false,
           hasError: true
         };
-      case SHOW_MAIN:
+      case SHOW_MAINVIEW:
         return {
           ...state,
           hasToken: true,
@@ -91,7 +91,7 @@ function App() {
 
         if (response.data.token) {
           localStorage.setItem(TOKEN_KEY, response.data.token)      // Guardando token en localStorage.
-          setView({ type: SHOW_MAIN });                             // Cambiando estado en reducer.
+          setView({ type: SHOW_MAINVIEW });                             // Cambiando estado en reducer.
         }
       }
       catch (error) {
@@ -100,6 +100,18 @@ function App() {
         }
       }
     }
+  };
+
+  const getMainViewHandler = () => {
+    setView({ type: SHOW_MAINVIEW });
+  };
+
+  const getHeroGridHandler = () => {
+    setView({ type: SHOW_HEROES_GRID });
+  };
+
+  const getHeroDetailsHandler = () => {
+    setView({ type: SHOW_HERO_DETAILS });
   };
 
   // --------------------------------------------------------------------------------
@@ -114,9 +126,15 @@ function App() {
       }
 
       {/* MainView */}
-      {view.hasToken &&
+      {view.hasToken && view.inMainView &&
         <MainView heroes={heroesArray}
-                  setHeroes={setHeroesArray} />
+                  setHeroes={setHeroesArray}
+                  getHeroGridHandler={getHeroGridHandler} />
+      }
+
+      {/* HeroGrid */}
+      {view.hasToken && view.inHeroesGrid &&
+        <HeroesGrid getMainViewHandler={getMainViewHandler}/>
       }
     </>
   );
