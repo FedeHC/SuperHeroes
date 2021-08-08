@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 
-function HeroView({ hero }) {
+function HeroView({ hero, getHeroGridHandler }) {
   return (
     <Col md={12} lg={6} xl={4}>
       <div className="heroView">
@@ -26,6 +26,7 @@ function HeroView({ hero }) {
               <Button variant="outline-primary"
                       size="lg"
                       onClick="">Detalles</Button>
+                      
               <Button variant="outline-danger"
                       size="lg"
                       onClick="">Quitar Héroe</Button>
@@ -42,7 +43,8 @@ function HeroView({ hero }) {
             <div className="d-grid gap-2">
               <Button variant="outline-success"
                       size="lg"
-                      onClick="">Agregar</Button>
+                      type="input"
+                      onClick={getHeroGridHandler}>Agregar Héroe o Villano</Button>
             </div>
           </>
         }
