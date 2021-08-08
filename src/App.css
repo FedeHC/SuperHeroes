@@ -10,7 +10,7 @@ html, body {
   margin: 60px 0 60px 0;
   padding: 30px 30px 60px 30px;
   background-color: white;
-  color: black;
+  color: #1d1d1d;
   border-radius: 10px;
 }
 #errorMessage {
@@ -18,12 +18,12 @@ html, body {
   color: lightcoral;
 }
 
-#mainView {
+#mainView, #heroesGridView {
   margin: 60px 30px 30px 30px;
   text-align: center;
 }
 
-#mainTitle {
+#mainTitle, #heroesGridTitle {
   margin: 10px 0 30px 0;
   font-size: 60px;
   font-weight: bolder;
@@ -33,16 +33,16 @@ html, body {
   margin: 20px 5px 20px 5px;
   padding: 20px 20px 50px 20px;
   text-align: left;
-  background-color: rgb(241, 241, 241);
-  color: grey;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #1d1d1d7c;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.15s ease-in;
 }
 
 .heroView:hover {
   background-color: white;
-  color: black;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  color: #1d1d1d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.4);
   transition: all 0.15s ease-in;
 }
 
