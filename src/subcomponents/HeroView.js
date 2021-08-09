@@ -3,7 +3,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 
-function HeroView({ hero, getHeroesSearch }) {
+function HeroView({ index,
+                    hero,
+                    getHeroesSearch,
+                    deleteHeroHandler }) {
   return (
     <Col sm={12} md={6} xl={4}>
       {/* CON HEROE */}
@@ -16,7 +19,7 @@ function HeroView({ hero, getHeroesSearch }) {
           <p className="powerStatsTitle">Powerstats:</p>            
           <ul className="powerStats">
             {Object.entries(hero.powerstats)
-                    .map( ([power, value]) => <li>{power}: {value}</li> )
+                    .map( ([power, value], index) => <li key={index}>{power}: {value}</li> )
                     .sort()}
           </ul>
 
@@ -27,7 +30,7 @@ function HeroView({ hero, getHeroesSearch }) {
                     
             <Button variant="outline-danger"
                     size="lg"
-                    onClick="">Quitar Héroe</Button>
+                    onClick={ () => deleteHeroHandler(index) }>Quitar del equipo</Button>
           </div>
         </div>
       }
@@ -42,7 +45,7 @@ function HeroView({ hero, getHeroesSearch }) {
             <Button variant="outline-success"
                     size="lg"
                     type="input"
-                    onClick={getHeroesSearch}>Agregar Héroe o Villano</Button>
+                    onClick={ () => getHeroesSearch()}>Agregar Héroe o Villano</Button>
           </div>
         </div>
       }
