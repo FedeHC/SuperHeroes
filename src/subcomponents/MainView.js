@@ -10,7 +10,8 @@ import HeroeView from './HeroView';
 // JSX:
 function MainView({ heroes,
                     getHeroesSearch,
-                    deleteHeroHandler }) {
+                    deleteHeroHandler,
+                    getHeroDetailsHandler }) {
   return (
     <Container fluid>
       <Row>      
@@ -22,7 +23,8 @@ function MainView({ heroes,
                          index={index}
                          hero={hero}
                          getHeroesSearch={ () => getHeroesSearch(index)}
-                         deleteHeroHandler={deleteHeroHandler} />) )}
+                         deleteHeroHandler={deleteHeroHandler}
+                         getHeroDetailsHandler={getHeroDetailsHandler} />) )}
           </Row>
         </Col>
       </Row>
