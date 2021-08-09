@@ -152,6 +152,12 @@ function App() {
     getMainViewHandler();
   };
 
+  const deleteHeroHandler = (index) => {
+    const updatedHeroes = [... heroes];                               // Guardando array heroes en nueva variable.
+    updatedHeroes[index] = null;                                      // Borrando datos del heroe en indice recibido.
+    setHeroes(updatedHeroes);                                         // Actualizando state heroes con nuevos valores.
+  };
+
   // --------------------------------------------------------------------------------
   // JSX
   // --------------------------------------------------------------------------------
@@ -166,7 +172,8 @@ function App() {
       {/* Vista MainView */}
       {view.hasToken && view.inMainView &&
         <MainView heroes={heroes}
-                  getHeroesSearch={getHeroesSearch} />
+                  getHeroesSearch={getHeroesSearch}
+                  deleteHeroHandler={deleteHeroHandler} />
       }
 
       {/* Vista HeroGrid */}
