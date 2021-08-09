@@ -16,8 +16,10 @@ import ApiToken from "./api.json";
 
 
 // URLS:
-const URL_ALKEMY = "http://challenge-react.alkemy.org";
-const URL_SH_API = "https://superheroapi.com/";
+const URL_ALKEMY = "http://challenge-react.alkemy.org"; // Para obtener token.
+const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema CORS.
+const URL_SH = "https://superheroapi.com";              // API de consulta.
+const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
 
 // Demás constantes:
 const TOKEN_KEY = "Alkemy-token";
@@ -31,7 +33,13 @@ function App() {
   // --------------------------------------------------------------------------------
   // Estados
   // --------------------------------------------------------------------------------
-  const [heroesArray, setHeroesArray] = useState([0, 0, 0, 0, 0, 0]);
+  // State que guarda todos los datos de 6 heroes.
+  // C/u empieza null y a medida que el user agregue heroes se poblarán con objetos obtenidos por API.
+  const [heroes, setHeroes] = useState([null, null, null, null, null, null]);
+  
+  // State que guarda temporalmente los resultados de las últimas búsquedas de heroes 
+  // realizadas a la API:
+  const [searchResults, setSearchResults] = useState([]);
 
   const viewReducer = (state, action) => {
     switch (action.type) {
@@ -90,28 +98,44 @@ function App() {
         const response = await axios.post(URL_ALKEMY, data);
 
         if (response.data.token) {
-          localStorage.setItem(TOKEN_KEY, response.data.token)      // Guardando token en localStorage.
-          setView({ type: SHOW_MAINVIEW });                             // Cambiando estado en reducer.
+          localStorage.setItem(TOKEN_KEY, response.data.token)  // Guardando token en localStorage.
+          setView({ type: SHOW_MAINVIEW });                     // Cambiando a vista MainView.
         }
       }
       catch (error) {
         if (error.response.status === 401) {
-          setView({ type: LOGIN_ERROR });                          // Cambiando estado en reducer.
+          setView({ type: LOGIN_ERROR });                       // Cambiando estado en reducer (se permanece en Vista Login).
         }
       }
     }
   };
 
   const getMainViewHandler = () => {
-    setView({ type: SHOW_MAINVIEW });
+    setSearchResults([]);                                       // Borrando últimos resultados.
+    setView({ type: SHOW_MAINVIEW });                           // Cambiando a vista MainView.
   };
 
   const getHeroGridHandler = () => {
-    setView({ type: SHOW_HEROES_GRID });
+    setView({ type: SHOW_HEROES_GRID });                        // Cambiando a vista HeroesGrid.
   };
 
   const getHeroDetailsHandler = () => {
-    setView({ type: SHOW_HERO_DETAILS });
+    setView({ type: SHOW_HERO_DETAILS });                       // Cambiando a vista HeroDetails.
+  };
+
+  const searchHeroHandler = async (heroName) => {
+    try {
+      const search = await axios.get(URL_SH_API + heroName.search);
+
+      if (search.data.results) {
+        setSearchResults(search.data.results);
+      }
+    }
+    catch (error) {
+      if (error.response.status === 401) {
+        console.error(`- Error status: ${error.response.status}`)
+      }
+    }
   };
 
   // --------------------------------------------------------------------------------
@@ -119,22 +143,24 @@ function App() {
   // --------------------------------------------------------------------------------
   return (
     <>
-      {/* Login */}
+      {/* Vista Login */}
       {!view.hasToken &&
         <LoginForm getTokenHandler={getTokenHandler}
                    errorMessage={view.hasError} />
       }
 
-      {/* MainView */}
+      {/* Vista MainView */}
       {view.hasToken && view.inMainView &&
-        <MainView heroes={heroesArray}
-                  setHeroes={setHeroesArray}
+        <MainView heroes={heroes}
+                  setHeroes={setHeroes}
                   getHeroGridHandler={getHeroGridHandler} />
       }
 
-      {/* HeroGrid */}
+      {/* Vista HeroGrid */}
       {view.hasToken && view.inHeroesGrid &&
-        <HeroesGrid getMainViewHandler={getMainViewHandler}/>
+        <HeroesGrid getMainViewHandler={getMainViewHandler}
+                    searchHeroHandler={searchHeroHandler}
+                    searchResults={searchResults} />
       }
     </>
   );
