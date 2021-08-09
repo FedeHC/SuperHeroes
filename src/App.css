@@ -57,9 +57,37 @@ html, body {
 }
 
 .heroImage, .emptyImage {
-  width: 250px;
+  width: auto;
   height: 250px;
+  margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
   border: 1px solid lightgrey;
   border-radius: 10px;
+}
+.emptyImage {
+  width: 250px !important;
+  height: 250px !important;
+}
+
+.tableResults {
+  font-size: 26px;
+}
+
+.imageHero {
+  width: 100px;
+  border: 0;
+}
+
+#searchErrorMessage {
+  font-size: 22px;
+  color: red;
+}
+
+.powerStatsTitle {
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+.powerStats {
+  font-size: 22px;
 }
