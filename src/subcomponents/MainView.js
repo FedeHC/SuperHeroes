@@ -8,7 +8,9 @@ import HeroeView from './HeroView';
 
 
 // JSX:
-function MainView({ heroes, getHeroesSearch }) {
+function MainView({ heroes,
+                    getHeroesSearch,
+                    deleteHeroHandler }) {
   return (
     <Container fluid>
       <Row>      
@@ -17,8 +19,10 @@ function MainView({ heroes, getHeroesSearch }) {
             <h1 id="mainTitle">[El equipo]</h1>
             {heroes.map( (hero, index) => (
               <HeroeView key={index}
+                         index={index}
                          hero={hero}
-                         getHeroesSearch={ () => getHeroesSearch(index)}/>) )}
+                         getHeroesSearch={ () => getHeroesSearch(index)}
+                         deleteHeroHandler={deleteHeroHandler} />) )}
           </Row>
         </Col>
       </Row>
