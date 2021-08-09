@@ -166,15 +166,15 @@ function App() {
       {/* Vista MainView */}
       {view.hasToken && view.inMainView &&
         <MainView heroes={heroes}
-                  setHeroes={setHeroes}
-                  getHeroGridHandler={getHeroGridHandler} />
+                  getHeroesSearch={getHeroesSearch} />
       }
 
       {/* Vista HeroGrid */}
-      {view.hasToken && view.inHeroesGrid &&
+      {view.hasToken && view.inHeroesSearch &&
         <HeroesSearch getMainViewHandler={getMainViewHandler}
                       searchHeroHandler={searchHeroHandler}
-                      searchResults={searchResults} />
+                      searchResults={searchResults}
+                      addHeroHandler={addHeroHandler} />
       }
     </>
   );
