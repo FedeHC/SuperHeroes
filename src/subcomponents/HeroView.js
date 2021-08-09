@@ -6,7 +6,8 @@ import Button from 'react-bootstrap/Button';
 function HeroView({ index,
                     hero,
                     getHeroesSearch,
-                    deleteHeroHandler }) {
+                    deleteHeroHandler,
+                    getHeroDetailsHandler }) {
   return (
     <Col sm={12} md={6} xl={4}>
       {/* CON HEROE */}
@@ -26,7 +27,7 @@ function HeroView({ index,
           <div className="d-grid gap-2">
             <Button variant="outline-primary"
                     size="lg"
-                    onClick="">Detalles</Button>
+                    onClick={ () => getHeroDetailsHandler(index) }>Detalles</Button>
                     
             <Button variant="outline-danger"
                     size="lg"
