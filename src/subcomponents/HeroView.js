@@ -9,7 +9,7 @@ function HeroView({ hero, getHeroGridHandler }) {
       <div className="heroView">
 
         {/* CON HEROE */}
-        {hero !== 0 &&
+        {hero &&
           <>
             <h1 className="heroName">Héroe</h1>
             <img src="#" className="heroImage" alt=""></img>
@@ -35,7 +35,7 @@ function HeroView({ hero, getHeroGridHandler }) {
         }
         
         {/* SIN HEROE*/}
-        {hero === 0 &&
+        {!hero &&
           <>
             <h1>[Vacío]</h1>
             <div className="emptyImage"></div>
