@@ -173,7 +173,8 @@ function App() {
       {view.hasToken && view.inMainView &&
         <MainView heroes={heroes}
                   getHeroesSearch={getHeroesSearch}
-                  deleteHeroHandler={deleteHeroHandler} />
+                  deleteHeroHandler={deleteHeroHandler}
+                  getHeroDetailsHandler={getHeroDetailsHandler} />
       }
 
       {/* Vista HeroGrid */}
