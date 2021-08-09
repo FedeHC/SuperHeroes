@@ -59,7 +59,7 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
                 <Button variant="outline-secondary"
                         type="input"
                         size="lg"
-                        onClick={getMainViewHandler}
+                        onClick={ () => getMainViewHandler()}
                 >Volver a principal</Button>
 
             </Form>
