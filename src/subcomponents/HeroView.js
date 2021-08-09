@@ -3,25 +3,25 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 
-function HeroView({ hero, getHeroGridHandler }) {
+function HeroView({ hero, getHeroesSearch }) {
   return (
-    <Col md={12} lg={6} xl={4}>
+    <Col sm={12} md={6} xl={4}>
       <div className="heroView">
 
         {/* CON HEROE */}
         {hero &&
           <>
-            <h1 className="heroName">Héroe</h1>
-            <img src="#" className="heroImage" alt=""></img>
-            <p>Powerstats:</p>
-            <ol>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ol>
+            <h1 className="heroName">{hero.name}</h1>
+            
+            <img src={hero.image.url} className="heroImage" alt=""></img>
+
+            <p className="powerStatsTitle">Powerstats:</p>            
+            <ul className="powerStats">
+              {Object.entries(hero.powerstats)
+                     .map( ([power, value]) => <li>{power}: {value}</li> )
+                     .sort()}
+            </ul>
+
             <div className="d-grid gap-2">
               <Button variant="outline-primary"
                       size="lg"
@@ -44,7 +44,7 @@ function HeroView({ hero, getHeroGridHandler }) {
               <Button variant="outline-success"
                       size="lg"
                       type="input"
-                      onClick={getHeroGridHandler}>Agregar Héroe o Villano</Button>
+                      onClick={getHeroesSearch}>Agregar Héroe o Villano</Button>
             </div>
           </>
         }
