@@ -48,6 +48,14 @@ html, body {
   transition: all 0.15s ease-in;
 }
 
+.goodHero {
+  background-color: rgb(207, 255, 207);
+}
+
+.badHero {
+  background-color: rgb(255, 206, 206);
+}
+
 .heroDetails {
   margin-top: 60px;
   padding: 30px;
