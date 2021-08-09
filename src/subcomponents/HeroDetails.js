@@ -13,7 +13,7 @@ function HeroDetails() {
         {/* Columna con contenido */}
         <Col xs={8} md={6} lg={4}>
           <div class="heroDetails">
-            <h1>Detalles del Hero</h1>
+            <h1>Detalles del Heroe</h1>
           </div>
         </Col>
         
