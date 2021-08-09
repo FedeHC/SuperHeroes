@@ -140,6 +140,18 @@ function App() {
     }
   };
 
+  const addHeroHandler = (index) => {
+    const newHeroes = [];
+    for (let c = 0; c < heroes.length; c++) {
+      if (c === view.heroPosition)
+        newHeroes[c] = searchResults.results[index];
+      else
+        newHeroes[c] = heroes[c];
+    }
+    setHeroes(newHeroes);
+    getMainViewHandler();
+  };
+
   // --------------------------------------------------------------------------------
   // JSX
   // --------------------------------------------------------------------------------
