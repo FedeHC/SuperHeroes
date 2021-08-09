@@ -39,7 +39,7 @@ function App() {
   
   // State que guarda temporalmente los resultados de las últimas búsquedas de heroes 
   // realizadas a la API:
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState(null);
 
   const viewReducer = (state, action) => {
     switch (action.type) {
