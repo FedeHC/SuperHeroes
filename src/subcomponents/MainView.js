@@ -8,7 +8,7 @@ import HeroeView from './HeroView';
 
 
 // JSX:
-function MainView({heroes, setHeroes, getHeroGridHandler}) {
+function MainView({ heroes, getHeroesSearch }) {
   return (
     <Container fluid>
       <Row>      
@@ -18,7 +18,7 @@ function MainView({heroes, setHeroes, getHeroGridHandler}) {
             {heroes.map( (hero, index) => (
               <HeroeView key={index}
                          hero={hero}
-                         getHeroGridHandler={getHeroGridHandler}/>) )}
+                         getHeroesSearch={ () => getHeroesSearch(index)}/>) )}
           </Row>
         </Col>
       </Row>
