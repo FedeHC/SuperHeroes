@@ -6,7 +6,7 @@ import "./App.css";
 // Subcomponentes:
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
-import HeroesGrid from "./subcomponents/HeroesGrid";
+import HeroesSearch from "./subcomponents/HeroesSearch";
 
 // Librerías:
 import axios from "axios";
@@ -158,9 +158,9 @@ function App() {
 
       {/* Vista HeroGrid */}
       {view.hasToken && view.inHeroesGrid &&
-        <HeroesGrid getMainViewHandler={getMainViewHandler}
-                    searchHeroHandler={searchHeroHandler}
-                    searchResults={searchResults} />
+        <HeroesSearch getMainViewHandler={getMainViewHandler}
+                      searchHeroHandler={searchHeroHandler}
+                      searchResults={searchResults} />
       }
     </>
   );
