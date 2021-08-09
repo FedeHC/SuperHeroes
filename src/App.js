@@ -131,10 +131,7 @@ function App() {
   const searchHeroHandler = async (heroName) => {
     try {
       const search = await axios.get(URL_SH_API + heroName.search);
-
-      if (search.data.results) {
-        setSearchResults(search.data.results);
-      }
+      setSearchResults(search.data);                            // Guardando resultados.
     }
     catch (error) {
       if (error.response.status === 401) {
