@@ -25,7 +25,7 @@ const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL
 const TOKEN_KEY = "Alkemy-token";
 const LOGIN_ERROR = "LOGIN_ERROR";
 const SHOW_MAINVIEW = "SHOW_MAINVIEW";
-const SHOW_HEROES_GRID = "SHOW_HEROES_GRID";
+const SHOW_HEROES_SEARCH = "SHOW_HEROES_SEARCH";
 const SHOW_HERO_DETAILS = "SHOW_HERO_DETAILS";
 
 
@@ -55,21 +55,22 @@ function App() {
           hasToken: true,
           hasError: false,
           inMainView: true,
-          inHeroesGrid: false,
+          inHeroesSearch: false,
           inHeroDetails: false
         };
-      case SHOW_HEROES_GRID:
+      case SHOW_HEROES_SEARCH:
         return {
           ...state,
           inMainView: false,
-          inHeroesGrid: true,
-          inHeroDetails: false
+          inHeroesSearch: true,
+          inHeroDetails: false,
+          heroPosition: action.payload
         };
       case SHOW_HERO_DETAILS:
         return {
           ...state,
           inMainView: false,
-          inHeroesGrid: false,
+          inHeroesSearch: false,
           inHeroDetails: true
         };
       default:
@@ -82,8 +83,9 @@ function App() {
     hasToken: null,
     hasError: null,
     inMainView: null,
-    inHeroesGrid: null,
-    inHeroDetails: null
+    inHeroesSearch: null,
+    inHeroDetails: null,
+    heroPosition: null
   };
 
   // useReducer:
@@ -115,8 +117,11 @@ function App() {
     setView({ type: SHOW_MAINVIEW });                           // Cambiando a vista MainView.
   };
 
-  const getHeroGridHandler = () => {
-    setView({ type: SHOW_HEROES_GRID });                        // Cambiando a vista HeroesGrid.
+  const getHeroesSearch = (index) => {
+    setView({
+              type: SHOW_HEROES_SEARCH,                         // Cambiando a vista HeroesSearch.
+              payload: index                                    // Pasando posición en equipo.
+            });
   };
 
   const getHeroDetailsHandler = () => {
