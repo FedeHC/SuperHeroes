@@ -125,8 +125,11 @@ function App() {
             });
   };
 
-  const getHeroDetailsHandler = () => {
-    setView({ type: SHOW_HERO_DETAILS });                       // Cambiando a vista HeroDetails.
+  const getHeroDetailsHandler = (index) => {
+    setView({
+      type: SHOW_HERO_DETAILS,                                  // Cambiando a vista HeroDetails.
+      payload: index                                            // Pasando posición en equipo.
+    });
   };
 
   const searchHeroHandler = async (heroName) => {
