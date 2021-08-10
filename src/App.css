@@ -65,8 +65,8 @@ html, body {
 }
 
 .heroImage, .emptyImage {
-  width: auto;
-  height: 250px;
+  width: 100%;
+  height: max;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
   border: 1px solid lightgrey;
@@ -80,8 +80,8 @@ html, body {
 }
 
 .emptyImage {
-  width: 250px !important;
-  height: 250px !important;
+  width: max;
+  height: 250px
 }
 
 .tableResults {
@@ -116,5 +116,5 @@ html, body {
 }
 
 .powerStats {
-  font-size: 22px;
+  font-size: 20px;
 }
