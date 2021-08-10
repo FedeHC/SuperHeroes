@@ -24,7 +24,7 @@ html, body {
   text-align: center;
 }
 
-#mainTitle, #heroesGridTitle {
+#mainTitle, #heroesGridTitle, #heroDetails {
   margin: 10px 0 30px 0;
   font-size: 60px;
   font-weight: bolder;
@@ -56,10 +56,9 @@ html, body {
   background-color: rgb(255, 206, 206);
 }
 
-.heroDetails {
+#heroDetails {
   margin-top: 60px;
   padding: 30px;
-  background-color: white;
   color: black;
   border-radius: 10px;
 }
