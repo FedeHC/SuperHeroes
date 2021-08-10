@@ -72,7 +72,8 @@ function App() {
           ...state,
           inMainView: false,
           inHeroesSearch: false,
-          inHeroDetails: true
+          inHeroDetails: true,
+          heroPosition: action.payload
         };
       default:
         throw new Error();
