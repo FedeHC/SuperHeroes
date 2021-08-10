@@ -24,7 +24,7 @@ html, body {
   text-align: center;
 }
 
-#mainTitle, #heroesGridTitle, #heroDetails {
+#mainTitle, #heroesGridTitle, #searchFormTitle, #heroDetailsTitle {
   margin: 10px 0 30px 0;
   font-size: 60px;
   font-weight: bolder;
@@ -56,8 +56,9 @@ html, body {
   background-color: rgb(255, 206, 206);
 }
 
-#heroDetails {
+.heroDetails {
   margin-top: 60px;
+  margin-bottom: 40px;
   padding: 30px;
   color: black;
   border-radius: 10px;
@@ -71,6 +72,13 @@ html, body {
   border: 1px solid lightgrey;
   border-radius: 10px;
 }
+
+.heroDetailsImage {
+  width: 100%;
+  height: max;
+  border-radius: 10px;
+}
+
 .emptyImage {
   width: 250px !important;
   height: 250px !important;
@@ -90,7 +98,19 @@ html, body {
   color: red;
 }
 
+.heroName {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.heroDescription {
+  font-weight: bolder;
+}
+
 .powerStatsTitle {
+  margin-top: 20px;
   font-weight: bolder;
   font-size: 22px;
 }
