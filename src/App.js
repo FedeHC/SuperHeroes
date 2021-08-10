@@ -157,9 +157,9 @@ function App() {
   };
 
   const deleteHeroHandler = (index) => {
-    const updatedHeroes = [... heroes];                               // Guardando array heroes en nueva variable.
-    updatedHeroes[index] = null;                                      // Borrando datos del heroe en indice recibido.
-    setHeroes(updatedHeroes);                                         // Actualizando state heroes con nuevos valores.
+    const updatedHeroes = [...heroes];                          // Guardando array heroes en nueva variable.
+    updatedHeroes[index] = null;                                // Borrando datos del heroe en indice recibido.
+    setHeroes(updatedHeroes);                                   // Actualizando state heroes con nuevos valores.
   };
 
   // --------------------------------------------------------------------------------
@@ -187,6 +187,12 @@ function App() {
                       searchHeroHandler={searchHeroHandler}
                       searchResults={searchResults}
                       addHeroHandler={addHeroHandler} />
+      }
+
+      {/* Vista HeroDetails */}
+      {view.hasToken && view.inHeroDetails &&
+        <HeroDetails hero={heroes[view.heroPosition]}
+                     getMainViewHandler={getMainViewHandler} />
       }
     </>
   );
