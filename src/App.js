@@ -7,6 +7,7 @@ import "./App.css";
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
 import HeroesSearch from "./subcomponents/HeroesSearch";
+import HeroDetails from "./subcomponents/HeroDetails";
 
 // Librerías:
 import axios from "axios";
