@@ -21,7 +21,7 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
   return (
     <Row>      
       <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
-        <h1 className="text-center">[Agregar un Héroe]</h1>
+        <h1 id="searchFormTitle">[Agregar un Héroe]</h1>
         <br />
 
         {/* Componente Formik, necesario para formulario: */}
