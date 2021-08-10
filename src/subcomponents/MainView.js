@@ -22,7 +22,7 @@ function MainView({ heroes,
               <HeroeView key={index}
                          index={index}
                          hero={hero}
-                         getHeroesSearch={ () => getHeroesSearch(index)}
+                         getHeroesSearch={getHeroesSearch}
                          deleteHeroHandler={deleteHeroHandler}
                          getHeroDetailsHandler={getHeroDetailsHandler} />) )}
           </Row>
