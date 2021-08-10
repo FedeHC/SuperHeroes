@@ -46,7 +46,7 @@ function HeroView({ index,
             <Button variant="outline-success"
                     size="lg"
                     type="input"
-                    onClick={ () => getHeroesSearch()}>Agregar Héroe o Villano</Button>
+                    onClick={ () => getHeroesSearch(index)}>Agregar Héroe o Villano</Button>
           </div>
         </div>
       }
