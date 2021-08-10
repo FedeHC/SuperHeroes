@@ -58,14 +58,15 @@ function HeroDetails({ hero, getMainViewHandler }) {
 
             {/* Boton Volver */}
             <Col xs={12} className="text-center">
-              <br /><br />
+              <br />
               <Button variant="outline-secondary"
                           type="input"
                           size="lg"
                           onClick={ () => getMainViewHandler()}
               >Volver a principal</Button>
-            </Col>
+            </Col>            
           </Row>
+          
         </Col>
       </Row>
     </Container>
