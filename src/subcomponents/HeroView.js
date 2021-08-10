@@ -23,9 +23,10 @@ function HeroView({ index,
           <p className="powerStatsTitle">Powerstats:</p>            
           <ul className="powerStats">
             {Object.entries(hero.powerstats)
-                    .map( ([power, value], index) => <li key={index}>{power}: {value}</li> )
+                    .map( ([power, value], index) => <li key={index}>{power}: <b>{value}</b></li> )
                     .sort()}
           </ul>
+          <br />
 
           {/* Botones de opciones */}
           <div className="d-grid gap-2">
