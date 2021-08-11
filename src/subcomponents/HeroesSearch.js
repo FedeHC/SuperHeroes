@@ -18,11 +18,13 @@ function HeroesSearch({ getMainViewHandler,
     <Container fluid>
       <Row id="heroesGridView">      
         <Col xs={12} md={{span: 10, offset: 1}}>
+          
+          {/* Formulario de búsqueda (input y botones) */}
           <SearchForm getMainViewHandler={getMainViewHandler}
                       searchHeroHandler={searchHeroHandler} />
           <br />
 
-          {/* Tabla (si hubo resultados de búsqueda) */}
+          {/* Tabla (SI hubo resultados) */}
           {searchResults && searchResults.response === "success" &&
             <Table striped hover>
               <thead>
@@ -54,10 +56,24 @@ function HeroesSearch({ getMainViewHandler,
             </Table>
           }
 
-          {/* Mensaje si no hubo resultados */}
-          {searchResults && searchResults.response === "error" &&
+          {/* Mensajes de error (si NO hubo resultados) */}
+          {searchResults && searchResults.error &&
           <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
-            <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
+            {searchResults.error === "character with given name not found" &&
+              <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
+            }
+
+            {searchResults.error === "CORS" &&
+              <p id="searchErrorMessage">Error al buscar resultados 
+                (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin">CORS</a>).
+              </p>
+            }
+
+            {Number.isInteger(searchResults.error) &&
+              <p id="searchErrorMessage">Error al buscar resultados 
+                (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}>{searchResults.error}</a>).
+              </p>
+            }
           </Col>
           }
 
