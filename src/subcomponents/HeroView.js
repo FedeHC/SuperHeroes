@@ -13,8 +13,11 @@ function HeroView({ index,
       {/* CON HEROE */}
       {hero &&
         <div className={hero.biography.alignment === "good" ? "heroView goodHero" : "heroView badHero"}>
-          {/* Nombre */}
-          <h1 className="heroName">{hero.name}</h1>
+          {/* Posición y Nombre */}
+          <div className="text-center">
+            <p className="heroPosition">[ {index+1} ]</p>
+            <h1 className="heroName">{hero.name}</h1>
+          </div>
 
           {/* Imagen */}
           <img src={hero.image.url} className="heroImage" alt=""></img>
@@ -45,7 +48,10 @@ function HeroView({ index,
       {!hero &&
         <div className="heroView">
           {/* Título vacío */}
-          <h1>[Vacante]</h1>
+          <div className="text-center">
+            <p className="heroPosition">[ {index+1} ]</p>
+            <h1 className="heroName">[ Vacante ]</h1>
+          </div>
 
           {/* Fondo gris (sin imagen)  */}
           <div className="emptyImage"></div>
