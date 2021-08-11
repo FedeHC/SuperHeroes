@@ -102,14 +102,19 @@ html, body {
   color: red;
 }
 
+.heroPosition {
+  margin: 0;
+  font-weight: bolder;
+}
+
 .heroName {
   display: inline-block;
   margin-bottom: 30px;
   font-weight: bolder;
-  text-align: left;
 }
 
 .heroDescription {
+  font-size: 22px;
   font-weight: bolder;
 }
 
