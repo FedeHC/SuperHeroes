@@ -18,7 +18,7 @@ import ApiToken from "./api.json";
 
 // URLS:
 const URL_ALKEMY = "http://challenge-react.alkemy.org"; // Para obtener token.
-const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema CORS.
+const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema CORS en entorno de desarrollo.
 const URL_SH = "https://superheroapi.com";              // API de consulta.
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
 
