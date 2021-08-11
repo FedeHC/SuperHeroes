@@ -184,7 +184,8 @@ function App() {
 
       {/* Vista HeroGrid */}
       {view.hasToken && view.inHeroesSearch &&
-        <HeroesSearch getMainViewHandler={getMainViewHandler}
+        <HeroesSearch heroes={heroes}
+                      getMainViewHandler={getMainViewHandler}
                       searchHeroHandler={searchHeroHandler}
                       searchResults={searchResults}
                       addHeroHandler={addHeroHandler} />
