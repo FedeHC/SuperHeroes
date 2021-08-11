@@ -192,25 +192,40 @@ function App() {
 
       {/* Vista MainView */}
       {view.hasToken && view.inMainView &&
-        <MainView heroes={heroes}
-                  getHeroesSearch={getHeroesSearch}
-                  deleteHeroHandler={deleteHeroHandler}
-                  getHeroDetailsHandler={getHeroDetailsHandler} />
+        <>
+          <LoginButton email={view.userEmail}
+                       logOutHandler={logOutHandler} />
+
+          <MainView heroes={heroes}
+                    getHeroesSearch={getHeroesSearch}
+                    deleteHeroHandler={deleteHeroHandler}
+                    getHeroDetailsHandler={getHeroDetailsHandler} />
+        </>
       }
 
       {/* Vista HeroGrid */}
       {view.hasToken && view.inHeroesSearch &&
-        <HeroesSearch heroes={heroes}
-                      getMainViewHandler={getMainViewHandler}
-                      searchHeroHandler={searchHeroHandler}
-                      searchResults={searchResults}
-                      addHeroHandler={addHeroHandler} />
+        <>
+          <LoginButton email={view.userEmail}
+                       logOutHandler={logOutHandler} />
+
+          <HeroesSearch heroes={heroes}
+                        getMainViewHandler={getMainViewHandler}
+                        searchHeroHandler={searchHeroHandler}
+                        searchResults={searchResults}
+                        addHeroHandler={addHeroHandler} />
+        </>
       }
 
       {/* Vista HeroDetails */}
       {view.hasToken && view.inHeroDetails &&
-        <HeroDetails hero={heroes[view.heroPosition]}
-                     getMainViewHandler={getMainViewHandler} />
+        <>
+          <LoginButton email={view.userEmail}
+                       setlogOutHandlerView={logOutHandler} />
+
+          <HeroDetails hero={heroes[view.heroPosition]}
+                       getMainViewHandler={getMainViewHandler} />
+        </>
       }
     </>
   );
