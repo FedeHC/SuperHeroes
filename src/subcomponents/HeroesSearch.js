@@ -45,41 +45,58 @@ function HeroesSearch({ heroes,
                     
                     <td><img src={hero.image.url} className="imageHero" alt="" /></td>
                     
-                    <td className="tableResults">{hero.name} {hero.biography["full-name"] ? "("+hero.biography["full-name"]+")" : ""}</td>
+                    <td className="tableResults">{hero.name} {hero.biography["full-name"] ? "(" + hero.biography["full-name"] + ")" : ""}</td>
                     
-                    <td><Button variant="outline-primary"
+                    <td>
+                      {/* En la sig. linea de código se busca si algún hero.id en nuestro equipo coincide
+                          con alguno de la tabla de resultados. En caso de coincidir, no se muestra el botón
+                          de agregar para evitar duplicados. Solo se muestra boton deshabilitado indicando
+                          que ya forma parte del equipo. */}
+                      {heroes.some( ( anyHero ) => anyHero?.id === hero.id)
+                        ? 
+                        <Button variant="outline-danger"
                                 type="input"
                                 size="lg"
-                                onClick={ () => addHeroHandler(index)}
-                        >Agregar al equipo</Button></td>
+                                disabled
+                        >Está en el equipo</Button>
+                        :
+                        <Button variant="outline-primary"
+                                  type="input"
+                                  size="lg"
+                                  onClick={ () => addHeroHandler(index) }
+                          >Agregar al equipo</Button>
+                      }
+                    </td>
                   </tr>   
                 ))}
               </tbody>
             </Table>
           }
-
+          
           {/* Mensajes de error (si NO hubo resultados) */}
-          {searchResults && searchResults.error &&
-          <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
-            {searchResults.error === "character with given name not found" &&
-              <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
-            }
+          {searchResults && searchResults.status &&
+            <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
+              {/* El nombre no trajo resultados */}
+              {searchResults.status === "character with given name not found" &&
+                <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
+              }
+              
+              {/* Error CORS */}
+              {searchResults.status === "CORS" &&
+                <p id="searchErrorMessage">Error al buscar resultados 
+                  (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin">CORS</a>).
+                </p>
+              }
 
-            {searchResults.error === "CORS" &&
-              <p id="searchErrorMessage">Error al buscar resultados 
-                (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin">CORS</a>).
-              </p>
-            }
-
-            {Number.isInteger(searchResults.error) &&
-              <p id="searchErrorMessage">Error al buscar resultados 
-                (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}>{searchResults.error}</a>).
-              </p>
-            }
-          </Col>
+              {/* Error númerico (404, 429, 403, etc.) */}
+              {Number.isInteger(searchResults.status) &&
+                <p id="searchErrorMessage">Error al buscar resultados 
+                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}>{searchResults.error}</a>).
+                </p>
+              }
+            </Col>
           }
-
-
+          
         </Col>
       </Row>
     </Container>
