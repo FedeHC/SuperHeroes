@@ -31,10 +31,10 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
         >
           {({ handleSubmit, handleChange, values, errors }) => (
             /* Formulario */
-            <Form onSubmit={handleSubmit} noValidate>
+            <Form onSubmit={handleSubmit} noValidate> 
 
               {/* Input Buscar */}
-              <Form.Group className="mb-3" controlId="formLoginEmail">
+              <Form.Group className="mb-3 searchFormGroup" controlId="formLoginEmail">
                 <Form.Label>Buscar por nombre:</Form.Label>
                 <Form.Control type="text"
                               name="search"
@@ -57,7 +57,7 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
                           size="lg"
                   >Buscar Héroe</Button>
 
-                  <Button variant="outline-secondary"
+                  <Button variant="outline-dark"
                           type="input"
                           size="lg"
                           onClick={ () => getMainViewHandler()}
