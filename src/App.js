@@ -135,12 +135,12 @@ function App() {
     catch (error) {
       if (error.response && error.response.status) {
         console.error(`[Error ${error.response.status}]`);      // Mostrando error en consola.
-        setSearchResults({ "response": "error", "status": error.response.status });
+        setSearchResults({ "response": "error", "error": error.response.status });
       }
       // Si no hubo error.response es a causa de error CORS:
       else {
         console.error(error);                                   // Mostrando error en consola.
-        setSearchResults({ "response": "error", "status": "CORS" });
+        setSearchResults({ "response": "error", "error": "CORS" });
       }
     }
   };
