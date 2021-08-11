@@ -41,7 +41,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
                 <li>
                   {hero.biography.aliases.length <= 1 ? "Alias:" : "Aliases:"}
                   <ul>
-                    {hero.biography.aliases.map( (alias) => <li><i>{alias}</i></li>)}
+                    {hero.biography.aliases.map( (alias, index) => <li key={index}><i>{alias}</i></li>)}
                   </ul>
                 </li>
                 <br />
