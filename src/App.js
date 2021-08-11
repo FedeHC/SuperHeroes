@@ -139,8 +139,15 @@ function App() {
       setSearchResults(search.data);                            // Guardando resultados.
     }
     catch (error) {
-      if (error.response.status === 401) {
-        console.error(`- Error status: ${error.response.status}`)
+      if (error.response && error.response.status) {
+        console.error(`[Error ${error.response.status}]`);
+        setSearchResults({ "response": "error", "status": error.response.status });
+      }
+      // Si no hubo error.response es a causa de error CORS:
+      else {
+        console.error(error);
+        setSearchResults({ "response": "error", "status": "CORS" });
+        // console.log(searchResults);
       }
     }
   };
