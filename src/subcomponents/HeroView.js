@@ -45,7 +45,7 @@ function HeroView({ index,
       {!hero &&
         <div className="heroView">
           {/* Título vacío */}
-          <h1>[Vacío]</h1>
+          <h1>[Vacante]</h1>
 
           {/* Fondo gris (sin imagen)  */}
           <div className="emptyImage"></div>
@@ -56,7 +56,7 @@ function HeroView({ index,
             <Button variant="outline-success"
                     size="lg"
                     type="input"
-                    onClick={ () => getHeroesSearch(index)}>Agregar Héroe o Villano</Button>
+                    onClick={ () => getHeroesSearch(index)}>Agregar al equipo</Button>
           </div>
         </div>
       }
