@@ -36,7 +36,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
 
             {/* Detalles del Héroe/Villano */}
             <Col xs={12} md={6}>
-              <h1 className="heroDescription">Detalles:</h1>
+              <h1 className="heroDescription">Detalles de {hero.name}:</h1>
               <ul className="powerStats">
                 <li>
                   {hero.biography.aliases.length <= 1 ? "Alias:" : "Aliases:"}
