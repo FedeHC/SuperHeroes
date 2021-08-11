@@ -29,7 +29,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
               <p className="powerStatsTitle">Powerstats de {hero.name}:</p>            
               <ul className="powerStats">
                 {Object.entries(hero.powerstats)
-                        .map( ([power, value], index) => <li key={index}>{power}: <b>{value}</b></li> )
+                        .map( ([power, value], index) => <li key={index}>{power}: <b>{value === "null" ? "---" : value}</b></li> )
                         .sort()}
               </ul>
             </Col>
