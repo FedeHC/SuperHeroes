@@ -54,9 +54,16 @@ function App() {
           hasToken: false,
           hasError: true
         };
+      case LOGOUT:
+        return {
+          ...state,
+          hasToken: null,
+          hasError: null,
+        };
       case SHOW_MAINVIEW:
         return {
           ...state,
+          userEmail: action.payload,
           hasToken: true,
           hasError: false,
           inMainView: true,
@@ -86,6 +93,7 @@ function App() {
 
   // Objeto inicial para reducer:
   const viewObj = {
+    userEmail: null,
     hasToken: null,
     hasError: null,
     inMainView: null,
