@@ -1,9 +1,12 @@
-// React-Bootstrap:
+// React:
 import { useState, useReducer } from "react";
+
+// CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // Subcomponentes:
+import LoginButton from "./subcomponents/LoginButton";
 import LoginForm from "./subcomponents/LoginForm";
 import MainView from "./subcomponents/MainView";
 import HeroesSearch from "./subcomponents/HeroesSearch";
