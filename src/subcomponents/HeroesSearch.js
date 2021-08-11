@@ -9,10 +9,12 @@ import Button from "react-bootstrap/Button";
 import SearchForm from "./SearchForm";
 
 
-function HeroesSearch({ getMainViewHandler,
+function HeroesSearch({ heroes,
+                        getMainViewHandler,
                         searchHeroHandler,
                         searchResults,
                         addHeroHandler }) {
+   
   // JSX:
   return (
     <Container fluid>
