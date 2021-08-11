@@ -25,10 +25,11 @@ const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema
 const URL_SH = "https://superheroapi.com";              // API de consulta.
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
 
-// Demás constantes:
+// Constantes útiles:
 const TOKEN_KEY = "Alkemy-token";
-const LOGOUT = "LOGOUT";
+const LOGIN_OK = "LOGIN_OK";
 const LOGIN_ERROR = "LOGIN_ERROR";
+const LOGOUT = "LOGOUT";
 const SHOW_MAINVIEW = "SHOW_MAINVIEW";
 const SHOW_HEROES_SEARCH = "SHOW_HEROES_SEARCH";
 const SHOW_HERO_DETAILS = "SHOW_HERO_DETAILS";
