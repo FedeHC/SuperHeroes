@@ -35,10 +35,10 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
 
               {/* Input Buscar */}
               <Form.Group className="mb-3" controlId="formLoginEmail">
-                <Form.Label>Buscar:</Form.Label>
+                <Form.Label>Buscar por nombre:</Form.Label>
                 <Form.Control type="text"
                               name="search"
-                              placeholder="Ingrese un nombre a buscar (ej: Batman)"
+                              placeholder="Ej: batman"
                               size="lg"
                               onChange={handleChange}
                               value={values.search}                                  
@@ -51,16 +51,18 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
               <br />
               
               {/* Botón Buscar */}
-                <Button variant="outline-primary"
-                        type="submit"
-                        size="lg"
-                >Buscar Héroe</Button>
+                <div className="text-center">
+                  <Button variant="outline-primary"
+                          type="submit"
+                          size="lg"
+                  >Buscar Héroe</Button>
 
-                <Button variant="outline-secondary"
-                        type="input"
-                        size="lg"
-                        onClick={ () => getMainViewHandler()}
-                >Volver a principal</Button>
+                  <Button variant="outline-secondary"
+                          type="input"
+                          size="lg"
+                          onClick={ () => getMainViewHandler()}
+                  >Volver a principal</Button>
+                </div>
 
             </Form>
           )}
