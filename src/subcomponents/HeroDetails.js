@@ -52,14 +52,16 @@ function HeroDetails({ hero, getMainViewHandler }) {
                 <li>Color de cabello: <b>{hero.appearance["hair-color"]}</b></li>
                 <br />
 
-                <li>Lugares de trabajo: <ul>{hero.work.base.split(";").map( (base) => <li><i>{base}</i></li>)}</ul></li>
+                <li>Lugares de trabajo: 
+                  <ul>{hero.work.base.split(/,|;/).map( (base, index) => <li key={index}><i>{base}</i></li>)}</ul>
+                </li>
               </ul>
             </Col>
 
             {/* Boton Volver */}
             <Col xs={12} className="text-center">
               <br />
-              <Button variant="outline-secondary"
+              <Button variant="outline-dark"
                           type="input"
                           size="lg"
                           onClick={ () => getMainViewHandler()}
