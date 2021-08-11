@@ -27,6 +27,7 @@ const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL
 
 // Demás constantes:
 const TOKEN_KEY = "Alkemy-token";
+const LOGOUT = "LOGOUT";
 const LOGIN_ERROR = "LOGIN_ERROR";
 const SHOW_MAINVIEW = "SHOW_MAINVIEW";
 const SHOW_HEROES_SEARCH = "SHOW_HEROES_SEARCH";
