@@ -17,7 +17,7 @@ function MainView({ heroes,
       <Row>      
         <Col xs={12}>
           <Row id="mainView">
-            <h1 id="mainTitle">[El equipo]</h1>
+            <h1 id="mainTitle">[El equipo de SuperHéroes]</h1>
             {heroes.map( (hero, index) => (
               <HeroeView key={index}
                          index={index}
