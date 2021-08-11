@@ -175,6 +175,10 @@ function App() {
     setHeroes(updatedHeroes);                                   // Actualizando state heroes con nuevos valores.
   };
 
+  const logOutHandler = () => {
+    setView({ type: LOGOUT });                                  // Cerrando sesión y cambiando a vista Login.
+  }
+
   // --------------------------------------------------------------------------------
   // JSX
   // --------------------------------------------------------------------------------
