@@ -49,6 +49,12 @@ function App() {
 
   const viewReducer = (state, action) => {
     switch (action.type) {
+      case LOGIN_OK:
+        localStorage.setItem(TOKEN_KEY, action.payload);                  // Guardando token en localStorage.
+        return {
+          hasToken: true,
+          hasError: false,
+        }
       case LOGIN_ERROR:
         return {
           ...state,
