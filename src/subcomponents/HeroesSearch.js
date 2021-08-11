@@ -72,12 +72,12 @@ function HeroesSearch({ heroes,
               </tbody>
             </Table>
           }
-          
+
           {/* Mensajes de error (si NO hubo resultados) */}
-          {searchResults && searchResults.status &&
+          {searchResults && searchResults.error &&
             <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
               {/* El nombre no trajo resultados */}
-              {searchResults.status === "character with given name not found" &&
+              {searchResults.error === "character with given name not found" &&
                 <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
               }
               
@@ -89,7 +89,7 @@ function HeroesSearch({ heroes,
               }
 
               {/* Error númerico (404, 429, 403, etc.) */}
-              {Number.isInteger(searchResults.status) &&
+              {Number.isInteger(searchResults.error) &&
                 <p id="searchErrorMessage">Error al buscar resultados 
                   (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}>{searchResults.error}</a>).
                 </p>
