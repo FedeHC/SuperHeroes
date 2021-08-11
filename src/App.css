@@ -36,7 +36,7 @@ html, body {
   padding: 20px 20px 50px 20px;
   text-align: left;
   color: #1d1d1d7c;
-  opacity: 0.85;
+  opacity: 0.95;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.15s ease-in;
 }
