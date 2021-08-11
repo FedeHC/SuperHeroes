@@ -115,7 +115,7 @@ function App() {
 
         if (response.data.token) {
           localStorage.setItem(TOKEN_KEY, response.data.token)  // Guardando token en localStorage.
-          setView({ type: SHOW_MAINVIEW });                     // Cambiando a vista MainView.
+          setView({ type: SHOW_MAINVIEW, payload: data.email });      // Cambiando a vista MainView.
         }
       }
       catch (error) {
@@ -128,7 +128,7 @@ function App() {
 
   const getMainViewHandler = () => {
     setSearchResults([]);                                       // Borrando últimos resultados.
-    setView({ type: SHOW_MAINVIEW });                           // Cambiando a vista MainView.
+    setView({ type: SHOW_MAINVIEW, payload: view.userEmail });  // Cambiando a vista MainView.
   };
 
   const getHeroesSearch = (index) => {
