@@ -116,14 +116,14 @@ function App() {
   // --------------------------------------------------------------------------------
   // Handlers
   // --------------------------------------------------------------------------------
-  const getTokenHandler = async (data) => {
-    if (data) {
+  const getTokenHandler = async (formData) => {
+    if (formData) {
       try {
-        const response = await axios.post(URL_ALKEMY, data);
+        const response = await axios.post(URL_ALKEMY, formData);
 
         if (response.data.token) {
-          localStorage.setItem(TOKEN_KEY, response.data.token)  // Guardando token en localStorage.
-          setView({ type: SHOW_MAINVIEW, payload: data.email });      // Cambiando a vista MainView.
+          setView({ type: LOGIN_OK, payload: response.data.token });      // Validando login y pasando token.
+          setView({ type: SHOW_MAINVIEW, payload: formData.email });      // Cambiando a vista MainView.
         }
       }
       catch (error) {
