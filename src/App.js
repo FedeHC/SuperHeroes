@@ -62,6 +62,7 @@ function App() {
           hasError: true
         };
       case LOGOUT:
+        localStorage.removeItem(TOKEN_KEY);                               // Borrando token en localStorage.
         return {
           ...state,
           hasToken: null,
