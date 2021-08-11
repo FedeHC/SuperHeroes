@@ -120,18 +120,12 @@ function App() {
   };
 
   const getHeroesSearch = (index) => {
-    setView({
-              type: SHOW_HEROES_SEARCH,                         // Cambiando a vista HeroesSearch.
-              payload: index                                    // Pasando posición en equipo.
-            });
-  };
+    setView({type: SHOW_HEROES_SEARCH, payload: index  });      // Cambiando a vista HeroesSearch y
+  };                                                            // pasando posición en equipo.
 
   const getHeroDetailsHandler = (index) => {
-    setView({
-      type: SHOW_HERO_DETAILS,                                  // Cambiando a vista HeroDetails.
-      payload: index                                            // Pasando posición en equipo.
-    });
-  };
+    setView({ type: SHOW_HERO_DETAILS, payload: index });       // Cambiando a vista HeroDetails y
+  };                                                            // pasando posición en equipo.
 
   const searchHeroHandler = async (heroName) => {
     try {
@@ -140,14 +134,13 @@ function App() {
     }
     catch (error) {
       if (error.response && error.response.status) {
-        console.error(`[Error ${error.response.status}]`);
+        console.error(`[Error ${error.response.status}]`);      // Mostrando error en consola.
         setSearchResults({ "response": "error", "status": error.response.status });
       }
       // Si no hubo error.response es a causa de error CORS:
       else {
-        console.error(error);
+        console.error(error);                                   // Mostrando error en consola.
         setSearchResults({ "response": "error", "status": "CORS" });
-        // console.log(searchResults);
       }
     }
   };
@@ -166,7 +159,7 @@ function App() {
 
   const deleteHeroHandler = (index) => {
     const updatedHeroes = [...heroes];                          // Guardando array heroes en nueva variable.
-    updatedHeroes[index] = null;                                // Borrando datos del heroe en indice recibido.
+    updatedHeroes[index] = null;                                // Borrando datos del heroe en la pos. (índice) recibida.
     setHeroes(updatedHeroes);                                   // Actualizando state heroes con nuevos valores.
   };
 
