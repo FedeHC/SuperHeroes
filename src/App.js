@@ -102,9 +102,9 @@ function App() {
   // Objeto inicial para reducer:
   const viewObj = {
     userEmail: null,
-    hasToken: null,
+    hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,               // Buscando token en localStorage (si existe).
     hasError: null,
-    inMainView: null,
+    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,             // Buscando token en localStorage (si existe).
     inHeroesSearch: null,
     inHeroDetails: null,
     heroPosition: null
