@@ -33,7 +33,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
 
             {/* Mensaje de error, si se envía previamente credenciales incorrectas */}
             {errorMessage &&
-              <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas. Intente nuevamente.</p>
+              <p id="errorMessage">El mail y/o la contraseña no son válidas. Intente nuevamente.</p>
             }
             
             {/* Componente Formik, necesario para formulario: */}
