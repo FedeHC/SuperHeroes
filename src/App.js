@@ -1,7 +1,5 @@
 // React:
 import { useState, useReducer } from "react";
-
-// CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -12,20 +10,18 @@ import MainView from "./subcomponents/MainView";
 import HeroesSearch from "./subcomponents/HeroesSearch";
 import HeroDetails from "./subcomponents/HeroDetails";
 
-// Librerías:
+// Librerías y demás:
 import axios from "axios";
-
-// Archivo JSON:
 import ApiToken from "./api.json";
 
 
 // URLS:
-const URL_ALKEMY = "http://challenge-react.alkemy.org"; // Para obtener token.
-const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema CORS en entorno de desarrollo.
-const URL_SH = "https://superheroapi.com";              // API de consulta.
+const URL_ALKEMY = "http://challenge-react.alkemy.org";                   // Para obtener token.
+const URL_CORS = "https://cors-anywhere.herokuapp.com";                   // Para sortear problema CORS en desarrollo.
+const URL_SH = "https://superheroapi.com";                                // API de consulta.
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
 
-// Constantes útiles:
+// Constantes:
 const TOKEN_KEY = "Alkemy-token";
 const LOGIN_OK = "LOGIN_OK";
 const LOGIN_ERROR = "LOGIN_ERROR";
@@ -37,20 +33,20 @@ const SHOW_HERO_DETAILS = "SHOW_HERO_DETAILS";
 
 function App() {
   // --------------------------------------------------------------------------------
-  // Estados
+  // Estados (states, reducers)
   // --------------------------------------------------------------------------------
-  // State que guarda todos los datos de 6 heroes.
-  // C/u empieza null y a medida que el user agregue heroes se poblarán con objetos obtenidos por API.
+  // State que guarda todos los datos de 6 héroes.
+  // A medida que el usuario agregue héroes, se guardarán con objetos obtenidos de la API.
   const [heroes, setHeroes] = useState([null, null, null, null, null, null]);
   
-  // State que guarda temporalmente los resultados de las últimas búsquedas de heroes 
-  // realizadas a la API:
+  // State que guarda temp. los resultados de búsquedas de héroes realizadas a la API:
   const [searchResults, setSearchResults] = useState(null);
 
+  // Función reducer, con switch que controla las acciones posibles según string recibido.
   const viewReducer = (state, action) => {
     switch (action.type) {
       case LOGIN_OK:
-        localStorage.setItem(TOKEN_KEY, action.payload);                  // Guardando token en localStorage.
+        localStorage.setItem(TOKEN_KEY, action.payload);  // Guardando token en localStorage.
         return {
           hasToken: true,
           hasError: false,
@@ -62,7 +58,7 @@ function App() {
           hasError: true
         };
       case LOGOUT:
-        localStorage.removeItem(TOKEN_KEY);                               // Borrando token en localStorage.
+        localStorage.removeItem(TOKEN_KEY); // Borrando token en localStorage.
         return {
           ...state,
           hasToken: null,
@@ -95,16 +91,16 @@ function App() {
           heroPosition: action.payload
         };
       default:
-        throw new Error();
+        throw new Error("Valor imprevisto en action.type dentro de función viewReducer.");
     };
   }
 
   // Objeto inicial para reducer:
   const viewObj = {
     userEmail: null,
-    hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,               // Buscando token en localStorage (si existe).
+    hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,    // Obteniendo token desde localStorage, si existe.
     hasError: null,
-    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,             // Buscando token en localStorage (si existe).
+    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,  // Obteniendo token desde localStorage, si existe.
     inHeroesSearch: null,
     inHeroDetails: null,
     heroPosition: null
@@ -116,55 +112,74 @@ function App() {
   // --------------------------------------------------------------------------------
   // Handlers
   // --------------------------------------------------------------------------------
+  
+  // Handler para obtener token de validación por API.
+  // Se recibe objeto con mail y contraseña para la validación y el logueo.
   const getTokenHandler = async (formData) => {
     if (formData) {
       try {
+        // Envio de datos por POST a la API, enviando objeto con mail y contraseña:
         const response = await axios.post(URL_ALKEMY, formData);
 
+        // Si se recibe token, se guarda y se pasa a vista 'Mainview':
         if (response.data.token) {
-          setView({ type: LOGIN_OK, payload: response.data.token });      // Validando login y pasando token.
-          setView({ type: SHOW_MAINVIEW, payload: formData.email });      // Cambiando a vista MainView.
+          setView({ type: LOGIN_OK, payload: response.data.token });
+          setView({ type: SHOW_MAINVIEW, payload: formData.email });
         }
       }
+      // Si se recibe error 401 es por no haber sido autorizado correctamente,
+      // sea porque el mail y/o contraseña enviadas no son válidas.
       catch (error) {
         if (error.response.status === 401) {
-          setView({ type: LOGIN_ERROR });                       // Cambiando estado en reducer (se permanece en Vista Login).
+          setView({ type: LOGIN_ERROR }); // Se permanece en vista 'Login', pero se envía mensaje de error.
         }
+        
+        // En cualquier otro caso, se permanece en vista 'Login' sin realizar acción alguna.
       }
     }
   };
 
+  // Handler para mostrar vista 'MainView'.
   const getMainViewHandler = () => {
-    setSearchResults([]);                                       // Borrando últimos resultados.
-    setView({ type: SHOW_MAINVIEW, payload: view.userEmail });  // Cambiando a vista MainView.
+    setSearchResults([]);   // Borrando state que guarda los resultados de búsqueda.
+    setView({ type: SHOW_MAINVIEW, payload: view.userEmail });
   };
 
+  // Handler para el botón de agregar héroe.
+  // Se recibe índice con la posición del mismo dentro del equipo.
   const getHeroesSearch = (index) => {
-    setView({type: SHOW_HEROES_SEARCH, payload: index  });      // Cambiando a vista HeroesSearch y
-  };                                                            // pasando posición en equipo.
+    setView({type: SHOW_HEROES_SEARCH, payload: index  });
+  };
 
+  // Handler para el botón de mostrar detalles de un héroe.
+  // Se recibe índice con la posición del mismo dentro del equipo.
   const getHeroDetailsHandler = (index) => {
-    setView({ type: SHOW_HERO_DETAILS, payload: index });       // Cambiando a vista HeroDetails y
-  };                                                            // pasando posición en equipo.
+    setView({ type: SHOW_HERO_DETAILS, payload: index });
+  };
 
+  // Handler para realizar búsquedas a la API 'SuperHeroes'.
+  // Se busca héroes de acuerdo al término de búsqueda recibido por formulario.
   const searchHeroHandler = async (heroName) => {
     try {
+      // Envio de datos por GET a la API, con el término de búsqueda:
       const search = await axios.get(URL_SH_API + heroName.search);
-      setSearchResults(search.data);                            // Guardando resultados.
+      setSearchResults(search.data);  // Guardando resultados.
     }
     catch (error) {
       if (error.response && error.response.status) {
-        console.error(`[Error ${error.response.status}]`);      // Mostrando error en consola.
+        console.error(`[Error ${error.response.status}]`);  // Mostrando error en consola.
         setSearchResults({ "response": "error", "error": error.response.status });
       }
-      // Si no hubo error.response es a causa de error CORS:
+      // Si no hubo 'error.response' es a causa de error CORS:
       else {
-        console.error(error);                                   // Mostrando error en consola.
+        console.error(error); // Mostrando error en consola.
         setSearchResults({ "response": "error", "error": "CORS" });
       }
     }
   };
 
+  // Handler para el botón de agregar un héroe.
+  // Se recibe índice con la posición del héroe en el equipo.
   const addHeroHandler = (index) => {
     const newHeroes = [];
     for (let c = 0; c < heroes.length; c++) {
@@ -177,14 +192,17 @@ function App() {
     getMainViewHandler();
   };
 
+  // Handler para el botón de borrar héroe del equipo.
+  // Se recibe índice con la posición del mismo dentro del equipo.
   const deleteHeroHandler = (index) => {
-    const updatedHeroes = [...heroes];                          // Guardando array heroes en nueva variable.
-    updatedHeroes[index] = null;                                // Borrando datos del heroe en la pos. (índice) recibida.
-    setHeroes(updatedHeroes);                                   // Actualizando state heroes con nuevos valores.
+    const updatedHeroes = [...heroes];
+    updatedHeroes[index] = null;  // Borrando datos del heroe en la posición recibida por índice.
+    setHeroes(updatedHeroes);
   };
 
+  // Handler para cerrar sesión y cambiar a vista 'Login'.
   const logOutHandler = () => {
-    setView({ type: LOGOUT });                                  // Cerrando sesión y cambiando a vista Login.
+    setView({ type: LOGOUT });
   }
 
   // --------------------------------------------------------------------------------
