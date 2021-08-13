@@ -9,8 +9,9 @@ function HeroDetails({ hero, getMainViewHandler }) {
   return (
     <Container fluid>
       <Row>
+        {/* Col con color de fondo según el alineamiento del heroe: */}
         <Col xs={{span: 10, offset: 1}}
-             className={hero.biography.alignment === "good" ? "heroDetails goodHero" : "heroDetails badHero"}>
+             className={checkAlignmentHero(hero)}>
           
           <Row>
             <Col xs={12}>
@@ -71,6 +72,23 @@ function HeroDetails({ hero, getMainViewHandler }) {
       </Row>
     </Container>
   );
+}
+
+// Función auxiliar que toma un héroe como parámetro y retorna un string para usarse de
+// estilos en Col:
+function checkAlignmentHero(hero) {
+  switch(hero.biography.alignment) {
+    case "good":
+      return "heroDetails goodHero";
+    case "bad":
+      return "heroDetails badHero";
+    case "neutral":
+      return "heroDetails neutralHero";
+    case "":
+      return "heroDetails neutralHero";
+    default:
+      return "heroDetails";
+  }
 }
 
 // Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
