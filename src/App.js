@@ -256,6 +256,19 @@ function App() {
                        getMainViewHandler={getMainViewHandler} />
         </>
       }
+      <div id="footerDiv">
+        <ul>
+          <li>App creada Por FedeHC para <a href="">Alkemy Challenge Frontend</a></li>
+          <li>
+            Icons made by <a href="https://www.freepik.com"
+                             title="Freepik">Freepik
+            </a> from <a href="https://www.flaticon.com/"
+                         title="Flaticon">www.flaticon.com</a>
+          </li>
+
+        </ul>
+        <br /><br />
+      </div>
     </>
   );
 }
