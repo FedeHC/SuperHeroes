@@ -13,7 +13,7 @@ function HeroView({ index,
       {/* CON HEROE */}
       {hero &&
         // Div con color de fondo según el alineamiento del heroe:
-        <div className={checkAlignmentHero(hero)}>
+        <div className={checkAlignmentHero(hero) + " heroView"}>
 
           {/* Posición y Nombre: */}
           <div className="text-center">
@@ -70,20 +70,20 @@ function HeroView({ index,
   );
 }
 
-// Función auxiliar que toma un héroe como parámetro y retorna un string para usarse de
-// estilos en div:
+// Función auxiliar que toma un héroe como parámetro y retorna un string para usar de
+// estilo en div:
 function checkAlignmentHero(hero) {
   switch(hero.biography.alignment) {
     case "good":
-      return "heroView goodHero";
+      return "goodHero";
     case "bad":
-      return "heroView badHero";
+      return "badHero";
     case "neutral":
-      return "heroView neutralHero";
+      return "neutralHero";
     case "":
-      return "heroView neutralHero";
+      return "neutralHero";
     default:
-      return "heroView";
+      return "";
   }
 }
 
