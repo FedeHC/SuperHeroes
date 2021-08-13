@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 // Subcomponentes:
+import AccumulativeStats from './AccumulativeStats';
 import HeroeView from './HeroView';
 
 
@@ -20,11 +21,7 @@ function MainView({ heroes,
             <h1 id="mainTitle">[El equipo de SuperHéroes]</h1>
             
             {/* Powerstats grupales del equipo */}
-            <Col xs={12}>
-              <div id="teamDiv">
-                <p>Powerstats grupales</p>
-              </div>
-            </Col>
+            <AccumulativeStats heroes={heroes} />
 
             {/* 6 vistas de heroes o vacantes */}
             {heroes.map( (hero, index) => (
