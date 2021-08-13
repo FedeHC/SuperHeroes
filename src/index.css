@@ -1,6 +1,8 @@
 html, body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(90deg, black 0%, #1d1d1d 100%) repeat;
+  color: white;
   font-family: sans-serif;
 }
 
