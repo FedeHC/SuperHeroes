@@ -70,6 +70,8 @@ function HeroView({ index,
   );
 }
 
+// Función auxiliar que toma un héroe como parámetro y retorna un string para usarse de
+// estilos en div:
 function checkAlignmentHero(hero) {
   switch(hero.biography.alignment) {
     case "good":
