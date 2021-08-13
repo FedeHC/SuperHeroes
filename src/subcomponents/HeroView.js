@@ -93,7 +93,7 @@ function showHeroPowerstats(hero) {
   return Object.entries(hero.powerstats)
                .map( ([power, value], index) => (
                   <li key={index}>
-                    {power}:
+                    <span>{power}: </span>
                     <b>{value === "null" ? "---" : value}</b> {/* Algunos valores pueden llegar 'null'. */}
                   </li>
                ));
