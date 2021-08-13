@@ -10,6 +10,7 @@ import SearchForm from "./SearchForm";
 
 
 function HeroesSearch({ heroes,
+                        MAX_PER_FACTION,
                         getMainViewHandler,
                         searchHeroHandler,
                         searchResults,
