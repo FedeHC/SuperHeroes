@@ -70,4 +70,19 @@ function HeroView({ index,
   );
 }
 
+function checkAlignmentHero(hero) {
+  switch(hero.biography.alignment) {
+    case "good":
+      return "heroView goodHero";
+    case "bad":
+      return "heroView badHero";
+    case "neutral":
+      return "heroView neutralHero";
+    case "":
+      return "heroView neutralHero";
+    default:
+      return "heroView";
+  }
+}
+
 export default HeroView;
