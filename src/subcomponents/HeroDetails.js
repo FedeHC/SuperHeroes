@@ -103,9 +103,9 @@ function showHeroAliases(hero) {
 function showWorkBases(hero) {
   return hero.work.base.split(/,|;/)
                        .map( (base, index) =>
-                       <li key={index}>
-                         <i>{base}</i>
-                       </li>);
+                         <li key={index}>
+                           <i>{base}</i>
+                         </li>);
 }
 
 export default HeroDetails;
