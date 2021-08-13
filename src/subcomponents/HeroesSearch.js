@@ -104,4 +104,22 @@ function HeroesSearch({ heroes,
   );
 }
 
+function isHeroAlreadyInTeam(heroes, hero) {
+  return heroes.some( ( anyHero ) => anyHero?.id === hero.id);
+}
+
+function isFullOnGoodOrBadGuys(heroes, newHero, MAX_PER_FACTION ) {
+  // Primero contamos la cantidad del mismo tipo ya presentes en nuestro equipo:
+  let counter = 0;
+  heroes.forEach( (heroInTeam) => {
+    if (heroInTeam && heroInTeam.biography.alignment === newHero.biography.alignment) {
+      counter++;
+    }
+  });
+  // Y después comprobamos si excede o no la cantidad máxima permitida:
+  if (counter === MAX_PER_FACTION)
+    return true;
+  return false;
+}
+
 export default HeroesSearch;
