@@ -238,6 +238,7 @@ function App() {
                        logOutHandler={logOutHandler} />
 
           <HeroesSearch heroes={heroes}
+                        MAX_PER_FACTION={MAX_PER_FACTION}
                         getMainViewHandler={getMainViewHandler}
                         searchHeroHandler={searchHeroHandler}
                         searchResults={searchResults}
