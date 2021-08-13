@@ -122,10 +122,10 @@ function App() {
         // Envio de datos por POST a la API, enviando objeto con mail y contraseña:
         const response = await axios.post(URL_ALKEMY, formData);
 
-        // Si se recibe token, se guarda y se pasa a vista 'Mainview':
+        // Si se recibe token, se guarda este y el mail para pasar a la vista 'Mainview':
         if (response.data.token) {
-          setView({ type: LOGIN_OK, payload: response.data.token });
-          setView({ type: SHOW_MAINVIEW, payload: formData.email });
+          setView({ type: LOGIN_OK, payload: {"token": response.data.token, "email": formData.email } } );
+          setView({ type: SHOW_MAINVIEW });
         }
       }
       // Si se recibe error 401 es por no haber sido autorizado correctamente,
@@ -143,7 +143,7 @@ function App() {
   // Handler para mostrar vista 'MainView'.
   const getMainViewHandler = () => {
     setSearchResults([]);   // Borrando state que guarda los resultados de búsqueda.
-    setView({ type: SHOW_MAINVIEW, payload: view.userEmail });
+    setView({ type: SHOW_MAINVIEW });
   };
 
   // Handler para el botón de agregar héroe.
