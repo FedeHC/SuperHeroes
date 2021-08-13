@@ -28,9 +28,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
               {/* Powerstats */}
               <p className="powerStatsTitle">Powerstats de {hero.name}:</p>            
               <ul className="powerStats">
-                {Object.entries(hero.powerstats)
-                        .map( ([power, value], index) => <li key={index}>{power}: <b>{value === "null" ? "---" : value}</b></li> )
-                        .sort()}
+                {showHeroPowerstats(hero)}
               </ul>
             </Col>
 
@@ -41,7 +39,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
                 <li>
                   {hero.biography.aliases.length <= 1 ? "Alias:" : "Aliases:"}
                   <ul>
-                    {hero.biography.aliases.map( (alias, index) => <li key={index}><i>{alias}</i></li>)}
+                    {showHeroAliases(hero)}
                   </ul>
                 </li>
                 <br />
@@ -53,7 +51,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
                 <br />
 
                 <li>Lugares de trabajo: 
-                  <ul>{hero.work.base.split(/,|;/).map( (base, index) => <li key={index}><i>{base}</i></li>)}</ul>
+                  <ul>{showWorkBases(hero)}</ul>
                 </li>
               </ul>
             </Col>
@@ -73,6 +71,41 @@ function HeroDetails({ hero, getMainViewHandler }) {
       </Row>
     </Container>
   );
+}
+
+// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
+// con clave y valor (en negrita) por cada powerstat:
+function showHeroPowerstats(hero) {
+  return Object.entries(hero.powerstats)
+               .map( ([power, value], index) => (
+                  <li key={index}>
+                    {power}:
+                    <b>{value === "null" ? "---" : value}</b> {/* Algunos valores pueden llegar 'null'. */}
+                  </li>
+               ));
+}
+
+// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
+// con los todos alias listados (si existen):
+function showHeroAliases(hero) {
+  return hero.biography.aliases.map( (alias, index) =>
+    <li key={index}>
+      <i>
+        {/* Algunos alias pueden llegar con varios adentro, separados por coma o punto y coma.*/}
+        {alias.split(/,|;/).map( (base, index) => 
+          <span key={index}>{base}<br /></span>)}
+      </i>
+    </li>);
+}
+
+// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
+// con los todos lugares de trabajo del héroe listados (si existen):
+function showWorkBases(hero) {
+  return hero.work.base.split(/,|;/)
+                       .map( (base, index) =>
+                       <li key={index}>
+                         <i>{base}</i>
+                       </li>);
 }
 
 export default HeroDetails;
