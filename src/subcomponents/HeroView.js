@@ -27,9 +27,7 @@ function HeroView({ index,
           {/* Powerstats: */}
           <p className="powerStatsTitle">Powerstats:</p>            
           <ul className="powerStats">
-            {Object.entries(hero.powerstats)
-                    .map( ([power, value], index) => <li key={index}>{power}: <b>{value === "null" ? "---" : value}</b></li> )
-                    .sort()}
+            {showHeroPowerstats(hero)}
           </ul>
           <br />
 
@@ -85,6 +83,18 @@ function checkAlignmentHero(hero) {
     default:
       return "heroView";
   }
+}
+
+// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
+// con clave y valor (en negrita) por cada powerstat:
+function showHeroPowerstats(hero) {
+  return Object.entries(hero.powerstats)
+               .map( ([power, value], index) => (
+                  <li key={index}>
+                    {power}:
+                    <b>{value === "null" ? "---" : value}</b> {/* Algunos valores pueden llegar 'null'. */}
+                  </li>
+               ));
 }
 
 export default HeroView;
