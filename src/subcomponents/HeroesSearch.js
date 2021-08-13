@@ -44,7 +44,7 @@ function HeroesSearch({ heroes,
                   <tr key={index}>
                     <td className="tableResults"><b>{index+1}</b></td>
                     
-                    <td><img src={hero.image.url} className="imageHero" alt="" /></td>
+                    <td><img src={hero.image.url} className="heroSearchImage" alt="" /></td>
                     
                     <td className="tableResults">{hero.name} {hero.biography["full-name"] ? "(" + hero.biography["full-name"] + ")" : ""}</td>
                     
