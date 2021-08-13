@@ -144,3 +144,8 @@ html, body {
 .powerStats {
   font-size: 20px;
 }
+
+#footerDiv {
+  text-align: center;
+  font-size: 18px;
+}
