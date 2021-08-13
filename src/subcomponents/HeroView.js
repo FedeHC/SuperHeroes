@@ -12,14 +12,16 @@ function HeroView({ index,
     <Col xs={12} sm={6} lg={4} xl={3}>
       {/* CON HEROE */}
       {hero &&
-        <div className={hero.biography.alignment === "good" ? "heroView goodHero" : "heroView badHero"}>
-          {/* Posición y Nombre */}
+        // Div con color de fondo según el alineamiento del heroe:
+        <div className={checkAlignmentHero(hero)}>
+
+          {/* Posición y Nombre: */}
           <div className="text-center">
             <p className="heroPosition">[ {index+1} ]</p>
             <h1 className="heroName">{hero.name}</h1>
           </div>
 
-          {/* Imagen */}
+          {/* Imagen: */}
           <img src={hero.image.url} className="heroImage" alt=""></img>
 
           {/* Powerstats: */}
@@ -31,7 +33,7 @@ function HeroView({ index,
           </ul>
           <br />
 
-          {/* Botones de opciones */}
+          {/* Botones de opciones: */}
           <div className="d-grid gap-2">
             <Button variant="outline-primary"
                     size="lg"
@@ -44,20 +46,20 @@ function HeroView({ index,
         </div>
       }
       
-      {/* SIN HEROE*/}
+      {/* SIN HEROE */}
       {!hero &&
         <div className="heroView">
-          {/* Título vacío */}
+          {/* Título vacío: */}
           <div className="text-center">
             <p className="heroPosition">[ {index+1} ]</p>
             <h1 className="heroName">[ Vacante ]</h1>
           </div>
 
-          {/* Fondo gris (sin imagen)  */}
+          {/* Fondo gris representando "sin imagen": */}
           <div className="emptyImage"></div>
           <br />
           
-          {/* Botón de Agregar */}
+          {/* Botón de Agregar: */}
           <div className="d-grid gap-2">
             <Button variant="outline-success"
                     size="lg"
