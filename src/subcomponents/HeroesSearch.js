@@ -49,18 +49,26 @@ function HeroesSearch({ heroes,
                     <td className="tableResults">{hero.name} {hero.biography["full-name"] ? "(" + hero.biography["full-name"] + ")" : ""}</td>
                     
                     <td>
-                      {/* En la sig. linea de código se busca si algún hero.id en nuestro equipo coincide
-                          con alguno de la tabla de resultados. En caso de coincidir, no se muestra el botón
-                          de agregar para evitar duplicados. Solo se muestra boton deshabilitado indicando
-                          que ya forma parte del equipo. */}
-                      {heroes.some( ( anyHero ) => anyHero?.id === hero.id)
-                        ? 
+                      {/* A cont. se comprueba si algún heroe de nuestro equipo coincide con alguno de
+                          la tabla de resultados. En caso de coincidir, el botón de agregar se muestra
+                          deshabilitado indicando que ya forma parte del equipo, para evitar duplicados. */}
+                      {isHeroAlreadyInTeam(heroes, hero) ?
                         <Button variant="outline-danger"
                                 type="input"
                                 size="lg"
                                 disabled
-                        >Está en el equipo</Button>
-                        :
+                        >Está en el equipo</Button> :
+
+                        /* Acá se comprueba si el héroe agregar excede la cantidad máxima (3) del bando de 
+                        // héroes o villanos. Si es así, aparecerá también el botón deshabilitado, indicando
+                        // que no pueden agregarse más de ese tipo (héroe o villano). */
+                        isFullOnGoodOrBadGuys(heroes, hero, MAX_PER_FACTION) ?
+                        <Button variant="outline-danger"
+                                type="input"
+                                size="lg"
+                                disabled
+                        >Excede máximo en bando</Button> :
+                        
                         <Button variant="outline-primary"
                                   type="input"
                                   size="lg"
@@ -85,14 +93,27 @@ function HeroesSearch({ heroes,
               {/* Error CORS */}
               {searchResults.status === "CORS" &&
                 <p id="searchErrorMessage">Error al buscar resultados 
-                  (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin">CORS</a>).
+                  (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin"
+                            target="_blank"
+                            rel="noreferrer">CORS</a>).
                 </p>
               }
 
               {/* Error númerico (404, 429, 403, etc.) */}
               {Number.isInteger(searchResults.error) &&
+                searchResults.error === 429 ?
+                <p id="searchErrorMessage">Se ha excedido de la cantidad máx. de búsquedas permitidas por minuto
+                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}
+                            target="_blank"
+                            rel="noreferrer">{searchResults.error}</a>).
+                  <br /><br />
+                  Por favor intente más tarde.
+                </p>
+                :
                 <p id="searchErrorMessage">Error al buscar resultados 
-                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}>{searchResults.error}</a>).
+                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}
+                            target="_blank"
+                            rel="noreferrer">{searchResults.error}</a>).
                 </p>
               }
             </Col>
