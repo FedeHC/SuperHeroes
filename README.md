@@ -13,10 +13,10 @@ Desde ya, la app se subirá al presente repositorio, del cual la app podrá ser 
 
 ### Objetivo del challenge:
 
-    "Desarrollar una aplicación para crear un equipo de superhéroes que consumirá una API externa y mostrará diferentes atributos a nivel individual de cada miembro y del equipo consolidado."
+* *"Desarrollar una aplicación para crear un equipo de superhéroes que consumirá una API externa y mostrará diferentes atributos a nivel individual de cada miembro y del equipo consolidado."*
 
 
-Para más información acerca del challenge y sus condiciones, ver el siguiente link: [PDF](https://drive.google.com/file/d/1kNbni3fBBYiAErWYIQNmlggJTNHmLgPL/view).
+Para más información acerca del challenge y de sus condiciones, ver el siguiente link: [PDF](https://drive.google.com/file/d/1kNbni3fBBYiAErWYIQNmlggJTNHmLgPL/view).
 
 
 ### Más información:
