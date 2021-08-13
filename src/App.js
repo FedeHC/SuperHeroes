@@ -22,6 +22,7 @@ const URL_SH = "https://superheroapi.com";                                // API
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
 
 // Constantes:
+const MAX_PER_FACTION = 3;
 const TOKEN_KEY = "Alkemy-token";
 const EMAIL_KEY = "Email-user";
 const LOGIN_OK = "LOGIN_OK";
@@ -197,7 +198,7 @@ function App() {
   // Se recibe índice con la posición del mismo dentro del equipo.
   const deleteHeroHandler = (index) => {
     const updatedHeroes = [...heroes];
-    updatedHeroes[index] = null;  // Borrando datos del heroe en la posición recibida por índice.
+    updatedHeroes[index] = null;  // Borrando datos del heroe en la pos. recibida por índice.
     setHeroes(updatedHeroes);
   };
 
