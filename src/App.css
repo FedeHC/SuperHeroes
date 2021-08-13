@@ -72,7 +72,6 @@ html, body {
   background: linear-gradient(135deg, rgb(207, 207, 207) 0%, rgb(172, 172, 172) 100%) repeat;
 }
 
-
 .heroDetails {
   margin-top: 60px;
   margin-bottom: 40px;
@@ -109,7 +108,7 @@ html, body {
   font-size: 26px;
 }
 
-.imageHero {
+.heroSearchImage {
   width: 100px;
   border: 0;
 }
