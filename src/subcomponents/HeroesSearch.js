@@ -67,7 +67,7 @@ function HeroesSearch({ heroes,
                                 type="input"
                                 size="lg"
                                 disabled
-                        >Excede máximo en bando</Button> :
+                        >Ya hay {MAX_PER_FACTION} {factionType(hero)}</Button> :
                         
                         <Button variant="outline-primary"
                                   type="input"
@@ -141,6 +141,21 @@ function isFullOnGoodOrBadGuys(heroes, newHero, MAX_PER_FACTION ) {
   if (counter === MAX_PER_FACTION)
     return true;
   return false;
+}
+
+function factionType(hero) {
+  switch(hero.biography.alignment) {
+    case "good":
+      return "héroes";
+    case "bad":
+      return "villanos";
+    case "neutral":
+      return "neutrales";
+    case "":
+      return "neutrales";
+    default:
+      return "neutrales";
+  }
 }
 
 export default HeroesSearch;
