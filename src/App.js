@@ -47,7 +47,8 @@ function App() {
   const viewReducer = (state, action) => {
     switch (action.type) {
       case LOGIN_OK:
-        localStorage.setItem(TOKEN_KEY, action.payload);  // Guardando token en localStorage.
+        localStorage.setItem(TOKEN_KEY, action.payload.token);  // Guardando token en localStorage.
+        localStorage.setItem(EMAIL_KEY, action.payload.email);  // Guardando email en localStorage.
         return {
           hasToken: true,
           hasError: false,
@@ -60,6 +61,7 @@ function App() {
         };
       case LOGOUT:
         localStorage.removeItem(TOKEN_KEY); // Borrando token en localStorage.
+        localStorage.removeItem(EMAIL_KEY); // Borrando email en localStorage.
         return {
           ...state,
           hasToken: null,
@@ -68,27 +70,25 @@ function App() {
       case SHOW_MAINVIEW:
         return {
           ...state,
-          userEmail: action.payload,
-          hasToken: true,
-          hasError: false,
-          inMainView: true,
-          inHeroesSearch: false,
-          inHeroDetails: false
+          userEmail: localStorage.getItem(EMAIL_KEY), // Obteniendo email desde localStorage, si existe.
+          inMainView: true,       // Nueva vista actual.
+          inHeroesSearch: false,  // Valor necesario si se viene desde esa vista.
+          inHeroDetails: false,   // Valor necesario si se viene desde esa vista.
         };
       case SHOW_HEROES_SEARCH:
         return {
           ...state,
-          inMainView: false,
-          inHeroesSearch: true,
-          inHeroDetails: false,
-          heroPosition: action.payload
+          inMainView: false,      // Valor necesario si se viene desde esa vista.
+          inHeroesSearch: true,   // Nueva vista actual.
+          inHeroDetails: false,   // Valor necesario si se viene desde esa vista.
+          heroPosition: action.payload,
         };
       case SHOW_HERO_DETAILS:
         return {
           ...state,
-          inMainView: false,
-          inHeroesSearch: false,
-          inHeroDetails: true,
+          inMainView: false,      // Valor necesario si se viene desde esa vista.
+          inHeroesSearch: false,  // Valor necesario si se viene desde esa vista.
+          inHeroDetails: true,    // Nueva vista actual.
           heroPosition: action.payload
         };
       default:
@@ -98,10 +98,10 @@ function App() {
 
   // Objeto inicial para reducer:
   const viewObj = {
-    userEmail: null,
+    userEmail: localStorage.getItem(EMAIL_KEY),                 // Obteniendo email desde localStorage, si existe.
     hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,    // Obteniendo token desde localStorage, si existe.
     hasError: null,
-    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,  // Obteniendo token desde localStorage, si existe.
+    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,  // Seteando vista a 'true' si existe token en localStorage.
     inHeroesSearch: null,
     inHeroDetails: null,
     heroPosition: null
