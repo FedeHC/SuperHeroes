@@ -162,4 +162,29 @@ function factionType(hero) {
   }
 }
 
+function checkErrorAndGiveAResponse(error) {
+  switch(error) {
+    case "character with given name not found":
+      return {
+        "message": "No se obtuvo ningún resultado con ese término",
+        "link": null
+      };
+    case "CORS":
+      return {
+        "message": "Error CORS",
+        "link": "https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin"
+      };
+    case 429:
+      return {
+        "message": "Se ha excedido del máx. de búsquedas permitidas por minuto, intente más tarde",
+        "link": "https://developer.mozilla.org/es/docs/Web/HTTP/Status/429"
+      };
+    default:
+      return {
+        "message": "Error al buscar resultados",
+        "link": `https://developer.mozilla.org/es/docs/Web/HTTP/Status/${error}`
+      };
+  }
+}
+
 export default HeroesSearch;
