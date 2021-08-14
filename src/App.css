@@ -1,3 +1,16 @@
+#imageLogo {
+  display: inline;
+  width: 32px;
+  /* filter: invert(1); */
+  margin: -2px -5px 0 -32px;  
+  padding: 0;
+}
+
+#loginTitle {
+  display: inline;
+  text-align: center;
+}
+
 #loginButton {
   margin-top: 20px;
   margin-right: 30px;
