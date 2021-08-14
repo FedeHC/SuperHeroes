@@ -1,25 +1,40 @@
-
+// React-Bootstrap:
+import Button from "react-bootstrap/Button";
 
 function Footer() {
   return (
     <div id="footerDiv">
       <ul>
-        <li>App creada Por FedeHC para <a href="https://github.com/FedeHC/SuperHeroes"
-                                          target="_blank"
-                                          rel="noreferrer">Alkemy Challenge Frontend</a></li>
+        {/* 1° linea */}
         <li>
-          Icons made by <a href="https://www.freepik.com"
-                          title="Freepik"
-                          target="_blank"
-                          rel="noreferrer">Freepik
-          </a> from <a href="https://www.flaticon.com/"
-                      title="Flaticon"
-                      target="_blank"
-                      rel="noreferrer">www.flaticon.com</a>
+          <span>App creada Por FedeHC para</span>
+          <Button variant="link"
+                  size="sm"
+                  href="https://github.com/FedeHC/SuperHeroes"
+                  title="[GitHub] FedeHC- SuperHeroes "
+                  target="_blank"
+                  rel="noreferrer">Alkemy Challenge Frontend</Button>
         </li>
 
+        {/* 2° linea */}
+        <li>
+          <span>Icons made by</span>
+          <Button variant="link"
+                  size="sm"
+                  href="https://www.freepik.com"
+                  title="Freepik"
+                  target="_blank"
+                  rel="noreferrer">Freepik</Button>
+          <span>from</span>
+          <Button variant="link"
+                  size="sm"
+                  href="https://www.flaticon.com/"
+                  title="Flaticon"
+                  target="_blank"
+                  rel="noreferrer">www.flaticon.com</Button>
+        </li>
       </ul>
-      <br /><br />
+      <br />
     </div>
   );
 }
