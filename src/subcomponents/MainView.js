@@ -2,10 +2,14 @@
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Image from "react-bootstrap/Image";
 
 // Subcomponentes:
 import AccumulativeStats from './AccumulativeStats';
 import HeroeView from './HeroView';
+
+// Otros:
+import logo from "../assets/images/superhero-64.png";
 
 
 // JSX:
@@ -18,7 +22,15 @@ function MainView({ heroes,
       <Row>      
         <Col xs={12}>
           <Row id="mainView">
-            <h1 id="mainTitle">[Armá tu equipo de SuperHéroes]</h1>
+            {/* Logo y Título */}
+            <div className="text-center">
+              <Image src={logo}
+                     id="imageLogo"
+                     alt="Logo" />
+
+              <h1 id="mainTitle">[Armá tu equipo de SuperHéroes]</h1>
+              <br /><br />
+            </div>
             
             {/* Powerstats grupales del equipo */}
             <AccumulativeStats heroes={heroes} />
