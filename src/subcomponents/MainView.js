@@ -18,7 +18,7 @@ function MainView({ heroes,
       <Row>      
         <Col xs={12}>
           <Row id="mainView">
-            <h1 id="mainTitle">[El equipo de SuperHéroes]</h1>
+            <h1 id="mainTitle">[Armá tu equipo de SuperHéroes]</h1>
             
             {/* Powerstats grupales del equipo */}
             <AccumulativeStats heroes={heroes} />
