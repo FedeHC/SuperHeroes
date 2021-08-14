@@ -16,11 +16,15 @@ function HeroesSearch({ heroes,
                         searchResults,
                         addHeroHandler }) {
    
+  let response; // Variable a usar para obtener objeto de respuesta desde función auxiliar.
+
   // JSX:
   return (
     <Container fluid>
       <Row id="heroesGridView">      
         <Col xs={12} md={{span: 10, offset: 1}}>
+          <h1 id="searchFormTitle">[Agregar un Héroe]</h1>
+          <br />
           
           {/* Formulario de búsqueda (input y botones) */}
           <SearchForm getMainViewHandler={getMainViewHandler}
