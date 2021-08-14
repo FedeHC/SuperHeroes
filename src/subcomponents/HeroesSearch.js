@@ -109,11 +109,15 @@ function HeroesSearch({ heroes,
     </Container>
   );
 }
-
+// Función auxiliar que toma 2 parámetros: el equipo de héroes agregados y un héroe buscado.
+// Se devuelve un booleano indicando el id del héroe ya está presente en el equipo.
 function isHeroAlreadyInTeam(heroes, hero) {
   return heroes.some( ( anyHero ) => anyHero?.id === hero.id);
 }
 
+// Función auxiliar que toma 3 parámetros: el equipo de héroes, un héroe nuevo a agregar y
+// la cantidad máxima de héroes permitidos por cada facción (buenos, malos, neutrales).
+// Se retorna booleano indicando si ha excedido el máx. por facción ya presentes en el equipo.
 function isFullOnGoodOrBadGuys(heroes, newHero, MAX_PER_FACTION ) {
   // Primero contamos la cantidad del mismo tipo ya presentes en nuestro equipo:
   let counter = 0;
@@ -128,6 +132,8 @@ function isFullOnGoodOrBadGuys(heroes, newHero, MAX_PER_FACTION ) {
   return false;
 }
 
+// Función auxiliar que toma un héroe por parámetro y retorna string (en español) indicando
+// la facción obtenida del mismo.
 function factionType(hero) {
   switch(hero.biography.alignment) {
     case "good":
@@ -143,6 +149,8 @@ function factionType(hero) {
   }
 }
 
+// Función auxiliar que recibe un string de error como parámetro y devuelve un objeto
+// conteniendo strings de mensaje y link de información.
 function checkErrorAndGiveAResponse(error) {
   switch(error) {
     case "character with given name not found":
