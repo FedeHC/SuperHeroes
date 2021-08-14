@@ -7,14 +7,14 @@ function AccumulativeStats({ heroes }) {
     <Col xs={12}>
       <Row className="accumulativeDiv">
         <Col xs={12} md={6}>
-          <p className="accumulativePowerStats">Powerstats acumulados:</p>
+          <p className="accumulativePowerStats">Powerstats acumulados de todos los miembros:</p>
           <ul className="accumulativePowerStats">
             {showAccumulativePowerstats(heroes)}
           </ul>
         </Col>
 
         <Col xs={12} md={6}>
-          <p className="accumulativePowerStats">Pesos y alturas acumulados:</p>
+          <p className="accumulativePowerStats">Pesos y alturas promedio del equipo:</p>
           <ul className="accumulativePowerStats">
             {showWeightHeightAverage(heroes)}
           </ul>
