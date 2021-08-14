@@ -3,6 +3,10 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Image from "react-bootstrap/Image";
+
+// Otros:
+import logo from "../assets/images/superhero-64.png";
 
 
 function HeroDetails({ hero, getMainViewHandler }) {
@@ -10,14 +14,19 @@ function HeroDetails({ hero, getMainViewHandler }) {
     <Container fluid>
       <Row>
         {/* Col con color de fondo según el alineamiento del heroe: */}
-        <Col xs={{span: 10, offset: 1}}
-             className={checkAlignmentHero(hero) + " heroDetails"}>
-          
+        <Col xs={{span: 10, offset: 1}} className={checkAlignmentHero(hero) + " heroDetails"}>
           <Row>
             <Col xs={12}>
-              {/* Título */}
-              <h1 id="heroDetailsTitle">[Detalles del Heroe]</h1>
-              <br />
+              {/* Logo y Título */}
+              <div className="text-center">
+                <Image src={logo}
+                      id="imageLogo"
+                      alt="Logo" />
+
+                <h1 id="heroDetailsTitle">[Detalles del Heroe]</h1>
+                <br /><br />
+              </div>
+
               {/* Nombre */}
               <h1>Nombre: <span className="heroName">{hero.name}</span></h1>
             </Col>
