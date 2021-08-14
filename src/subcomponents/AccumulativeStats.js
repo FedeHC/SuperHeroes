@@ -43,7 +43,9 @@ function showAccumulativePowerstats(heroes) {
        // Primero acumulando powerstats:
       Object.entries(hero.powerstats)
             .map( ([trait, value]) =>
-              factionPowerstats[trait] += parseInt(value))
+              // 'parseInt' toma a cont. los primeros números y descarta cualquier string
+              // restante. Pero es necesario parsear a cero (0) si se recibe 'null'.
+              factionPowerstats[trait] += (value === "null" ? 0 : parseInt(value)))
     }
   });
   
@@ -54,12 +56,8 @@ function showAccumulativePowerstats(heroes) {
            .sort( ([,a],[,b]) => b - a )      // Pasando función de ordenamiento a sort.
            .map( ([trait, value], index) =>   // Mapeando a elementos <li>, con rasgos y valores.
               <li key={index}>
-                {index === 0 &&
-                  <span className="firstPowerstat">{trait}: {value}</span>
-                }
-                {index > 0 &&
-                  <span>{trait}: {value}</span>
-                }
+                {index === 0 && <span className="firstPowerstat">{trait}: {value}</span>}
+                {index > 0 && <span>{trait}: {value}</span>}
               </li>)
     }
     </>
@@ -78,8 +76,12 @@ function showWeightHeightAverage(heroes) {
       let height = hero.appearance.height[1];
       let weight = hero.appearance.weight[1];
 
-      heightsTotal.push(parseInt(height));  // No es necesario sacar 'kg' (parseInt solo toma números).
-      weightsTotal.push(parseInt(weight));  // No es necesario sacar 'cm' (parseInt solo toma números).
+      // Agregando valores obtenidos por API a sus respectivos arrays.
+      // No hace falta quitar 'kg' o 'cm' de los strings recibidos porque 'parseInt'
+      // toma solamente los primeros números (y descarta cualquier string restante).
+      // Pero si es necesario parsear a cero (0) si algún string recibido es 'null'.
+      heightsTotal.push(height === "null" ? 0 : parseInt(height)); 
+      weightsTotal.push(weight === "null" ? 0 : parseInt(weight));
     }
   });
   
