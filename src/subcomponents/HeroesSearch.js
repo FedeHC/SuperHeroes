@@ -167,7 +167,7 @@ function checkErrorAndGiveAResponse(error) {
       };
     case 429:
       return {
-        "message": "Se ha excedido del máx. de búsquedas permitidas por minuto, intente más tarde",
+        "message": "Se ha excedido del máx. de búsquedas permitidas por hora, intente más tarde",
         "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
       };
     case undefined:
