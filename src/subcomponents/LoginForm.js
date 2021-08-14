@@ -4,10 +4,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 
-// Formik/Yup:
+// Librerías y demás:
 import { Formik } from "formik";
 import * as yup from "yup";
+import logo from "../assets/images/superhero-64.png";
 
 
 function LoginForm({ getTokenHandler, errorMessage }) {
@@ -28,7 +30,14 @@ function LoginForm({ getTokenHandler, errorMessage }) {
         {/* Columna con contenido */}
         <Col xs={{span: 8, offset: 2}} md={{span: 6, offset: 3}} xl={{span: 4, offset: 4}}>
           <div id="loginDiv">
-            <h1 className="text-center">[ Login ]</h1>
+            {/* Logo y Título */}
+            <div className="text-center">
+              <Image src={logo}
+                    id="imageLogo"
+                    alt="Logo" />
+
+              <h1 id="loginTitle">[ Login ]</h1>
+            </div>
             <br />
 
             {/* Mensaje de error, si se envía previamente credenciales incorrectas */}
@@ -88,8 +97,6 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                 </Form>
               )}
             </Formik>
-
-            <br />
           </div>
         </Col>
       </Row>
