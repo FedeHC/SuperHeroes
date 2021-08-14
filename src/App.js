@@ -15,7 +15,6 @@ import Footer from "./subcomponents/Footer";
 import axios from "axios";
 import ApiToken from "./api.json";
 
-
 // URLS:
 const URL_ALKEMY = "http://challenge-react.alkemy.org";                   // Para obtener token.
 const URL_CORS = "https://cors-anywhere.herokuapp.com";                   // Para sortear problema CORS en desarrollo.
