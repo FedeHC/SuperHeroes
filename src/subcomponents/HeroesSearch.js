@@ -86,38 +86,19 @@ function HeroesSearch({ heroes,
             </Table>
           }
 
-          {/* Mensajes de error (si NO hubo resultados) */}
-          {searchResults && searchResults.error &&
+          {/* Mensajes de error */}
+          {searchResults && searchResults.response === "error" &&
             <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
-              {/* El nombre no trajo resultados */}
-              {searchResults.error === "character with given name not found" &&
-                <p id="searchErrorMessage">No se obtuvo resultados con ese nombre.</p>
-              }
-              
-              {/* Error CORS */}
-              {searchResults.status === "CORS" &&
-                <p id="searchErrorMessage">Error al buscar resultados 
-                  (Error <a href="https://developer.mozilla.org/es/docs/Web/HTTP/CORS/Errors/CORSMissingAllowOrigin"
-                            target="_blank"
-                            rel="noreferrer">CORS</a>).
-                </p>
-              }
 
-              {/* Error númerico (404, 429, 403, etc.) */}
-              {Number.isInteger(searchResults.error) &&
-                searchResults.error === 429 ?
-                <p id="searchErrorMessage">Se ha excedido de la cantidad máx. de búsquedas permitidas por minuto
-                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}
-                            target="_blank"
-                            rel="noreferrer">{searchResults.error}</a>).
-                  <br /><br />
-                  Por favor intente más tarde.
-                </p>
-                :
-                <p id="searchErrorMessage">Error al buscar resultados 
-                  (Error <a href={"https://developer.mozilla.org/es/docs/Web/HTTP/Status/" + searchResults.error}
-                            target="_blank"
-                            rel="noreferrer">{searchResults.error}</a>).
+              {response = checkErrorAndGiveAResponse(searchResults.error),
+                <p id="searchErrorMessage">{response.message}
+                  {response.link &&
+                    <a href={response.link}
+                       target="_blank"
+                       rel="noreferrer">{` (error ${searchResults.error})`}
+                    </a>
+                  }
+                  <span>.</span>
                 </p>
               }
             </Col>
