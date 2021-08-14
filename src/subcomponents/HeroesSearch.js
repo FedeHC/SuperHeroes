@@ -16,7 +16,9 @@ function HeroesSearch({ heroes,
                         searchResults,
                         addHeroHandler }) {
    
-  let response; // Variable a usar para obtener objeto de respuesta desde función auxiliar.
+  // Si se recibe error en resultados de búsqueda, obtener strings de mensaje y link 
+  // para mostrar a usuario:
+  let response = checkErrorAndGiveAResponse(searchResults?.error);
 
   // JSX:
   return (
@@ -90,7 +92,7 @@ function HeroesSearch({ heroes,
           {searchResults && searchResults.response === "error" &&
             <Col xs={{ span: 10, offset: 1 }} md={{ span: 8, offset: 2 }} xl={{ span: 6, offset: 3 }}>
 
-              {response = checkErrorAndGiveAResponse(searchResults.error),
+              {response &&
                 <p id="searchErrorMessage">{response.message}
                   {response.link &&
                     <a href={response.link}
