@@ -90,8 +90,8 @@ function showWeightHeightAverage(heroes) {
   // JSX:
   return (
     <>
-      <li>Altura promedio: <b>{heightsAverage ? heightsAverage.toFixed(2) : 0 } cm.</b></li>
-      <li>Peso promedio: <b>{weightsAverage ? weightsAverage.toFixed(2) : 0} kg.</b></li>
+      <li>Altura promedio: <b>{heightsAverage ? heightsAverage.toFixed(0) : 0 } cm.</b></li>
+      <li>Peso promedio: <b>{weightsAverage ? weightsAverage.toFixed(0) : 0} kg.</b></li>
     </>
   );
 }
