@@ -168,8 +168,11 @@ function checkErrorAndGiveAResponse(error) {
     case 429:
       return {
         "message": "Se ha excedido del máx. de búsquedas permitidas por minuto, intente más tarde",
-        "link": "https://developer.mozilla.org/es/docs/Web/HTTP/Status/429"
+        "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429"
       };
+    case undefined:
+    case null:
+      return undefined;
     default:
       return {
         "message": "Error al buscar resultados",
