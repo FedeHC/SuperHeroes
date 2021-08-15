@@ -13,13 +13,13 @@ import Footer from "./subcomponents/Footer";
 
 // Librerías y demás:
 import axios from "axios";
-import ApiToken from "./api.json";
+import extra from "./aux.json";
 
 // URLS:
-const URL_ALKEMY = "http://challenge-react.alkemy.org";                   // Para obtener token.
-const URL_CORS = "https://cors-anywhere.herokuapp.com";                   // Para sortear problema CORS en desarrollo.
-const URL_SH = "https://superheroapi.com";                                // API de consulta.
-const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${ApiToken.value}/search/`; // URL completa de base para buscar.
+const URL_ALKEMY = "http://challenge-react.alkemy.org";                       // Para obtener token.
+const URL_CORS = "https://cors-anywhere.herokuapp.com";                       // Para sortear problema CORS en desarrollo.
+const URL_SH = "https://superheroapi.com";                                    // API de consulta.
+const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; // URL completa de base para buscar.
 
 // Constantes:
 const MAX_PER_FACTION = 3;
@@ -250,7 +250,7 @@ function App() {
       {view.hasToken && view.inHeroDetails &&
         <>
           <LoginButton email={view.userEmail}
-                       setlogOutHandlerView={logOutHandler} />
+                       logOutHandler={logOutHandler} />
 
           <HeroDetails hero={heroes[view.heroPosition]}
                        getMainViewHandler={getMainViewHandler} />
