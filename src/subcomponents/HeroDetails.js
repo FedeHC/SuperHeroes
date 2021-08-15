@@ -130,10 +130,12 @@ function checkAlignmentHero(hero) {
 function showHeroPowerstats(hero) {
   return Object.entries(hero.powerstats)
                .map( ([power, value], index) => (
-                  <li key={index}>
-                    {power}:
-                    <b>{value === "null" ? "---" : value}</b> {/* Algunos valores pueden llegar 'null'. */}
-                  </li>
+                    <span key={index}>
+                      <Badge bg="dark">{power}<span> </span>
+                        <Badge bg="secondary">{value === "null" ? "---" : value}</Badge> {/* Algunos valores pueden llegar 'null'. */}
+                      </Badge>
+                      <span> </span>
+                    </span>
                ));
 }
 
@@ -142,11 +144,10 @@ function showHeroPowerstats(hero) {
 function showHeroAliases(hero) {
   return hero.biography.aliases.map( (alias, index) =>
     <li key={index}>
-      <i>
-        {/* Algunos alias pueden llegar con varios adentro, separados por coma o punto y coma.*/}
-        {alias.split(/,|;/).map( (base, index) => 
-          <span key={index}>{base}<br /></span>)}
-      </i>
+      {/* Algunos alias pueden llegar con varios adentro, separados por coma o punto y coma.*/}
+      {alias.split(/,|;/).map( (base, index) => 
+        <h5><Badge bg="secondary" key={index}>{base}</Badge></h5>
+      )}
     </li>);
 }
 
@@ -155,9 +156,8 @@ function showHeroAliases(hero) {
 function showWorkBases(hero) {
   return hero.work.base.split(/,|;/)
                        .map( (base, index) =>
-                         <li key={index}>
-                           <i>{base}</i>
-                         </li>);
+                       <h5><Badge bg="secondary" key={index}>{base}</Badge></h5>
+                       );
 }
 
 export default HeroDetails;
