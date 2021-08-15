@@ -47,7 +47,7 @@
   text-align: center;
 }
 
-#mainTitle, #heroDetailsTitle {
+#mainTitle, #heroDetailsTitle, #searchFormTitle {
   display: inline;
 }
 
@@ -59,6 +59,7 @@
 
 .accumulativePowerStats{
   font-size: 16px;
+  font-weight: bolder;
 }
 
 .heroView {
