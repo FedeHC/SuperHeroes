@@ -4,9 +4,13 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
 
 // Subcomponentes:
 import SearchForm from "./SearchForm";
+
+// Otros:
+import logo from "../assets/images/superhero-64.png";
 
 
 function HeroesSearch({ heroes,
@@ -25,8 +29,15 @@ function HeroesSearch({ heroes,
     <Container fluid>
       <Row id="heroesGridView">      
         <Col xs={12} md={{span: 10, offset: 1}}>
-          <h1 id="searchFormTitle">[Agregar un Héroe]</h1>
-          <br />
+          {/* Logo y Título */}
+          <div className="text-center">
+              <Image src={logo}
+                     id="imageLogo"
+                     alt="Logo" />
+
+              <h1 id="searchFormTitle">[Agregar un Héroe]</h1>
+              <br /><br />
+            </div>
           
           {/* Formulario de búsqueda (input y botones) */}
           <SearchForm getMainViewHandler={getMainViewHandler}
@@ -95,10 +106,13 @@ function HeroesSearch({ heroes,
               {response &&
                 <p id="searchErrorMessage">{response.message}
                   {response.link &&
-                    <a href={response.link}
-                       target="_blank"
-                       rel="noreferrer">{` (error ${searchResults.error})`}
-                    </a>
+                    <>
+                      <span> </span>
+                      <a href={response.link}
+                        target="_blank"
+                        rel="noreferrer">{`(error ${searchResults.error})`}
+                      </a>
+                    </>
                   }
                   <span>.</span>
                 </p>
