@@ -4,12 +4,16 @@ import Row from 'react-bootstrap/Row';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-// Formik/Yup:
+// Librerías:
+import { useHistory } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from "yup";
 
 
 function SearchForm({ getMainViewHandler, searchHeroHandler }) {
+  // Para usar hook 'useHistory' de react-router:
+  let history = useHistory();
+
   // Esquema para Yup (con restricciones):
   const schema = yup.object().shape({
     search: yup.string().min(2, "Debe tener al menos 2 o más caracteres.")
@@ -57,7 +61,7 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
                   <Button variant="outline-dark"
                           type="input"
                           size="lg"
-                          onClick={ () => getMainViewHandler()}
+                          onClick={ () => getMainViewHandler(history)}
                   >Volver a principal</Button>
                 </div>
 
