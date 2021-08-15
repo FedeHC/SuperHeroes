@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Badge from "react-bootstrap/Badge";
 import Image from "react-bootstrap/Image";
 
 // Otros:
@@ -23,7 +24,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
                       id="imageLogo"
                       alt="Logo" />
 
-                <h1 id="heroDetailsTitle">[Detalles del Heroe]</h1>
+                <h1 id="heroDetailsTitle">[Detalles del Héroe]</h1>
                 <br /><br />
               </div>
 
