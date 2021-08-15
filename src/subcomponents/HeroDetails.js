@@ -6,16 +6,20 @@ import Button from 'react-bootstrap/Button';
 import Badge from "react-bootstrap/Badge";
 import Image from "react-bootstrap/Image";
 
-// Otros:
+// Librerías y otros:
+import { useHistory } from "react-router-dom";
 import logo from "../assets/images/superhero-64.png";
 
 
 function HeroDetails({ hero, getMainViewHandler }) {
+  // Para usar hook 'useHistory' de react-router:
+  let history = useHistory();
+
   return (
     <Container fluid>
       <Row>
-        {/* Col con color de fondo según el alineamiento del heroe: */}
-        <Col xs={{span: 10, offset: 1}} className={checkAlignmentHero(hero) + " heroDetails"}>
+        {/* Color de fondo según el alineamiento del heroe: */}
+        <Col xs={{span: 10, offset: 1}} className={hero.biography.alignment + "Hero heroDetails"}>
           <Row>
             <Col xs={12}>
               {/* Logo y Título */}
@@ -97,7 +101,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
               <Button variant="outline-dark"
                           type="input"
                           size="lg"
-                          onClick={ () => getMainViewHandler()}
+                          onClick={ () => getMainViewHandler(history)}
               >Volver a principal</Button>
             </Col>            
           </Row>
