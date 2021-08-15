@@ -9,15 +9,17 @@ function AccumulativeStats({ heroes }) {
     <Col xs={12}>
       <Row className="accumulativeDiv">
         <Col xs={12}>
+          {/* Powerstats */}
           <span className="accumulativePowerStats">Powerstats del equipo:</span>
-          <p className="accumulativePowerStats">
+          <div className="accumulativePowerStats">
             {showAccumulativePowerstats(heroes)}
-          </p>
-
+          </div>
+          
+          {/* Promedios */}
           <span className="accumulativePowerStats">Promedios:</span>
-          <p className="accumulativePowerStats">
+          <div className="accumulativePowerStats">
             {showWeightHeightAverage(heroes)}
-          </p>
+          </div>
         </Col>
       </Row>
     </Col>
