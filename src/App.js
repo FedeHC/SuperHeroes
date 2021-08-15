@@ -73,23 +73,17 @@ function App() {
           ...state,
           userEmail: localStorage.getItem(EMAIL_KEY), // Obteniendo email desde localStorage, si existe.
           inMainView: true,       // Nueva vista actual.
-          inHeroesSearch: false,  // Valor necesario si se viene desde esa vista.
-          inHeroDetails: false,   // Valor necesario si se viene desde esa vista.
         };
       case SHOW_HEROES_SEARCH:
         return {
           ...state,
           inMainView: false,      // Valor necesario si se viene desde esa vista.
-          inHeroesSearch: true,   // Nueva vista actual.
-          inHeroDetails: false,   // Valor necesario si se viene desde esa vista.
           heroPosition: action.payload,
         };
       case SHOW_HERO_DETAILS:
         return {
           ...state,
           inMainView: false,      // Valor necesario si se viene desde esa vista.
-          inHeroesSearch: false,  // Valor necesario si se viene desde esa vista.
-          inHeroDetails: true,    // Nueva vista actual.
           heroPosition: action.payload
         };
       default:
@@ -103,8 +97,6 @@ function App() {
     hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,    // Obteniendo token desde localStorage, si existe.
     hasError: null,
     inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,  // Seteando vista a 'true' si existe token en localStorage.
-    inHeroesSearch: null,
-    inHeroDetails: null,
     heroPosition: null
   };
 
