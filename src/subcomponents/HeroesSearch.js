@@ -9,7 +9,8 @@ import Image from "react-bootstrap/Image";
 // Subcomponentes:
 import SearchForm from "./SearchForm";
 
-// Otros:
+// Librerías y otros:
+import { useHistory } from "react-router-dom";
 import logo from "../assets/images/superhero-64.png";
 
 
@@ -19,6 +20,9 @@ function HeroesSearch({ heroes,
                         searchHeroHandler,
                         searchResults,
                         addHeroHandler }) {
+
+  // Para usar hook 'useHistory' de react-router:
+  let history = useHistory();
    
   // Si se recibe error en resultados de búsqueda, obtener strings de mensaje y link 
   // para mostrar a usuario:
@@ -89,7 +93,7 @@ function HeroesSearch({ heroes,
                         <Button variant="outline-primary"
                                   type="input"
                                   size="lg"
-                                  onClick={ () => addHeroHandler(index) }
+                                  onClick={ () => addHeroHandler(index, history) }
                           >Agregar al equipo</Button>
                       }
                     </td>
