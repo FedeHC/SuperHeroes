@@ -3,12 +3,19 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Badge from "react-bootstrap/Badge";
 
+// Librerías:
+import { useHistory } from "react-router-dom";
+
 
 function HeroView({ index,
                     hero,
                     getHeroesSearch,
                     deleteHeroHandler,
                     getHeroDetailsHandler }) {
+  
+  // Para usar hook 'useHistory' de react-router:
+  let history = useHistory();
+
   return (
     <Col xs={12} md={6} lg={4}>
       {/* CON HEROE */}
@@ -34,7 +41,7 @@ function HeroView({ index,
           <div className="d-grid gap-2">
             <Button variant="outline-primary"
                     size="lg"
-                    onClick={ () => getHeroDetailsHandler(index) }>Detalles</Button>
+                    onClick={ () => getHeroDetailsHandler(index, history) }>Detalles</Button>
                     
             <Button variant="outline-danger"
                     size="lg"
@@ -61,7 +68,7 @@ function HeroView({ index,
             <Button variant="outline-success"
                     size="lg"
                     type="input"
-                    onClick={ () => getHeroesSearch(index)}>Agregar al equipo</Button>
+                    onClick={ () => getHeroesSearch(index, history)}>Agregar al equipo</Button>
           </div>
         </div>
       }
