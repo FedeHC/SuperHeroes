@@ -112,23 +112,6 @@ function HeroDetails({ hero, getMainViewHandler }) {
   );
 }
 
-// Función auxiliar que toma un héroe como parámetro y retorna un string para usar de
-// estilo en Col:
-function checkAlignmentHero(hero) {
-  switch(hero.biography.alignment) {
-    case "good":
-      return "goodHero";
-    case "bad":
-      return "badHero";
-    case "neutral":
-      return "neutralHero";
-    case "":
-      return "neutralHero";
-    default:
-      return "";
-  }
-}
-
 // Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
 // con clave y valor (en negrita) por cada powerstat:
 function showHeroPowerstats(hero) {
