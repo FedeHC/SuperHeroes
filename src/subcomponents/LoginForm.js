@@ -80,15 +80,13 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  {/* Mensaje de error, si se envía email y/o contraseña incorrectas */}
+                  {/* Mensaje de error: */}
                   {errorMessage &&
-                    <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas.</p>
+                    <p id="errorMessage">{checkErrorAndGiveAResponse(errorMessage)}</p>
                   }
 
                   {/* Si no hay mensaje de error, simplemente agregar salto. */}
-                  {!errorMessage && 
-                    <br />
-                  }
+                  {!errorMessage && <br />}
                   
                   {/* Boton Enviar */}
                   <div className="text-left">
