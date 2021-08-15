@@ -40,11 +40,6 @@ function LoginForm({ getTokenHandler, errorMessage }) {
             </div>
             <br />
 
-            {/* Mensaje de error, si se envía previamente credenciales incorrectas */}
-            {errorMessage &&
-              <p id="errorMessage">El mail y/o la contraseña no son válidas. Intente nuevamente.</p>
-            }
-            
             {/* Componente Formik, necesario para formulario: */}
             <Formik validationSchema={schema}
                     onSubmit={getTokenHandler}
@@ -85,7 +80,15 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                     </Form.Control.Feedback>
                   </Form.Group>
 
-                  <br />
+                  {/* Mensaje de error, si se envía email y/o contraseña incorrectas */}
+                  {errorMessage &&
+                    <p id="errorMessage">El mail y/o la contraseña enviadas no son válidas.</p>
+                  }
+
+                  {/* Si no hay mensaje de error, simplemente agregar salto. */}
+                  {!errorMessage && 
+                    <br />
+                  }
                   
                   {/* Boton Enviar */}
                   <div className="text-left">
@@ -97,6 +100,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                 </Form>
               )}
             </Formik>
+            
           </div>
         </Col>
       </Row>
