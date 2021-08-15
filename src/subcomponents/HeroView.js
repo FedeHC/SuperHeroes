@@ -1,6 +1,7 @@
 // React-Bootstrap:
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Badge from "react-bootstrap/Badge";
 
 
 function HeroView({ index,
@@ -9,7 +10,7 @@ function HeroView({ index,
                     deleteHeroHandler,
                     getHeroDetailsHandler }) {
   return (
-    <Col xs={12} sm={6} lg={4} xl={3}>
+    <Col xs={12} md={6} lg={4}>
       {/* CON HEROE */}
       {hero &&
         // Div con color de fondo según el alineamiento del heroe:
@@ -17,7 +18,7 @@ function HeroView({ index,
 
           {/* Posición y Nombre: */}
           <div className="text-center">
-            <p className="heroPosition">[ {index+1} ]</p>
+            <h5><Badge bg="dark">[ {index+1} ]</Badge></h5>
             <h1 className="heroName">{hero.name}</h1>
           </div>
 
@@ -25,10 +26,8 @@ function HeroView({ index,
           <img src={hero.image.url} className="heroImage" alt=""></img>
 
           {/* Powerstats: */}
-          <p className="powerStatsTitle">Powerstats:</p>            
-          <ul className="powerStats">
-            {showHeroPowerstats(hero)}
-          </ul>
+          <p className="powerStatsTitle">Powerstats:</p>
+          <h4>{showHeroPowerstats(hero)}</h4>
           <br />
 
           {/* Botones de opciones: */}
@@ -49,7 +48,7 @@ function HeroView({ index,
         <div className="heroView">
           {/* Título vacío: */}
           <div className="text-center">
-            <p className="heroPosition">[ {index+1} ]</p>
+            <h5><Badge bg="dark">[ {index+1} ]</Badge></h5>
             <h1 className="heroName">[ Vacante ]</h1>
           </div>
 
@@ -92,10 +91,12 @@ function checkAlignmentHero(hero) {
 function showHeroPowerstats(hero) {
   return Object.entries(hero.powerstats)
                .map( ([power, value], index) => (
-                  <li key={index}>
-                    <span>{power}: </span>
-                    <b>{value === "null" ? "---" : value}</b> {/* Algunos valores pueden llegar 'null'. */}
-                  </li>
+                    <span key={index}>
+                      <Badge bg="dark">{power}<span> </span>
+                        <Badge bg="secondary">{value === "null" ? "---" : value}</Badge> {/* Algunos valores pueden llegar 'null'. */}
+                      </Badge>
+                      <br />
+                    </span>
                ));
 }
 
