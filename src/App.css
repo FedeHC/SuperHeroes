@@ -27,9 +27,13 @@
   text-align: left;
 }
 
+#loginDiv {
+  margin-top: 90px;
+}
+
 #errorMessage {
   font-size: 16px;
-  color: lightcoral;
+  color: red;
 }
 
 #mainView, #heroesGridView {
