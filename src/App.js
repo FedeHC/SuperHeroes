@@ -58,7 +58,7 @@ function App() {
         return {
           ...state,
           hasToken: false,
-          hasError: true
+          hasError: action.payload,
         };
       case LOGOUT:
         localStorage.removeItem(TOKEN_KEY); // Borrando token en localStorage.
@@ -129,14 +129,11 @@ function App() {
           setView({ type: SHOW_MAINVIEW });
         }
       }
-      // Si se recibe error 401 es por no haber sido autorizado correctamente,
-      // sea porque el mail y/o contraseña enviadas no son válidas.
+      // Si se recibe error (401, 403, etc.), tomar tipo de error y permanece en vista 'Login':
       catch (error) {
-        if (error.response.status === 401) {
-          setView({ type: LOGIN_ERROR }); // Se permanece en vista 'Login', pero se envía mensaje de error.
+        if (error.response.status) {
+          setView({ type: LOGIN_ERROR, payload: error.response.status });
         }
-        
-        // En cualquier otro caso, se permanece en vista 'Login' sin realizar acción alguna.
       }
     }
   };
