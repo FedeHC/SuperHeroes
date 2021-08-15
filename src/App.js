@@ -23,8 +23,8 @@ const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; //
 
 // Constantes:
 const MAX_PER_FACTION = 3;
-const TOKEN_KEY = "Alkemy-token";
-const EMAIL_KEY = "Email-user";
+const TOKEN_KEY = "alkemy_token";
+const EMAIL_KEY = "alkemy_email";
 const LOGIN_OK = "LOGIN_OK";
 const LOGIN_ERROR = "LOGIN_ERROR";
 const LOGOUT = "LOGOUT";
