@@ -133,7 +133,7 @@ function showHeroAliases(hero) {
     <li key={index}>
       {/* Algunos alias pueden llegar con varios adentro, separados por coma o punto y coma.*/}
       {alias.split(/,|;/).map( (base, index) => 
-        <h5><Badge bg="secondary" key={index}>{base}</Badge></h5>
+        <h5 key={index}><Badge bg="secondary">{base}</Badge></h5>
       )}
     </li>);
 }
@@ -143,7 +143,7 @@ function showHeroAliases(hero) {
 function showWorkBases(hero) {
   return hero.work.base.split(/,|;/)
                        .map( (base, index) =>
-                       <h5><Badge bg="secondary" key={index}>{base}</Badge></h5>
+                       <h5 key={index}><Badge bg="secondary">{base}</Badge></h5>
                        );
 }
 
