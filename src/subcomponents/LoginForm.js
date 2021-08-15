@@ -108,4 +108,25 @@ function LoginForm({ getTokenHandler, errorMessage }) {
   );
 }
 
+// Función auxiliar que recibe un string o entero de error como parámetro y devuelve un
+// string de mensaje de error para ser mostrado a usuario.
+function checkErrorAndGiveAResponse(error) {
+  switch(error) {
+    case 401:
+      return "El mail y/o la contraseña enviadas no son válidas (error 401).";
+    case 403:
+      return "Se enviaron los datos pero el servidor no autoriza el pedido (error 403)"
+    case 404:
+      return "No se encuentra el sitio (error 404)."
+    case 429:
+      return "Demasiadas solicitudes realizadas. Intente más tarde (error 429)."
+    case undefined:
+    case null:
+    case "":
+      return "Ha sucedido un error inesperado al enviar datos (error no recibido)."
+    default:
+      return `Ha sucedido un error inesperado al enviar datos (error ${error}).`;
+  }
+}
+
 export default LoginForm;
