@@ -174,6 +174,11 @@ function checkErrorAndGiveAResponse(error) {
         "message": "No se obtuvo ningún resultado con ese término",
         "link": null
       };
+    case "access denied":
+      return {
+        "message": "Se ha denegado el acceso al servicio, chequear token enviado",
+        "link": "https://www.superheroapi.com/"
+      };
     case "CORS":
       return {
         "message": "Error CORS",
