@@ -108,7 +108,6 @@
   height: max;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
-  border: 1px solid lightgrey;
   border-radius: 10px;
 }
 
