@@ -19,7 +19,7 @@ import extra from "./aux.json";
 const URL_ALKEMY = "http://challenge-react.alkemy.org";                       // Para obtener token.
 const URL_CORS = "https://cors-anywhere.herokuapp.com";                       // Para sortear problema CORS en desarrollo.
 const URL_SH = "https://superheroapi.com";                                    // API de consulta.
-const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; // URL completa de base para buscar.
+const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; // URL de base para realizar búsquedas de héroes.
 
 // Constantes:
 const MAX_PER_FACTION = 3;
@@ -44,7 +44,7 @@ function App() {
   // State que guarda temp. los resultados de búsquedas de héroes realizadas a la API:
   const [searchResults, setSearchResults] = useState(null);
 
-  // Función reducer, con switch que controla las acciones posibles según string recibido.
+  // Función reducer, con switch que controla las acciones posibles según string u objeto recibido:
   const viewReducer = (state, action) => {
     switch (action.type) {
       case LOGIN_OK:
