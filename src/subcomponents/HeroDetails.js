@@ -35,12 +35,10 @@ function HeroDetails({ hero, getMainViewHandler }) {
             <Col xs={12} md={6}>            
               {/* Imagen */}
               <img src={hero.image.url} className="heroDetailsImage" alt=""></img>
-
+              <br></br>
               {/* Powerstats */}
-              <p className="powerStatsTitle">Powerstats de {hero.name}:</p>            
-              <ul className="powerStats">
-                {showHeroPowerstats(hero)}
-              </ul>
+              <p className="heroDescription">Powerstats de {hero.name}:</p>            
+              <h5>{showHeroPowerstats(hero)}</h5>
             </Col>
 
             {/* Detalles del Héroe/Villano */}
@@ -48,20 +46,46 @@ function HeroDetails({ hero, getMainViewHandler }) {
               <h1 className="heroDescription">Detalles de {hero.name}:</h1>
               <ul className="powerStats">
                 <li>
-                  {hero.biography.aliases.length <= 1 ? "Alias:" : "Aliases:"}
-                  <ul>
-                    {showHeroAliases(hero)}
-                  </ul>
+                  <h5><Badge bg="dark">Alias</Badge></h5>
+                  <ul>{showHeroAliases(hero)}</ul>
+                </li>
+                <br />                
+                <li>
+                  <h5>
+                    <Badge bg="dark">Altura<span> </span>
+                    <Badge bg="secondary">{hero.appearance.height[1]}</Badge>
+                    </Badge>
+                    <span> </span>
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    <Badge bg="dark">Peso<span> </span>
+                    <Badge bg="secondary">{hero.appearance.weight[1]}</Badge>
+                    </Badge>
+                    <span> </span>
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    <Badge bg="dark">Color de ojos<span> </span>
+                    <Badge bg="secondary">{hero.appearance["eye-color"]}</Badge>
+                    </Badge>
+                    <span> </span>
+                  </h5>
+                </li>
+                <li>
+                  <h5>
+                    <Badge bg="dark">Color de cabello<span> </span>
+                    <Badge bg="secondary">{hero.appearance["hair-color"]}</Badge>
+                    </Badge>
+                    <span> </span>
+                  </h5>
                 </li>
                 <br />
-                
-                <li>Altura: <b>{hero.appearance.height[1]}.</b></li>
-                <li>Peso: <b>{hero.appearance.weight[1]}.</b></li>
-                <li>Color de ojos: <b>{hero.appearance["eye-color"]}</b></li>
-                <li>Color de cabello: <b>{hero.appearance["hair-color"]}</b></li>
-                <br />
 
-                <li>Lugares de trabajo: 
+                <li>
+                  <h5><Badge bg="dark">Lugares de trabajo</Badge></h5>
                   <ul>{showWorkBases(hero)}</ul>
                 </li>
               </ul>
@@ -69,7 +93,7 @@ function HeroDetails({ hero, getMainViewHandler }) {
 
             {/* Boton Volver */}
             <Col xs={12} className="text-center">
-              <br />
+              <br /><br />
               <Button variant="outline-dark"
                           type="input"
                           size="lg"
