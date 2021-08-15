@@ -51,16 +51,41 @@ function showAccumulativePowerstats(heroes) {
   
   // JSX:
   return (
-    <>
-    {Object.entries(factionPowerstats)
-           .sort( ([,a],[,b]) => b - a )      // Pasando función de ordenamiento a sort.
-           .map( ([trait, value], index) =>   // Mapeando a elementos <li>, con rasgos y valores.
-              <li key={index}>
-                {index === 0 && <span className="firstPowerstat">{trait}: {value}</span>}
-                {index > 0 && <span>{trait}: {value}</span>}
-              </li>)
-    }
-    </>
+    <h4>
+      {Object.entries(factionPowerstats)
+            .sort( ([,a],[,b]) => b - a )      // Pasando función de ordenamiento a sort.
+            .map( ([trait, value], index) =>   // Mapeando a elementos <li>, con rasgos y valores.
+                <span key={index}>
+                  {index === 0 &&
+                    <> {/* 1° Powerstat (rasgo distintivo del equipo) */}
+                      {value === 0 ?
+                        /* Si el mayor powerstat es cero, no cambiar colores (dejarlo igual que al resto) */
+                        <Badge bg="dark">{trait}<span> </span>
+                          <Badge bg="secondary">{value}</Badge>
+                        </Badge>
+                        :
+                        /* Si el mayor powerstat es mayor a cero, se cambian colores y se pone leyenda */
+                        <Badge bg="primary">{trait}<span> </span>
+                          <Badge bg="dark">{value}</Badge>
+                          <span> </span>
+                          <Badge pill bg="danger">¡Rasgo distintivo!</Badge>
+                        </Badge>
+                      }
+                      <span> </span>
+                    </>
+                  }
+                  {index > 0 && 
+                    <>  {/* Powerstats restantes */}
+                      <Badge bg="dark">{trait}<span> </span>
+                        <Badge bg="secondary">{value}</Badge>
+                      </Badge>
+                      <span> </span>
+                    </>
+                  }
+                </span>
+                )
+      }
+    </h4>
   );
 }
 
@@ -91,10 +116,16 @@ function showWeightHeightAverage(heroes) {
 
   // JSX:
   return (
-    <>
-      <li>Altura promedio: <b>{heightsAverage ? heightsAverage.toFixed(0) : 0 } cm.</b></li>
-      <li>Peso promedio: <b>{weightsAverage ? weightsAverage.toFixed(0) : 0} kg.</b></li>
-    </>
+    <h4>
+      <Badge bg="dark">Altura promedio<span> </span>
+        <Badge bg="secondary">{heightsAverage ? heightsAverage.toFixed(0) : 0 } cm.</Badge>
+      </Badge>
+
+      <span> </span>
+      <Badge bg="dark">Peso promedio<span> </span>
+        <Badge bg="secondary">{weightsAverage ? weightsAverage.toFixed(0) : 0} kg.</Badge>
+      </Badge>
+    </h4>
   );
 }
 
