@@ -1,23 +1,23 @@
 // React-Bootstrap:
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Badge from "react-bootstrap/Badge";
+
 
 function AccumulativeStats({ heroes }) {
   return (
     <Col xs={12}>
       <Row className="accumulativeDiv">
-        <Col xs={12} md={6}>
-          <p className="accumulativePowerStats">Powerstats acumulados de todos los miembros:</p>
-          <ul className="accumulativePowerStats">
+        <Col xs={12}>
+          <span className="accumulativePowerStats">Powerstats del equipo:</span>
+          <p className="accumulativePowerStats">
             {showAccumulativePowerstats(heroes)}
-          </ul>
-        </Col>
+          </p>
 
-        <Col xs={12} md={6}>
-          <p className="accumulativePowerStats">Pesos y alturas promedio del equipo:</p>
-          <ul className="accumulativePowerStats">
+          <span className="accumulativePowerStats">Promedios:</span>
+          <p className="accumulativePowerStats">
             {showWeightHeightAverage(heroes)}
-          </ul>
+          </p>
         </Col>
       </Row>
     </Col>
