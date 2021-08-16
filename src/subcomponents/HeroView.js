@@ -21,7 +21,7 @@ function HeroView({ index,
       {/* CON HEROE */}
       {hero &&
         // Div con color de fondo según el alineamiento del heroe:
-        <div className={checkAlignmentHero(hero) + " heroView"}>
+        <div className={hero.biography.alignment + "Hero heroView"}>
 
           {/* Posición y Nombre: */}
           <div className="text-center">
@@ -76,25 +76,8 @@ function HeroView({ index,
   );
 }
 
-// Función auxiliar que toma un héroe como parámetro y retorna un string para usar de
-// estilo en div:
-function checkAlignmentHero(hero) {
-  switch(hero.biography.alignment) {
-    case "good":
-      return "goodHero";
-    case "bad":
-      return "badHero";
-    case "neutral":
-      return "neutralHero";
-    case "":
-      return "neutralHero";
-    default:
-      return "";
-  }
-}
-
-// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios <li>,
-// con clave y valor (en negrita) por cada powerstat:
+// Función auxiliar que toma un héroe como parámetro y retorna un conjunto de varios 'Badge',
+// con nombre y valor de cada powerstat:
 function showHeroPowerstats(hero) {
   return Object.entries(hero.powerstats)
                .map( ([power, value], index) => (
