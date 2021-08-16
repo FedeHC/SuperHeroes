@@ -103,9 +103,9 @@ function showWeightHeightAverage(heroes) {
       let height = hero.appearance.height[1];
       let weight = hero.appearance.weight[1];
 
-      // Agregando valores obtenidos por API a sus respectivos arrays.
-      // No hace falta quitar 'kg' o 'cm' de los strings recibidos porque 'parseInt'
-      // toma solamente los primeros números (y descarta cualquier string restante).
+      // Agregando valores obtenidos por API a sus respectivos arrays. No hace falta
+      // quitar 'kg' o 'cm' de los strings recibidos porque 'parseInt' toma solamente los
+      // primeros números (y descarta cualquier string restante).
       // Pero si es necesario parsear a cero (0) si algún string recibido es 'null'.
       heightsTotal.push(height === "null" ? 0 : parseInt(height)); 
       weightsTotal.push(weight === "null" ? 0 : parseInt(weight));
