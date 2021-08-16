@@ -255,14 +255,14 @@ function App() {
         </Route>
 
         {/* Vista HeroDetails */}
-        <Route path="/details">
+        <Route path="/details/:member">
           {/* Si existe token, ir a 'HeroDetails' */}
           {view.hasToken ?
             <>
               <LoginButton email={view.userEmail}
                            logOutHandler={logOutHandler} />
 
-              <HeroDetails hero={heroes[view.heroPosition]}
+              <HeroDetails heroes={heroes}
                            getMainViewHandler={getMainViewHandler} />
               <Footer />
             </>
