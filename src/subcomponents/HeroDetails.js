@@ -7,19 +7,21 @@ import Badge from "react-bootstrap/Badge";
 import Image from "react-bootstrap/Image";
 
 // Librerías y otros:
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/images/superhero-64.png";
 
 
-function HeroDetails({ hero, getMainViewHandler }) {
+function HeroDetails({ heroes, getMainViewHandler }) {
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
+  let { member } = useParams();
 
   return (
     <Container fluid>
       <Row>
         {/* Color de fondo según el alineamiento del heroe: */}
-        <Col xs={{span: 10, offset: 1}} className={hero.biography.alignment + "Hero heroDetails"}>
+        <Col sm={12} md={{span: 10, offset: 1}} xl={{span: 8, offset: 2}}
+             className={heroes[member].biography.alignment + "Hero heroDetails"}>
           <Row>
             <Col xs={12}>
               {/* Logo y Título */}
