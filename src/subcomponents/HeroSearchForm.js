@@ -10,7 +10,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 
-function SearchForm({ getMainViewHandler, searchHeroHandler }) {
+function HeroSearchForm({ getMainViewHandler, searchHeroHandler }) {
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
 
@@ -75,4 +75,4 @@ function SearchForm({ getMainViewHandler, searchHeroHandler }) {
   );
 }
 
-export default SearchForm;
+export default HeroSearchForm;
