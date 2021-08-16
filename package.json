@@ -1,8 +1,8 @@
 {
   "name": "superheroes",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
-  "homepage": "https://fedehc.github.io/superheroes",
+  "homepage": "https://fedehc.github.io/SuperHeroes",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
