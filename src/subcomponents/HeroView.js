@@ -30,11 +30,13 @@ function HeroView({ index,
           </div>
 
           {/* Imagen: */}
-          <img src={hero.image.url} className="heroImage" alt=""></img>
+          <div className="heroImageDiv">
+            <img src={hero.image.url} className="heroImage" alt=""></img>
+          </div>
 
           {/* Powerstats: */}
           <p className="powerStatsTitle">Powerstats:</p>
-          <h4>{showHeroPowerstats(hero)}</h4>
+          <h5>{showHeroPowerstats(hero)}</h5>
           <br />
 
           {/* Botones de opciones: */}
