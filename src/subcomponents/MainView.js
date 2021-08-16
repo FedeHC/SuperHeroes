@@ -6,7 +6,7 @@ import Image from "react-bootstrap/Image";
 
 // Subcomponentes:
 import AccumulativeStats from './AccumulativeStats';
-import HeroeView from './HeroView';
+import HeroCard from './HeroCard';
 
 // Otros:
 import logo from "../assets/images/superhero-64.png";
@@ -14,9 +14,9 @@ import logo from "../assets/images/superhero-64.png";
 
 // JSX:
 function MainView({ heroes,
-                    getHeroesSearch,
+                    getSearchView,
                     deleteHeroHandler,
-                    getHeroDetailsHandler }) {
+                    getDetailsViewHandler }) {
   return (
     <Container fluid>
       <Row>      
@@ -37,12 +37,12 @@ function MainView({ heroes,
 
             {/* 6 vistas de heroes o vacantes */}
             {heroes.map( (hero, index) => (
-              <HeroeView key={index}
-                         index={index}
-                         hero={hero}
-                         getHeroesSearch={getHeroesSearch}
-                         deleteHeroHandler={deleteHeroHandler}
-                         getHeroDetailsHandler={getHeroDetailsHandler} />) )}
+              <HeroCard key={index}
+                        index={index}
+                        hero={hero}
+                        getSearchView={getSearchView}
+                        deleteHeroHandler={deleteHeroHandler}
+                        getDetailsViewHandler={getDetailsViewHandler} />) )}
           </Row>
         </Col>
       </Row>
