@@ -7,7 +7,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
 
 
-function LoginButton({ email, logOutHandler }) {
+function Nav({ email, logOutHandler }) {
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
   
@@ -29,4 +29,4 @@ function LoginButton({ email, logOutHandler }) {
   );
 }
 
-export default LoginButton;
+export default Nav;
