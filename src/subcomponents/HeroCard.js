@@ -7,11 +7,11 @@ import Badge from "react-bootstrap/Badge";
 import { useHistory } from "react-router-dom";
 
 
-function HeroView({ index,
+function HeroCard({ index,
                     hero,
-                    getHeroesSearch,
+                    getSearchView,
                     deleteHeroHandler,
-                    getHeroDetailsHandler }) {
+                    getDetailsViewHandler }) {
   
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
@@ -43,7 +43,7 @@ function HeroView({ index,
           <div className="d-grid gap-2">
             <Button variant="outline-primary"
                     size="lg"
-                    onClick={ () => getHeroDetailsHandler(index, history) }>Detalles</Button>
+                    onClick={ () => getDetailsViewHandler(index, history) }>Detalles</Button>
                     
             <Button variant="outline-danger"
                     size="lg"
@@ -70,7 +70,7 @@ function HeroView({ index,
             <Button variant="outline-success"
                     size="lg"
                     type="input"
-                    onClick={ () => getHeroesSearch(index, history)}>Agregar al equipo</Button>
+                    onClick={ () => getSearchView(index, history)}>Agregar al equipo</Button>
           </div>
         </div>
       }
@@ -92,4 +92,4 @@ function showHeroPowerstats(hero) {
                ));
 }
 
-export default HeroView;
+export default HeroCard;
