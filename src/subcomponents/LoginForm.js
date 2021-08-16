@@ -7,12 +7,16 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
 // Librerías y demás:
+import { useHistory } from "react-router-dom";
 import { Formik } from "formik";
 import * as yup from "yup";
 import logo from "../assets/images/superhero-64.png";
 
 
 function LoginForm({ getTokenHandler, errorMessage }) {
+  // Para usar hook 'useHistory' de react-router:
+  let history = useHistory();
+
   // Esquema para Yup (con restricciones):
   const schema = yup.object().shape({
     email: yup.string().min(4, "Debe tener 4 o más caracteres de largo.")
@@ -28,7 +32,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
     <Container fluid>
       <Row>
         {/* Columna con contenido */}
-        <Col xs={{span: 8, offset: 2}} md={{span: 6, offset: 3}} xl={{span: 4, offset: 4}}>
+        <Col md={{span: 8, offset: 2}} lg={{span: 6, offset: 3}} xxl={{span: 4, offset: 4}}>
           <div id="loginDiv">
             {/* Logo y Título */}
             <div className="text-center">
@@ -42,7 +46,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
 
             {/* Componente Formik, necesario para formulario: */}
             <Formik validationSchema={schema}
-                    onSubmit={getTokenHandler}
+                    onSubmit={(form)=> getTokenHandler(form, history)}
                     initialValues={{ email: "", password: "" }}
             >
               {({ handleSubmit, handleChange, values, errors }) => (
@@ -54,7 +58,7 @@ function LoginForm({ getTokenHandler, errorMessage }) {
                     <Form.Label>Email:</Form.Label>
                     <Form.Control type="email"
                                   name="email"
-                                  placeholder="Ingrese su email acá"
+                                  placeholder="Ingrese su email"
                                   size="lg"
                                   onChange={handleChange}
                                   value={values.email}                                  
