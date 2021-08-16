@@ -13,7 +13,7 @@ import * as yup from "yup";
 import logo from "../assets/images/superhero-64.png";
 
 
-function LoginForm({ getTokenHandler, errorMessage }) {
+function LoginView({ getTokenHandler, errorMessage }) {
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
 
@@ -131,4 +131,4 @@ function checkErrorAndGiveAResponse(error) {
   }
 }
 
-export default LoginForm;
+export default LoginView;
