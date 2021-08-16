@@ -135,14 +135,14 @@ function App() {
 
   // Handler para el botón de agregar héroe.
   // Se recibe índice con la posición del mismo dentro del equipo.
-  const getHeroesSearch = (index, history) => {
+  const getSearchView = (index, history) => {
     setView({type: SHOW_HEROES_SEARCH, payload: index  });
     history.push("/search");
   };
 
   // Handler para el botón de mostrar detalles de un héroe.
   // Se recibe índice con la posición del miembro.
-  const getHeroDetailsHandler = (member, history) => {
+  const getDetailsViewHandler = (member, history) => {
     history.push(`/details/${member}`);
   };
 
@@ -207,7 +207,7 @@ function App() {
           {/* Si no existe token, ir a 'Login': */}
           {!view.hasToken ?
             <>
-              <LoginForm getTokenHandler={getTokenHandler}
+              <LoginView getTokenHandler={getTokenHandler}
                          errorMessage={view.hasError} />
               <Footer />
             </>
@@ -222,13 +222,13 @@ function App() {
           {/* Si existe token, ir a 'Mainview' */}
           {view.hasToken ?
             <>
-              <LoginButton email={view.userEmail}
-                           logOutHandler={logOutHandler} />
+              <Nav email={view.userEmail}
+                   logOutHandler={logOutHandler} />
 
               <MainView heroes={heroes}
-                        getHeroesSearch={getHeroesSearch}
+                        getSearchView={getSearchView}
                         deleteHeroHandler={deleteHeroHandler}
-                        getHeroDetailsHandler={getHeroDetailsHandler} />
+                        getDetailsViewHandler={getDetailsViewHandler} />
               <Footer />
             </>
             // Si no existe token, ir a 'Login':
@@ -238,18 +238,18 @@ function App() {
 
         {/* Vista HeroGrid */}
         <Route path="/search">
-          {/* Si existe token, ir a 'HeroesSearch' */}
+          {/* Si existe token, ir a 'SearchView' */}
           {view.hasToken ?
             <>
-              <LoginButton email={view.userEmail}
-                           logOutHandler={logOutHandler} />
+              <Nav email={view.userEmail}
+                   logOutHandler={logOutHandler} />
 
-              <HeroesSearch heroes={heroes}
-                            MAX_PER_FACTION={MAX_PER_FACTION}
-                            getMainViewHandler={getMainViewHandler}
-                            searchHeroHandler={searchHeroHandler}
-                            searchResults={searchResults}
-                            addHeroHandler={addHeroHandler} />
+              <SearchView heroes={heroes}
+                          MAX_PER_FACTION={MAX_PER_FACTION}
+                          getMainViewHandler={getMainViewHandler}
+                          searchHeroHandler={searchHeroHandler}
+                          searchResults={searchResults}
+                          addHeroHandler={addHeroHandler} />
               <Footer />
             </>
             // Si no existe token, ir a 'Login':
@@ -257,15 +257,15 @@ function App() {
           }
         </Route>
 
-        {/* Vista HeroDetails */}
+        {/* Vista DetailsView */}
         <Route path="/details/:member">
-          {/* Si existe token, ir a 'HeroDetails' */}
+          {/* Si existe token, ir a 'DetailsView' */}
           {view.hasToken ?
             <>
-              <LoginButton email={view.userEmail}
-                           logOutHandler={logOutHandler} />
+              <Nav email={view.userEmail}
+                   logOutHandler={logOutHandler} />
 
-              <HeroDetails heroes={heroes}
+              <DetailsView heroes={heroes}
                            getMainViewHandler={getMainViewHandler} />
               <Footer />
             </>
