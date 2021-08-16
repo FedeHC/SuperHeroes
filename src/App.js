@@ -38,16 +38,16 @@ const SHOW_HEROES_SEARCH = "SHOW_HEROES_SEARCH";
 
 function App() {
   // --------------------------------------------------------------------------------
-  // Estados (states, reducers)
+  // States
   // --------------------------------------------------------------------------------
-  // State que guarda todos los datos de 6 héroes.
-  // A medida que el usuario agregue héroes, se guardarán con objetos obtenidos de la API.
-  const [heroes, setHeroes] = useState([null, null, null, null, null, null]);
+  // Hook personalizado que guardará todos los datos de los 6 miembros del equipo.
+  // El usuario agrega héroes y estos se guardan como objetos (obtenidos por API) al array:
+  const [heroes, setHeroes] = usePersistentState(MAX_MEMBERS, STATE_KEY);
   
-  // State que guarda temp. los resultados de búsquedas de héroes realizadas a la API:
+  // State que guarda temp. los resultados de búsquedas de héroes (objetos obtenidos por API):
   const [searchResults, setSearchResults] = useState(null);
 
-  // Función reducer, con switch que controla las acciones posibles según string u objeto recibido:
+  // Función reducer para useReducer:
   const viewReducer = (state, action) => {
     switch (action.type) {
       case LOGIN_OK:
@@ -86,7 +86,7 @@ function App() {
     };
   }
 
-  // Objeto inicial para reducer:
+  // Objeto con determinado estado inicial para useReducer:
   const viewObj = {
     userEmail: localStorage.getItem(EMAIL_KEY),                 // Obteniendo email desde localStorage, si existe.
     hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,    // Obteniendo token desde localStorage, si existe.
@@ -95,7 +95,7 @@ function App() {
     heroPosition: null
   };
 
-  // useReducer:
+  // useReducer que lleva el control de la transición a distintas vistas en la app:
   const [view, setView] = useReducer(viewReducer, viewObj);
 
   // --------------------------------------------------------------------------------
