@@ -11,7 +11,7 @@ import { useHistory, useParams } from "react-router-dom";
 import logo from "../assets/images/superhero-64.png";
 
 
-function HeroDetails({ heroes, getMainViewHandler }) {
+function DetailsView({ heroes, getMainViewHandler }) {
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
   let { member } = useParams();
@@ -149,4 +149,4 @@ function showWorkBases(hero) {
                        );
 }
 
-export default HeroDetails;
+export default DetailsView;
