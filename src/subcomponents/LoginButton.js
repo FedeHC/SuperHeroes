@@ -16,12 +16,11 @@ function LoginButton({ email, logOutHandler }) {
       <ButtonGroup>
         <DropdownButton as={ButtonGroup} title={email||""} variant="outline-light" id="bg-nested-dropdown">
           {/* Opciones falsas (deshabilitadas): */}
-          <Dropdown.Item eventKey="1" disabled>Perfil</Dropdown.Item>
-          <Dropdown.Item eventKey="2" disabled>Opciones</Dropdown.Item>
+          <Dropdown.Item eventKey="1" disabled>Opciones</Dropdown.Item>
           <Dropdown.Divider />
 
           {/* Cerrar sesión: */}
-          <Dropdown.Item eventKey="3"
+          <Dropdown.Item eventKey="2"
                          onClick={ () => logOutHandler(history)}>Cerrar sesión</Dropdown.Item>
 
         </DropdownButton>
