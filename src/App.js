@@ -101,7 +101,7 @@ function App() {
   
   // Handler para obtener token de validación por API.
   // Se recibe objeto con mail y contraseña para la validación y el logueo.
-  const getTokenHandler = async (formData) => {
+  const getTokenHandler = async (formData, history) => {
     if (formData) {
       try {
         // Envio de datos por POST a la API, enviando objeto con mail y contraseña:
@@ -138,10 +138,9 @@ function App() {
   };
 
   // Handler para el botón de mostrar detalles de un héroe.
-  // Se recibe índice con la posición del mismo dentro del equipo.
-  const getHeroDetailsHandler = (index, history) => {
-    setView({ type: SHOW_HERO_DETAILS, payload: index });
-    history.push("/details");
+  // Se recibe índice con la posición del miembro.
+  const getHeroDetailsHandler = (member, history) => {
+    history.push(`/details/${member}`);
   };
 
   // Handler para realizar búsquedas a la API 'SuperHeroes'.
