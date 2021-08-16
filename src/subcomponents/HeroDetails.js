@@ -35,31 +35,31 @@ function HeroDetails({ heroes, getMainViewHandler }) {
               </div>
 
               {/* Nombre */}
-              <h1>Nombre: <span className="heroName">{hero.name}</span></h1>
+              <h1>Nombre: <span className="heroName">{heroes[member].name}</span></h1>
             </Col>
 
             <Col xs={12} md={6}>            
               {/* Imagen */}
-              <img src={hero.image.url} className="heroDetailsImage" alt=""></img>
+              <img src={heroes[member].image.url} className="heroDetailsImage" alt=""></img>
               <br></br>
               {/* Powerstats */}
-              <p className="heroDescription">Powerstats de {hero.name}:</p>            
-              <h5>{showHeroPowerstats(hero)}</h5>
+              <p className="heroDescription">Powerstats de {heroes[member].name}:</p>            
+              <h5>{showHeroPowerstats(heroes[member])}</h5>
             </Col>
 
             {/* Detalles del Héroe/Villano */}
             <Col xs={12} md={6}>
-              <h1 className="heroDescription">Detalles de {hero.name}:</h1>
+              <h1 className="heroDescription">Detalles de {heroes[member].name}:</h1>
               <ul className="powerStats">
                 <li>
                   <h5><Badge bg="dark">Alias</Badge></h5>
-                  <ul>{showHeroAliases(hero)}</ul>
+                  <ul>{showHeroAliases(heroes[member])}</ul>
                 </li>
                 <br />                
                 <li>
                   <h5>
                     <Badge bg="dark">Altura<span> </span>
-                    <Badge bg="secondary">{hero.appearance.height[1]}</Badge>
+                    <Badge bg="secondary">{heroes[member].appearance.height[1]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
@@ -67,7 +67,7 @@ function HeroDetails({ heroes, getMainViewHandler }) {
                 <li>
                   <h5>
                     <Badge bg="dark">Peso<span> </span>
-                    <Badge bg="secondary">{hero.appearance.weight[1]}</Badge>
+                    <Badge bg="secondary">{heroes[member].appearance.weight[1]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
@@ -75,7 +75,7 @@ function HeroDetails({ heroes, getMainViewHandler }) {
                 <li>
                   <h5>
                     <Badge bg="dark">Color de ojos<span> </span>
-                    <Badge bg="secondary">{hero.appearance["eye-color"]}</Badge>
+                    <Badge bg="secondary">{heroes[member].appearance["eye-color"]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
@@ -83,7 +83,7 @@ function HeroDetails({ heroes, getMainViewHandler }) {
                 <li>
                   <h5>
                     <Badge bg="dark">Color de cabello<span> </span>
-                    <Badge bg="secondary">{hero.appearance["hair-color"]}</Badge>
+                    <Badge bg="secondary">{heroes[member].appearance["hair-color"]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
@@ -92,7 +92,7 @@ function HeroDetails({ heroes, getMainViewHandler }) {
 
                 <li>
                   <h5><Badge bg="dark">Lugares de trabajo</Badge></h5>
-                  <ul>{showWorkBases(hero)}</ul>
+                  <ul>{showWorkBases(heroes[member])}</ul>
                 </li>
               </ul>
             </Col>
