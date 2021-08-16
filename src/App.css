@@ -105,10 +105,15 @@
 
 .heroImage, .emptyImage {
   width: 100%;
-  height: max;
   margin-bottom: 20px;
   background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
+}
+
+.heroImageDiv {
+  margin-bottom: 10px;
+  max-height: 250px;
   border-radius: 10px;
+  overflow: hidden;  
 }
 
 .heroDetailsImage {
