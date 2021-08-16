@@ -7,19 +7,19 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 
 // Subcomponentes:
-import SearchForm from "./SearchForm";
+import HeroSearchForm from "./HeroSearchForm";
 
 // Librerías y otros:
 import { useHistory } from "react-router-dom";
 import logo from "../assets/images/superhero-64.png";
 
 
-function HeroesSearch({ heroes,
-                        MAX_PER_FACTION,
-                        getMainViewHandler,
-                        searchHeroHandler,
-                        searchResults,
-                        addHeroHandler }) {
+function SearchView({ heroes,
+                      MAX_PER_FACTION,
+                      getMainViewHandler,
+                      searchHeroHandler,
+                      searchResults,
+                      addHeroHandler }) {
 
   // Para usar hook 'useHistory' de react-router:
   let history = useHistory();
@@ -44,8 +44,8 @@ function HeroesSearch({ heroes,
             </div>
           
           {/* Formulario de búsqueda (input y botones) */}
-          <SearchForm getMainViewHandler={getMainViewHandler}
-                      searchHeroHandler={searchHeroHandler} />
+          <HeroSearchForm getMainViewHandler={getMainViewHandler}
+                          searchHeroHandler={searchHeroHandler} />
           <br />
 
           {/* Tabla (SI hubo resultados) */}
@@ -204,4 +204,4 @@ function checkErrorAndGiveAResponse(error) {
   }
 }
 
-export default HeroesSearch;
+export default SearchView;
