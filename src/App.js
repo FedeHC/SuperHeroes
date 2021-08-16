@@ -72,19 +72,11 @@ function App() {
         return {
           ...state,
           userEmail: localStorage.getItem(EMAIL_KEY), // Obteniendo email desde localStorage, si existe.
-          inMainView: true,       // Nueva vista actual.
         };
       case SHOW_HEROES_SEARCH:
         return {
           ...state,
-          inMainView: false,      // Valor necesario si se viene desde esa vista.
           heroPosition: action.payload,
-        };
-      case SHOW_HERO_DETAILS:
-        return {
-          ...state,
-          inMainView: false,      // Valor necesario si se viene desde esa vista.
-          heroPosition: action.payload
         };
       default:
         throw new Error("Valor imprevisto en action.type dentro de función viewReducer.");
