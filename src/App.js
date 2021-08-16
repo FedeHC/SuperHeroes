@@ -4,11 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 // Subcomponentes:
-import LoginButton from "./subcomponents/LoginButton";
-import LoginForm from "./subcomponents/LoginForm";
+import usePersistentState from "./subcomponents/PersistentState";
+import LoginView from "./subcomponents/LoginView";
 import MainView from "./subcomponents/MainView";
-import HeroesSearch from "./subcomponents/HeroesSearch";
-import HeroDetails from "./subcomponents/HeroDetails";
+import SearchView from "./subcomponents/SearchView";
+import DetailsView from "./subcomponents/DetailsView";
+import Nav from "./subcomponents/Nav";
 import Footer from "./subcomponents/Footer";
 
 // Librerías y demás:
