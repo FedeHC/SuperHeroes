@@ -13,13 +13,13 @@ import Footer from "./subcomponents/Footer";
 
 // Librerías y demás:
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route, Redirect, useHistory } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import extra from "./aux.json";
 
 // URLS:
-const URL_ALKEMY = "http://challenge-react.alkemy.org";                       // Para obtener token.
-const URL_CORS = "https://cors-anywhere.herokuapp.com";                       // Para sortear problema CORS en desarrollo.
-const URL_SH = "https://superheroapi.com";                                    // API de consulta.
+const URL_ALKEMY = "http://challenge-react.alkemy.org"; // Para obtener token.
+const URL_CORS = "https://cors-anywhere.herokuapp.com"; // Para sortear problema CORS en desarrollo.
+const URL_SH = "https://superheroapi.com";              // API de consulta.
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; // URL de base para realizar búsquedas de héroes.
 
 // Constantes:
