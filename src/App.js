@@ -24,7 +24,9 @@ const URL_SH = "https://superheroapi.com";              // API de consulta.
 const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`; // URL de base para realizar búsquedas de héroes.
 
 // Constantes:
+const MAX_MEMBERS = 6;
 const MAX_PER_FACTION = 3;
+const STATE_KEY = "alkemy_state";
 const TOKEN_KEY = "alkemy_token";
 const EMAIL_KEY = "alkemy_email";
 const LOGIN_OK = "LOGIN_OK";
