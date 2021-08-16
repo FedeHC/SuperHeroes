@@ -8,8 +8,7 @@ Mi nombre es **FedeHC** y busco participar del Challenge Frontend de Alkemy Labs
 
 Mi app se llama *SuperHeroes* y está desarrollada en React, empleando varias librerías solicitadas por el challenge, tales como [React Boostrap](https://react-bootstrap.github.io/), [Axios](https://axios-http.com/), [Formik](https://formik.org/) y [Yup](https://github.com/jquense/yup).
 
-Desde ya, la app se subirá al presente repositorio, del cual la app podrá ser descargada para ser examinada.
-
+![Imagen](https://raw.githubusercontent.com/FedeHC/SuperHeroes/master/src/assets/images/captura.png)
 
 ### Objetivo del challenge:
 
