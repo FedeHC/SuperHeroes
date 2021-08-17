@@ -31,7 +31,7 @@ function SearchView({ heroes,
   // JSX:
   return (
     <Container fluid>
-      <Row id="heroesGridView">      
+      <Row id="heroesGridView" className="emptyHero">      
         <Col xs={12} md={{span: 10, offset: 1}}>
           {/* Logo y Título */}
           <div className="text-center">
