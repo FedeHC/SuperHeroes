@@ -21,7 +21,7 @@ function MainView({ heroes,
     <Container fluid>
       <Row>      
         <Col xs={12}>
-          <Row id="mainView">
+          <Row id="mainView" className="emptyHero">
             {/* Logo y Título */}
             <div className="text-center">
               <Image src={logo}
