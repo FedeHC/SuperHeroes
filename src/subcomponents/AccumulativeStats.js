@@ -7,19 +7,14 @@ import Badge from "react-bootstrap/Badge";
 function AccumulativeStats({ heroes }) {
   return (
     <Col xs={12}>
-      <Row className="accumulativeDiv">
+      <Row className="accumulativeDiv emptyHero">
         <Col xs={12}>
           {/* Powerstats */}
-          <span className="accumulativePowerStats">Powerstats del equipo:</span>
-          <div className="accumulativePowerStats">
-            {showAccumulativePowerstats(heroes)}
-          </div>
-          
+          <span className="powerStatsTitle">Powerstats del equipo:</span>
+          <h4>{showAccumulativePowerstats(heroes)}</h4>
           {/* Promedios */}
-          <span className="accumulativePowerStats">Promedios:</span>
-          <div className="accumulativePowerStats">
-            {showWeightHeightAverage(heroes)}
-          </div>
+          <span className="powerStatsTitle">Promedios:</span>
+          <h4>{showWeightHeightAverage(heroes)}</h4>
         </Col>
       </Row>
     </Col>
