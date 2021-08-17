@@ -80,18 +80,23 @@
 }
 
 .goodHero {
-  border: 20px rgb(73, 177, 73) solid;
-  opacity: 0.9;
+  border: 10px rgb(73, 177, 73) double;
+  outline: 3px rgb(73, 177, 73) solid;
 }
 
 .badHero {
-  border: 20px rgb(192, 67, 67) solid;
-  opacity: 0.9;
+  border: 10px rgb(192, 67, 67) double;
+  outline: 3px rgb(192, 67, 67)  solid;
 }
 
 .neutralHero {
-  border: 20px rgb(104, 104, 104) solid;
-  opacity: 0.9;
+  border: 10px rgb(104, 104, 104) double;
+  outline: 3px rgb(104, 104, 104) solid;
+}
+
+.emptyHero {
+  border: 10px rgb(226, 226, 226) double;
+  outline: 3px rgb(226, 226, 226) solid;
 }
 
 .heroDetails {
