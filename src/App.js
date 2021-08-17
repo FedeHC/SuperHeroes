@@ -22,7 +22,7 @@ import extra from "./aux.json";
 // --------------------------------------------------------------------------------
 // URLS
 // Para sortear problema CORS en entorno de desarrollo:
-const URL_CORS =  "https://cors-anywhere.herokuapp.com/";
+const URL_CORS =  "https://cors-anywhere.herokuapp.com";
 // URL para obtener token en login:
 const URL_ALKEMY = "http://challenge-react.alkemy.org";
 // URL de consultas:
