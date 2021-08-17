@@ -27,4 +27,4 @@ Para más información acerca del challenge y de sus condiciones, ver el siguien
 
 ### Nota
 
-Esta demo online emplea un servicio para sortear el problema CORS, que requiere de habilitación por para usar la app. Para ello, basta con entrar al siguiente [link](https://cors-anywhere.herokuapp.com/corsdemo) y hacer clic en el botón correspondiente.</a>
+Esta demo online emplea un servicio para sortear el problema CORS, que requiere de habilitación para usar la app. Para ello, basta con entrar al siguiente [link](https://cors-anywhere.herokuapp.com/corsdemo) y hacer clic en el botón correspondiente.</a>
