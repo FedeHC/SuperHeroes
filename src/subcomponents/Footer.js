@@ -10,7 +10,7 @@ function Footer() {
     <Container fluid>
       <Row>
         <Col md={{span: 8, offset: 2}} lg={{span: 6, offset: 3}} xxl={{span: 4, offset: 4}}>
-          <div id="footerDiv">
+          <div id="footerDiv" className="emptyHero">
             {/* 1° linea */}
             <p>
               <span>Creado por FedeHC para el</span>
