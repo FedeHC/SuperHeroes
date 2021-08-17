@@ -20,10 +20,13 @@ import extra from "./aux.json";
 // --------------------------------------------------------------------------------
 // Constantes
 // --------------------------------------------------------------------------------
-// URL para sortear problema CORS en entorno de desarrollo:
+// URL que brinda servicio para sortear el problema CORS en entorno de desarrollo.
+// Si se quita, remover también de las otras 2 URLS:
 const URL_CORS =  "https://cors-anywhere.herokuapp.com";
+
 // URL para obtener token de autorización en login:
 const URL_ALKEMY = `${URL_CORS}/http://challenge-react.alkemy.org`;
+
 // URL para realizar las búsquedas de héroes:
 const URL_SH_API = `${URL_CORS}/https://superheroapi.com/api/${extra.access_token}/search/`;
 
