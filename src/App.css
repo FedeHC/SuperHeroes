@@ -111,7 +111,6 @@
 .heroImage, .emptyImage {
   width: 100%;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, rgb(189, 189, 189) 0%, #dbdbdb 100%) repeat;
 }
 
 .heroImageDiv {
@@ -129,7 +128,9 @@
 
 .emptyImage {
   width: max;
-  height: 250px
+  height: 250px;
+  border-radius: 10px;
+  background: darkgrey;
 }
 
 .searchFormGroup {
