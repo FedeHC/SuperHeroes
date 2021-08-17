@@ -1,7 +1,7 @@
 # SuperHéroes
 ## Challenge Frontend - React 🚀
 
-### Demo: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)
+### Demo: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)<sup>[**[nota]**](#nota)</sup>
 
 ### Intro:
 
@@ -24,3 +24,7 @@ Para más información acerca del challenge y de sus condiciones, ver el siguien
 * Alkemy:  [Web](http://alkemy.org/es/index?ref=logo) | [Facebook](https://www.facebook.com/AlkemyLATAM) | [Instagram](https://www.instagram.com/alkemy__/)
 * [SuperHero API](https://superheroapi.com/)
 * [SuperHero Database](https://www.superherodb.com/)
+
+### Nota
+
+Esta demo emplea un servicio sortear el problema CORS, que requiere de habilitación. Para ello, basta con entrar al siguiente [link](https://cors-anywhere.herokuapp.com/corsdemo) y hacer clic en el botón correspondiente.</a>
