@@ -173,6 +173,11 @@
   font-size: 16px;
 }
 
+.powerStatsTitle {
+  margin: 0;
+  font-weight: bolder;
+}
+
 .firstPowerstat {
   padding: 0 5px 0 5px;
   font-weight: bolder;
@@ -182,7 +187,7 @@
 }
 
 #footerDiv {
-  margin: 150px 10px 30px 10px ;
+  margin: 40vh 10px 30px 10px ;
   padding: 20px 0 10px 0;
   background-color: white;
   color: #1d1d1d;
