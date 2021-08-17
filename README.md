@@ -1,7 +1,7 @@
-# Alkemy Challenge
-## CHALLENGE FRONTEND - React 🚀
+# SuperHéroes
+## Challenge Frontend - React 🚀
 
-### Demo live: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)
+### Demo: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)
 
 ### Intro:
 
