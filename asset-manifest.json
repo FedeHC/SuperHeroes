@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/SuperHeroes/static/css/main.91143e9c.chunk.css",
-    "main.js": "/SuperHeroes/static/js/main.092642cd.chunk.js",
-    "main.js.map": "/SuperHeroes/static/js/main.092642cd.chunk.js.map",
+    "main.css": "/SuperHeroes/static/css/main.54bf03da.chunk.css",
+    "main.js": "/SuperHeroes/static/js/main.2399e5da.chunk.js",
+    "main.js.map": "/SuperHeroes/static/js/main.2399e5da.chunk.js.map",
     "runtime-main.js": "/SuperHeroes/static/js/runtime-main.98b3e40b.js",
     "runtime-main.js.map": "/SuperHeroes/static/js/runtime-main.98b3e40b.js.map",
     "static/css/2.4be38407.chunk.css": "/SuperHeroes/static/css/2.4be38407.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.ab32d726.chunk.js.map": "/SuperHeroes/static/js/3.ab32d726.chunk.js.map",
     "index.html": "/SuperHeroes/index.html",
     "static/css/2.4be38407.chunk.css.map": "/SuperHeroes/static/css/2.4be38407.chunk.css.map",
-    "static/css/main.91143e9c.chunk.css.map": "/SuperHeroes/static/css/main.91143e9c.chunk.css.map",
+    "static/css/main.54bf03da.chunk.css.map": "/SuperHeroes/static/css/main.54bf03da.chunk.css.map",
     "static/js/2.d45af353.chunk.js.LICENSE.txt": "/SuperHeroes/static/js/2.d45af353.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.98b3e40b.js",
     "static/css/2.4be38407.chunk.css",
     "static/js/2.d45af353.chunk.js",
-    "static/css/main.91143e9c.chunk.css",
-    "static/js/main.092642cd.chunk.js"
+    "static/css/main.54bf03da.chunk.css",
+    "static/js/main.2399e5da.chunk.js"
   ]
 }
