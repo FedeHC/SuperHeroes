@@ -119,11 +119,11 @@ function checkErrorAndGiveAResponse(error) {
     case 401:
       return "El mail y/o la contraseña enviadas no son válidas (error 401).";
     case 403:
-      return "Se enviaron los datos pero el servidor no autoriza el pedido (error 403)"
+      return "Se enviaron los datos pero el servidor no autoriza el pedido (error 403). Si usa servicio para CORS, chequear que esté habilitado."
     case 404:
       return "No se encuentra el sitio (error 404)."
     case 429:
-      return "Demasiadas solicitudes realizadas. Intente más tarde (error 429)."
+      return "Demasiadas solicitudes realizadas por hora. Intente más tarde (error 429)."
     case undefined:
     case null:
     case "":
