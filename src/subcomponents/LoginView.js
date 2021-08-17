@@ -33,77 +33,79 @@ function LoginView({ getTokenHandler, errorMessage }) {
       <Row>
         {/* Columna con contenido */}
         <Col md={{span: 8, offset: 2}} lg={{span: 6, offset: 3}} xxl={{span: 4, offset: 4}}>
-          <div id="loginDiv">
-            {/* Logo y Título */}
-            <div className="text-center">
-              <Image src={logo}
-                    id="imageLogo"
-                    alt="Logo" />
+          <Row id="loginDiv" className="emptyHero">
+            <Col xs={{span: 10, offset: 1}}>
+              {/* Logo y Título */}
+              <div className="text-center">
+                <Image src={logo}
+                      id="imageLogo"
+                      alt="Logo" />
 
-              <h1 id="loginTitle">[ Login ]</h1>
-            </div>
-            <br />
+                <h1 id="loginTitle">[ Login ]</h1>
+              </div>
+              <br />
 
-            {/* Componente Formik, necesario para formulario: */}
-            <Formik validationSchema={schema}
-                    onSubmit={(form)=> getTokenHandler(form, history)}
-                    initialValues={{ email: "", password: "" }}
-            >
-              {({ handleSubmit, handleChange, values, errors }) => (
-                /* Formulario */
-                <Form onSubmit={handleSubmit} noValidate >
+              {/* Componente Formik, necesario para formulario: */}
+              <Formik validationSchema={schema}
+                      onSubmit={(form)=> getTokenHandler(form, history)}
+                      initialValues={{ email: "", password: "" }}
+              >
+                {({ handleSubmit, handleChange, values, errors }) => (
+                  /* Formulario */
+                  <Form onSubmit={handleSubmit} noValidate >
 
-                  {/* Email */}
-                  <Form.Group className="mb-3" controlId="formLoginEmail">
-                    <Form.Label>Email:</Form.Label>
-                    <Form.Control type="email"
-                                  name="email"
-                                  placeholder="Ingrese su email"
-                                  size="lg"
-                                  onChange={handleChange}
-                                  value={values.email}                                  
-                                  isInvalid={!!errors.email}
-                                  autoFocus />
-                    <Form.Control.Feedback type="invalid">
-                      {errors.email}
-                    </Form.Control.Feedback>
-                  </Form.Group>
+                    {/* Email */}
+                    <Form.Group className="mb-3" controlId="formLoginEmail">
+                      <Form.Label>Email:</Form.Label>
+                      <Form.Control type="email"
+                                    name="email"
+                                    placeholder="Ingrese su email"
+                                    size="lg"
+                                    onChange={handleChange}
+                                    value={values.email}                                  
+                                    isInvalid={!!errors.email}
+                                    autoFocus />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.email}
+                      </Form.Control.Feedback>
+                    </Form.Group>
 
-                  {/* Contraseña */}
-                  <Form.Group className="mb-3" controlId="formLoginPassword">
-                    <Form.Label>Contraseña:</Form.Label>
-                    <Form.Control type="password"
-                                  name="password"
-                                  placeholder="Ingrese su contraseña"
-                                  size="lg"
-                                  onChange={handleChange}
-                                  value={values.password}
-                                  isInvalid={!!errors.password} />
-                    <Form.Control.Feedback type="invalid">
-                      {errors.password}
-                    </Form.Control.Feedback>
-                  </Form.Group>
+                    {/* Contraseña */}
+                    <Form.Group className="mb-3" controlId="formLoginPassword">
+                      <Form.Label>Contraseña:</Form.Label>
+                      <Form.Control type="password"
+                                    name="password"
+                                    placeholder="Ingrese su contraseña"
+                                    size="lg"
+                                    onChange={handleChange}
+                                    value={values.password}
+                                    isInvalid={!!errors.password} />
+                      <Form.Control.Feedback type="invalid">
+                        {errors.password}
+                      </Form.Control.Feedback>
+                    </Form.Group>
 
-                  {/* Mensaje de error: */}
-                  {errorMessage &&
-                    <p id="errorMessage">{checkErrorAndGiveAResponse(errorMessage)}</p>
-                  }
+                    {/* Mensaje de error: */}
+                    {errorMessage &&
+                      <p id="errorMessage">{checkErrorAndGiveAResponse(errorMessage)}</p>
+                    }
 
-                  {/* Si no hay mensaje de error, simplemente agregar salto. */}
-                  {!errorMessage && <br />}
-                  
-                  {/* Boton Enviar */}
-                  <div className="text-left">
-                    <Button variant="outline-primary"
-                            type="submit"
-                            size="lg"
-                    >Enviar</Button>
-                  </div>
-                </Form>
-              )}
-            </Formik>
-            
-          </div>
+                    {/* Si no hay mensaje de error, simplemente agregar salto. */}
+                    {!errorMessage && <br />}
+                    
+                    {/* Boton Enviar */}
+                    <div className="text-left">
+                      <Button variant="outline-primary"
+                              type="submit"
+                              size="lg"
+                      >Enviar</Button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
+              
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>
