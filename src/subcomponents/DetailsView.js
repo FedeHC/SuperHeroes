@@ -52,38 +52,38 @@ function DetailsView({ heroes, getMainViewHandler }) {
               <h1 className="heroDescription">Detalles de {heroes[member].name}:</h1>
               <ul className="powerStats">
                 <li>
-                  <h5><Badge bg="dark">Alias</Badge></h5>
+                  <h5><Badge pill bg="dark">Alias</Badge></h5>
                   <ul>{showHeroAliases(heroes[member])}</ul>
                 </li>
                 <br />                
                 <li>
                   <h5>
-                    <Badge bg="dark">Altura<span> </span>
-                    <Badge bg="secondary">{heroes[member].appearance.height[1]}</Badge>
+                    <Badge pill bg="dark">Altura<span> </span>
+                    <Badge pill bg="secondary">{heroes[member].appearance.height[1]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
                 </li>
                 <li>
                   <h5>
-                    <Badge bg="dark">Peso<span> </span>
-                    <Badge bg="secondary">{heroes[member].appearance.weight[1]}</Badge>
+                    <Badge pill bg="dark">Peso<span> </span>
+                    <Badge pill bg="secondary">{heroes[member].appearance.weight[1]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
                 </li>
                 <li>
                   <h5>
-                    <Badge bg="dark">Color de ojos<span> </span>
-                    <Badge bg="secondary">{heroes[member].appearance["eye-color"]}</Badge>
+                    <Badge pill bg="dark">Color de ojos<span> </span>
+                    <Badge pill bg="secondary">{heroes[member].appearance["eye-color"]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
                 </li>
                 <li>
                   <h5>
-                    <Badge bg="dark">Color de cabello<span> </span>
-                    <Badge bg="secondary">{heroes[member].appearance["hair-color"]}</Badge>
+                    <Badge pill bg="dark">Color de cabello<span> </span>
+                    <Badge pill bg="secondary">{heroes[member].appearance["hair-color"]}</Badge>
                     </Badge>
                     <span> </span>
                   </h5>
@@ -91,7 +91,7 @@ function DetailsView({ heroes, getMainViewHandler }) {
                 <br />
 
                 <li>
-                  <h5><Badge bg="dark">Lugares de trabajo</Badge></h5>
+                  <h5><Badge pill bg="dark">Lugares de trabajo</Badge></h5>
                   <ul>{showWorkBases(heroes[member])}</ul>
                 </li>
               </ul>
@@ -120,8 +120,8 @@ function showHeroPowerstats(hero) {
   return Object.entries(hero.powerstats)
                .map( ([power, value], index) => (
                     <span key={index}>
-                      <Badge bg="dark">{power}<span> </span>
-                        <Badge bg="secondary">{value === "null" ? "---" : value}</Badge> {/* Algunos valores pueden llegar 'null'. */}
+                      <Badge pill bg="dark">{power}<span> </span>
+                        <Badge pill bg="secondary">{value === "null" ? "---" : value}</Badge> {/* Algunos valores pueden llegar 'null'. */}
                       </Badge>
                       <span> </span>
                     </span>
@@ -135,7 +135,7 @@ function showHeroAliases(hero) {
     <li key={index}>
       {/* Algunos alias pueden llegar con varios adentro, separados por coma o punto y coma.*/}
       {alias.split(/,|;/).map( (base, index) => 
-        <h5 key={index}><Badge bg="secondary">{base}</Badge></h5>
+        <h5 key={index}><Badge pill bg="secondary">{base}</Badge></h5>
       )}
     </li>);
 }
@@ -145,7 +145,7 @@ function showHeroAliases(hero) {
 function showWorkBases(hero) {
   return hero.work.base.split(/,|;/)
                        .map( (base, index) =>
-                       <h5 key={index}><Badge bg="secondary">{base}</Badge></h5>
+                       <h5 key={index}><Badge pill bg="secondary">{base}</Badge></h5>
                        );
 }
 
