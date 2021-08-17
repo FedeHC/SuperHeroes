@@ -20,15 +20,12 @@ import extra from "./aux.json";
 // --------------------------------------------------------------------------------
 // Constantes
 // --------------------------------------------------------------------------------
-// URLS
-// Para sortear problema CORS en entorno de desarrollo:
+// URL para sortear problema CORS en entorno de desarrollo:
 const URL_CORS =  "https://cors-anywhere.herokuapp.com";
-// URL para obtener token en login:
-const URL_ALKEMY = "http://challenge-react.alkemy.org";
-// URL de consultas:
-const URL_SH = "https://superheroapi.com";
-// URL para realizar búsquedas de héroes:
-const URL_SH_API = `${URL_CORS}/${URL_SH}/api/${extra.access_token}/search/`;
+// URL para obtener token de autorización en login:
+const URL_ALKEMY = `${URL_CORS}/http://challenge-react.alkemy.org`;
+// URL para realizar las búsquedas de héroes:
+const URL_SH_API = `${URL_CORS}/https://superheroapi.com/api/${extra.access_token}/search/`;
 
 // Otros:
 const MAX_MEMBERS = 6;
