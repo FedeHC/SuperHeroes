@@ -15,7 +15,7 @@ import Footer from "./subcomponents/Footer";
 // Librerías y demás:
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import extra from "./aux.json";
+import extra from "./auxiliary.json";
 
 // --------------------------------------------------------------------------------
 // Constantes
