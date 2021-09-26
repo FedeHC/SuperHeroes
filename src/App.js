@@ -31,56 +31,9 @@ function App() {
   // State que guarda temp. los resultados de búsquedas de héroes (objetos obtenidos por API):
   const [searchResults, setSearchResults] = useState(null);
 
-  // Función reducer para useReducer:
-  const viewReducer = (state, action) => {
-    switch (action.type) {
-      case LOGIN_OK:
-        localStorage.setItem(TOKEN_KEY, action.payload.token);  // Guardando token en localStorage.
-        localStorage.setItem(EMAIL_KEY, action.payload.email);  // Guardando email en localStorage.
-        return {
-          hasToken: true,
-          hasError: false,
-        }
-      case LOGIN_ERROR:
-        return {
-          ...state,
-          hasToken: false,
-          hasError: action.payload,
-        };
-      case LOGOUT:
-        localStorage.removeItem(TOKEN_KEY); // Borrando token en localStorage.
-        localStorage.removeItem(EMAIL_KEY); // Borrando email en localStorage.
-        return {
-          ...state,
-          hasToken: null,
-          hasError: null,
-        };
-      case SHOW_MAINVIEW:
-        return {
-          ...state,
-          userEmail: localStorage.getItem(EMAIL_KEY), // Obteniendo email desde localStorage, si existe.
-        };
-      case SHOW_HEROES_SEARCH:
-        return {
-          ...state,
-          heroPosition: action.payload,
-        };
-      default:
-        throw new Error("Valor imprevisto en action.type dentro de función viewReducer.");
-    };
-  }
-
-  // Objeto con determinado estado inicial para useReducer:
-  const viewObj = {
-    userEmail: localStorage.getItem(EMAIL_KEY),                 // Obteniendo email desde localStorage, si existe.
-    hasToken: localStorage.getItem(TOKEN_KEY) ? true : null,    // Obteniendo token desde localStorage, si existe.
-    hasError: null,
-    inMainView: localStorage.getItem(TOKEN_KEY) ? true : null,  // Seteando vista a 'true' si existe token en localStorage.
-    heroPosition: null
-  };
-
-  // useReducer que lleva el control de la transición a distintas vistas en la app:
-  const [view, setView] = useReducer(viewReducer, viewObj);
+  // Redux hooks:
+  const storeState = useSelector( (state) => state.view);
+  const dispatch = useDispatch();
 
   // --------------------------------------------------------------------------------
   // Handlers
