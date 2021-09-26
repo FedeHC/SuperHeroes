@@ -17,32 +17,7 @@ import Footer from "./subcomponents/Footer";
 // Librerías y demás:
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import extra from "./auxiliary.json";
-
-// --------------------------------------------------------------------------------
-// Constantes
-// --------------------------------------------------------------------------------
-// URL que brinda servicio para sortear el problema CORS en entorno de desarrollo.
-// Si se quita, remover también de las otras 2 URLS:
-const URL_CORS =  "https://cors-anywhere.herokuapp.com";
-
-// URL para obtener token de autorización en login:
-const URL_ALKEMY = `${URL_CORS}/http://challenge-react.alkemy.org`;
-
-// URL para realizar las búsquedas de héroes:
-const URL_SH_API = `${URL_CORS}/https://superheroapi.com/api/${extra.access_token}/search/`;
-
-// Otros:
-const MAX_MEMBERS = 6;
-const MAX_PER_FACTION = 3;
-const STATE_KEY = "alkemy_state";
-const TOKEN_KEY = "alkemy_token";
-const EMAIL_KEY = "alkemy_email";
-const LOGIN_OK = "LOGIN_OK";
-const LOGIN_ERROR = "LOGIN_ERROR";
-const LOGOUT = "LOGOUT";
-const SHOW_MAINVIEW = "SHOW_MAINVIEW";
-const SHOW_HEROES_SEARCH = "SHOW_HEROES_SEARCH";
+import { MAX_MEMBERS, MAX_PER_FACTION, STATE_KEY, URL_ALKEMY, URL_SH_API, } from "./consts";
 
 
 function App() {
