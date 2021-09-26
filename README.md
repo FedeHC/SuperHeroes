@@ -1,7 +1,7 @@
 # SuperHéroes
 ## Challenge Frontend - React 🚀
 
-### Demo: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)<sup>[**[nota]**](#nota)</sup>
+### Demo: [https://fedehc.github.io/SuperHeroes](https://fedehc.github.io/SuperHeroes)<sup>**[nota]**(#nota)</sup>
 
 ### Intro:
 
