@@ -47,8 +47,8 @@ function HeroCard({ index,
         
           {/* Powerstats: */}
           <Card.Text>
-            <p className="powerStatsTitle">Powerstats:</p>
-            <p>{showHeroPowerstats(hero)}</p>
+            <span className="powerStatsTitle">Powerstats:</span>
+            <span>{showHeroPowerstats(hero)}</span>
           </Card.Text>
 
           {/* Botones de opciones: */}
