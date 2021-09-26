@@ -1,5 +1,7 @@
 // React:
-import { useState, useReducer } from "react";
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { loginOK, loginError, logOut, showMainView, showHeroesSearch } from "./redux/view";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
