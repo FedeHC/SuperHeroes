@@ -109,7 +109,7 @@ function App() {
   const addHeroHandler = (index, history) => {
     const newHeroes = [];
     for (let c = 0; c < heroes.length; c++) {
-      if (c === view.heroPosition)
+      if (c === storeState.heroPosition)
         newHeroes[c] = searchResults.results[index];
       else
         newHeroes[c] = heroes[c];
@@ -142,10 +142,10 @@ function App() {
         {/* Vista Login */}
         <Route path="/login">
           {/* Si no existe token, ir a 'Login': */}
-          {!view.hasToken ?
+          {!storeState.hasToken ?
             <>
               <LoginView getTokenHandler={getTokenHandler}
-                         errorMessage={view.hasError} />
+                         errorMessage={storeState.hasError} />
               <Footer />
             </>
             
@@ -157,9 +157,9 @@ function App() {
         {/* Vista MainView */}
         <Route path="/index">
           {/* Si existe token, ir a 'Mainview' */}
-          {view.hasToken ?
+          {storeState.hasToken ?
             <>
-              <Nav email={view.userEmail}
+              <Nav email={storeState.userEmail}
                    logOutHandler={logOutHandler} />
 
               <MainView heroes={heroes}
@@ -176,9 +176,9 @@ function App() {
         {/* Vista HeroGrid */}
         <Route path="/search">
           {/* Si existe token, ir a 'SearchView' */}
-          {view.hasToken ?
+          {storeState.hasToken ?
             <>
-              <Nav email={view.userEmail}
+              <Nav email={storeState.userEmail}
                    logOutHandler={logOutHandler} />
 
               <SearchView heroes={heroes}
@@ -197,9 +197,9 @@ function App() {
         {/* Vista DetailsView */}
         <Route path="/details/:member">
           {/* Si existe token, ir a 'DetailsView' */}
-          {view.hasToken ?
+          {storeState.hasToken ?
             <>
-              <Nav email={view.userEmail}
+              <Nav email={storeState.userEmail}
                    logOutHandler={logOutHandler} />
 
               <DetailsView heroes={heroes}
@@ -213,7 +213,7 @@ function App() {
 
         {/* Cualquier otra ruta o path: */}
         <Route path="*">
-          {view.hasToken ? <Redirect to="/index" /> : <Redirect to="/login" /> }
+          {storeState.hasToken ? <Redirect to="/index" /> : <Redirect to="/login" /> }
         </Route>
 
       </Switch>
