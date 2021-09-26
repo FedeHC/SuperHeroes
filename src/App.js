@@ -49,15 +49,15 @@ function App() {
 
         // Si se recibe token, se guarda este y el mail para pasar a la vista 'Mainview':
         if (response.data.token) {
-          setView({ type: LOGIN_OK, payload: {"token": response.data.token, "email": formData.email } } );
-          setView({ type: SHOW_MAINVIEW });
+          dispatch(loginOK({"token": response.data.token, "email": formData.email }));
+          dispatch(showMainView());
           history.push("/index");
         }
       }
       // Si se recibe error (401, 403, etc.), tomar tipo de error y permanece en vista 'Login':
       catch (error) {
         if (error.response.status) {
-          setView({ type: LOGIN_ERROR, payload: error.response.status });
+          dispatch(loginError({ "error": error.response.status }));
         }
       }
     }
@@ -66,14 +66,14 @@ function App() {
   // Handler para mostrar vista 'MainView'.
   const getMainViewHandler = (history) => {
     setSearchResults([]);   // Borrando state que guarda los resultados de búsqueda.
-    setView({ type: SHOW_MAINVIEW });
+    dispatch(showMainView());
     history.push("/index");
   };
 
   // Handler para el botón de agregar héroe.
   // Se recibe índice con la posición del mismo dentro del equipo.
   const getSearchView = (index, history) => {
-    setView({type: SHOW_HEROES_SEARCH, payload: index  });
+    dispatch(showHeroesSearch({ position: index }));
     history.push("/search");
   };
 
@@ -128,7 +128,7 @@ function App() {
 
   // Handler para cerrar sesión y cambiar a vista 'Login'.
   const logOutHandler = (history) => {
-    setView({ type: LOGOUT });
+    dispatch(logOut());
     history.push("/login");
   }
 
